@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a3a5c"/>
+      <stop offset="100%" stop-color="#2e6ca4"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(8,8)">
+    <circle cx="22" cy="22" r="22" fill="url(#g)"/>
+    <g transform="translate(22,22)" fill="#d6eaf8">
+      <ellipse cx="0" cy="-10" rx="4" ry="8" transform="rotate(0)"/>
+      <ellipse cx="0" cy="-10" rx="4" ry="8" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-10" rx="4" ry="8" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-10" rx="4" ry="8" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-10" rx="4" ry="8" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="4" fill="#1a3a5c"/>
+    </g>
+  </g>
+  <text x="62" y="30" font-family="Georgia, serif" font-size="22" font-weight="700" fill="#1a3a5c">ÖKMEN</text>
+  <text x="62" y="48" font-family="Arial, sans-serif" font-size="10" letter-spacing="2" fill="#8da8bf">HAVALANDIRMA</text>
+</svg>

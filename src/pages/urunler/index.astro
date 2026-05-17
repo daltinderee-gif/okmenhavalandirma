@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import { products } from '../../data/products';
+
+const title = 'Tüm Ürünler | Ökmen Havalandırma';
+const description = '20+ ürün kategorisinde havalandırma, klima santrali, toz toplama, davlumbaz, baca ve filtre çözümleri. Diyarbakır merkezli, Türkiye geneli hizmet.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="relative bg-gradient-primary text-white py-20 md:py-28">
+    <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/586744/pexels-photo-586744.jpeg?auto=compress&cs=tinysrgb&w=1920')"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-primary/60 to-primary"></div>
+    <div class="relative container-x">
+      <div class="eyebrow text-accent">Ürün Kataloğu</div>
+      <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4 text-balance">Tüm Havalandırma Çözümlerimiz</h1>
+      <p class="text-lg md:text-xl text-pale/90 max-w-3xl text-balance">
+        Endüstriyel havalandırmadan iklimlendirmeye, filtrasyondan baca sistemlerine kadar 20+ ürün kategorisinde anahtar teslim çözümler.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-2 text-sm">
+        <span class="px-3 py-1.5 rounded-full bg-white/10 border border-white/20">20 Kategori</span>
+        <span class="px-3 py-1.5 rounded-full bg-white/10 border border-white/20">CE Belgeli</span>
+        <span class="px-3 py-1.5 rounded-full bg-white/10 border border-white/20">Anahtar Teslim</span>
+        <span class="px-3 py-1.5 rounded-full bg-white/10 border border-white/20">7/24 Servis</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {products.map((product) => <ProductCard product={product} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-pale/30">
+    <div class="container-x grid lg:grid-cols-5 gap-10">
+      <div class="lg:col-span-2">
+        <div class="eyebrow">Bir Sonraki Adım</div>
+        <h2 class="section-title">Aradığınız Çözümü Bulamadınız mı?</h2>
+        <p class="section-subtitle mb-6">
+          Ürünlerimizin tamamı buraya sığmadı — özel projeleriniz için mühendislerimiz ücretsiz keşif ve hesap çalışması yapar.
+        </p>
+        <ul class="space-y-3 text-slate-700">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <span>Yerinde ücretsiz keşif</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <span>3D tasarım ve hesap raporu</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <span>2 yıl garanti, ömür boyu servis</span>
+          </li>
+        </ul>
+      </div>
+      <div class="lg:col-span-3">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

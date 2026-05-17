@@ -1,0 +1,423 @@
+---
+// ADMIN — Görsel envanteri ve yönetim sayfası
+// Static, sadece bilgilendirme + adım rehberi. Header'da görünmez (noindex).
+// Üretim ortamında bu sayfa basic auth veya gizli path arkasında olmalı.
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { products, getProductImage } from '../../data/products';
+import { decorationServices, getDecorationImage } from '../../data/decoration';
+import { sectors } from '../../data/sectors';
+
+// localImage var mı kontrolü
+const productsWithStatus = products.map((p) => ({
+  ...p,
+  status: p.localImage ? 'local' : 'pexels',
+  current: getProductImage(p),
+}));
+
+const decorationWithStatus = decorationServices.map((s) => ({
+  ...s,
+  status: s.localImage ? 'local' : 'pexels',
+  current: getDecorationImage(s),
+}));
+
+const sectorsWithStatus = sectors.map((s) => ({
+  ...s,
+  status: s.heroImage?.startsWith('/sektor/') ? 'local' : 'pexels',
+}));
+
+const totalProducts = products.length;
+const localProducts = productsWithStatus.filter((p) => p.status === 'local').length;
+const localDecoration = decorationWithStatus.filter((s) => s.status === 'local').length;
+const localSectors = sectorsWithStatus.filter((s) => s.status === 'local').length;
+const total = products.length + decorationServices.length + sectors.length;
+const localTotal = localProducts + localDecoration + localSectors;
+const percent = Math.round((localTotal / total) * 100);
+---
+
+<BaseLayout
+  title="Admin — Görsel Yönetim"
+  description="Görsel envanteri ve import akışı"
+  noindex={true}
+>
+  <section class="bg-slate-50 min-h-screen py-8 md:py-12">
+    <div class="container-x">
+      <!-- Header -->
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+        <div>
+          <div class="inline-flex items-center gap-2 mb-2 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs uppercase tracking-[0.18em] font-bold">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            Admin Paneli — Sadece Yöneticiler
+          </div>
+          <h1 class="font-serif text-3xl md:text-4xl font-bold text-primary">Görsel Yönetim</h1>
+          <p class="text-sm text-slate-600 mt-1">AI ile üretilen ürün görsellerini siteye ekle, durumu görüntüle.</p>
+        </div>
+
+        <a href="/" class="btn-secondary text-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          Site'e Dön
+        </a>
+      </div>
+
+      <!-- Genel ilerleme -->
+      <div class="bg-white rounded-2xl shadow-card p-6 md:p-8 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-500 mb-1">Toplam İlerleme</div>
+            <div class="font-serif text-3xl md:text-4xl font-bold text-primary">
+              {localTotal} / {total}
+              <span class="text-base font-sans text-slate-500 ml-2">görsel yerel</span>
+            </div>
+          </div>
+          <div class="text-right">
+            <div class="font-serif text-4xl md:text-5xl font-bold text-accent">%{percent}</div>
+            <div class="text-xs text-slate-500">tamamlandı</div>
+          </div>
+        </div>
+
+        <div class="h-3 bg-slate-100 rounded-full overflow-hidden">
+          <div class="h-full bg-gradient-to-r from-primary to-accent transition-all duration-500" style={`width: ${percent}%`}></div>
+        </div>
+
+        <div class="mt-4 grid grid-cols-3 gap-3 text-sm">
+          <div class="flex items-center gap-2 p-3 rounded-lg bg-slate-50">
+            <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+            <span class="text-slate-600">Ürün: <strong class="text-primary">{localProducts}/{totalProducts}</strong></span>
+          </div>
+          <div class="flex items-center gap-2 p-3 rounded-lg bg-slate-50">
+            <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+            <span class="text-slate-600">Dekorasyon: <strong class="text-primary">{localDecoration}/{decorationServices.length}</strong></span>
+          </div>
+          <div class="flex items-center gap-2 p-3 rounded-lg bg-slate-50">
+            <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+            <span class="text-slate-600">Sektör: <strong class="text-primary">{localSectors}/{sectors.length}</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workflow / akış -->
+      <div class="bg-primary text-white rounded-2xl p-6 md:p-8 mb-8">
+        <h2 class="font-serif text-xl md:text-2xl font-bold mb-5 flex items-center gap-2">
+          <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          Yeni Görsel Nasıl Eklenir? (5 Adım)
+        </h2>
+        <ol class="space-y-4">
+          <li class="flex gap-4">
+            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-accent text-primary flex items-center justify-center font-bold text-sm">1</span>
+            <div>
+              <div class="font-semibold text-white">Prompt'u kopyala</div>
+              <div class="text-sm text-pale/85 mt-0.5">
+                Aşağıdaki listede her ürünün <strong>"Prompt"</strong> butonuna tıkla, kopyalanır.
+                Veya <a href="/PROMPTS.txt" target="_blank" class="text-accent hover:underline">PROMPTS.txt</a> dosyasını aç.
+              </div>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-accent text-primary flex items-center justify-center font-bold text-sm">2</span>
+            <div>
+              <div class="font-semibold text-white">AI'da görseli üret</div>
+              <div class="text-sm text-pale/85 mt-0.5">
+                <a href="https://www.bing.com/create" target="_blank" rel="noopener" class="text-accent hover:underline">Bing Image Creator</a> (ücretsiz) ·
+                <a href="https://manus.im" target="_blank" rel="noopener" class="text-accent hover:underline">Manus</a> ·
+                <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-accent hover:underline">ChatGPT</a>
+              </div>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-accent text-primary flex items-center justify-center font-bold text-sm">3</span>
+            <div>
+              <div class="font-semibold text-white">İndir ve adlandır</div>
+              <div class="text-sm text-pale/85 mt-0.5">
+                Görseli <code class="bg-white/10 px-1.5 py-0.5 rounded text-xs">{`{slug}.png`}</code> olarak kaydet —
+                örnek: <code class="bg-white/10 px-1.5 py-0.5 rounded text-xs">salyangoz-fan.png</code>
+              </div>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-accent text-primary flex items-center justify-center font-bold text-sm">4</span>
+            <div>
+              <div class="font-semibold text-white">Klasöre at</div>
+              <div class="text-sm text-pale/85 mt-0.5 break-all">
+                <code class="bg-white/10 px-1.5 py-0.5 rounded text-xs">C:\Users\Administrator\Downloads\okmen-gorseller\</code>
+              </div>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-accent text-primary flex items-center justify-center font-bold text-sm">5</span>
+            <div>
+              <div class="font-semibold text-white">Import'u çalıştır</div>
+              <div class="text-sm text-pale/85 mt-0.5">
+                Çift tıkla → <code class="bg-white/10 px-1.5 py-0.5 rounded text-xs">admin-import.bat</code> (projenin kök klasöründe).
+                Otomatik: JPG dönüşüm + doğru yere kopyala + products.ts güncelle + build + preview.
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- HAVALANDIRMA ÜRÜNLERİ envanteri -->
+      <div class="bg-white rounded-2xl shadow-card overflow-hidden mb-6">
+        <div class="p-5 md:p-6 border-b border-slate-100 flex items-center justify-between">
+          <div>
+            <h2 class="font-serif text-xl md:text-2xl font-bold text-primary">Havalandırma Ürünleri</h2>
+            <div class="text-xs text-slate-500 mt-0.5">{localProducts} / {totalProducts} yerel görsel</div>
+          </div>
+          <div class="text-xs uppercase tracking-wider px-3 py-1 rounded-full bg-pale text-primary font-semibold">
+            public/products/
+          </div>
+        </div>
+
+        <div class="divide-y divide-slate-100">
+          {productsWithStatus.map((p, i) => (
+            <div class="grid grid-cols-12 gap-3 p-3 md:p-4 hover:bg-slate-50 transition items-center">
+              <div class="col-span-1 text-xs font-mono text-slate-400 tabular-nums">
+                {String(i + 1).padStart(2, '0')}
+              </div>
+              <div class="col-span-2 md:col-span-1">
+                <div class="w-12 h-12 rounded-lg overflow-hidden bg-slate-100">
+                  <img src={p.current} alt={p.title} class="w-full h-full object-cover" loading="lazy"/>
+                </div>
+              </div>
+              <div class="col-span-5 md:col-span-4">
+                <div class="font-semibold text-sm text-primary">{p.title}</div>
+                <code class="text-[10px] text-slate-500 font-mono">{p.slug}.jpg</code>
+              </div>
+              <div class="col-span-4 md:col-span-3">
+                {p.status === 'local' ? (
+                  <span class="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    Yerel AI Görsel
+                  </span>
+                ) : (
+                  <span class="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-amber-100 text-amber-700 text-xs font-semibold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    Pexels Stok
+                  </span>
+                )}
+              </div>
+              <div class="col-span-12 md:col-span-3 flex flex-wrap gap-1 justify-end">
+                <button
+                  data-copy-prompt={p.slug}
+                  class="copy-btn text-xs px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-primary hover:text-white font-medium transition"
+                  title="Bing/Manus için prompt'u kopyala"
+                >
+                  📋 Prompt
+                </button>
+                <a
+                  href={`/urunler/${p.slug}`}
+                  target="_blank"
+                  class="text-xs px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 font-medium transition"
+                  title="Sayfayı önizle"
+                >
+                  👁
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- DEKORASYON envanteri -->
+      <div class="bg-white rounded-2xl shadow-card overflow-hidden mb-6">
+        <div class="p-5 md:p-6 border-b border-slate-100 flex items-center justify-between">
+          <div>
+            <h2 class="font-serif text-xl md:text-2xl font-bold text-primary">Mir Dekorasyon</h2>
+            <div class="text-xs text-slate-500 mt-0.5">{localDecoration} / {decorationServices.length} yerel</div>
+          </div>
+          <div class="text-xs uppercase tracking-wider px-3 py-1 rounded-full bg-pale text-primary font-semibold">
+            public/dekorasyon/
+          </div>
+        </div>
+
+        <div class="divide-y divide-slate-100">
+          {decorationWithStatus.map((s, i) => (
+            <div class="grid grid-cols-12 gap-3 p-3 md:p-4 hover:bg-slate-50 transition items-center">
+              <div class="col-span-1 text-xs font-mono text-slate-400 tabular-nums">
+                {String(i + 23).padStart(2, '0')}
+              </div>
+              <div class="col-span-2 md:col-span-1">
+                <div class="w-12 h-12 rounded-lg overflow-hidden bg-slate-100">
+                  <img src={s.current} alt={s.title} class="w-full h-full object-cover" loading="lazy"/>
+                </div>
+              </div>
+              <div class="col-span-5 md:col-span-4">
+                <div class="font-semibold text-sm text-primary">{s.title}</div>
+                <code class="text-[10px] text-slate-500 font-mono">{s.slug}.jpg</code>
+              </div>
+              <div class="col-span-4 md:col-span-3">
+                {s.status === 'local' ? (
+                  <span class="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    Yerel
+                  </span>
+                ) : (
+                  <span class="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-amber-100 text-amber-700 text-xs font-semibold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    Pexels
+                  </span>
+                )}
+              </div>
+              <div class="col-span-12 md:col-span-3 flex flex-wrap gap-1 justify-end">
+                <a
+                  href={`/yapi-dekorasyon/${s.slug}`}
+                  target="_blank"
+                  class="text-xs px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 font-medium transition"
+                >
+                  👁
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- SEKTÖR envanteri -->
+      <div class="bg-white rounded-2xl shadow-card overflow-hidden mb-6">
+        <div class="p-5 md:p-6 border-b border-slate-100 flex items-center justify-between">
+          <div>
+            <h2 class="font-serif text-xl md:text-2xl font-bold text-primary">Sektör Hero Görselleri</h2>
+            <div class="text-xs text-slate-500 mt-0.5">{localSectors} / {sectors.length} yerel</div>
+          </div>
+          <div class="text-xs uppercase tracking-wider px-3 py-1 rounded-full bg-pale text-primary font-semibold">
+            public/sektor/
+          </div>
+        </div>
+
+        <div class="divide-y divide-slate-100">
+          {sectorsWithStatus.map((s, i) => (
+            <div class="grid grid-cols-12 gap-3 p-3 md:p-4 hover:bg-slate-50 transition items-center">
+              <div class="col-span-1 text-xs font-mono text-slate-400 tabular-nums">
+                {String(i + 31).padStart(2, '0')}
+              </div>
+              <div class="col-span-2 md:col-span-1">
+                <div class="w-12 h-12 rounded-lg overflow-hidden bg-slate-100">
+                  <img src={s.heroImage} alt={s.title} class="w-full h-full object-cover" loading="lazy"/>
+                </div>
+              </div>
+              <div class="col-span-5 md:col-span-4">
+                <div class="font-semibold text-sm text-primary">{s.emoji} {s.title}</div>
+                <code class="text-[10px] text-slate-500 font-mono">{s.slug}.jpg</code>
+              </div>
+              <div class="col-span-4 md:col-span-3">
+                {s.status === 'local' ? (
+                  <span class="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    Yerel
+                  </span>
+                ) : (
+                  <span class="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-amber-100 text-amber-700 text-xs font-semibold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    Pexels
+                  </span>
+                )}
+              </div>
+              <div class="col-span-12 md:col-span-3 flex flex-wrap gap-1 justify-end">
+                <a
+                  href={`/isletmeler/${s.slug}`}
+                  target="_blank"
+                  class="text-xs px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 font-medium transition"
+                >
+                  👁
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Yardım kartı -->
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-white rounded-2xl shadow-card p-6">
+          <h3 class="font-serif font-bold text-primary mb-2">Sıkışırsan?</h3>
+          <p class="text-sm text-slate-600 mb-4">
+            Bir dosya tanınmadıysa, dosya adı bir <strong>slug</strong> ile eşleşmemiştir.
+            Doğru slug'ları üstteki listede gör (her satırın altında <code>.jpg</code> ile).
+          </p>
+          <a href="https://wa.me/905309009344" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-[#25D366] hover:underline">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.5 3.5A11.94 11.94 0 0012 0C5.4 0 .03 5.37.03 11.97c0 2.1.55 4.16 1.6 5.98L0 24l6.22-1.62a11.97 11.97 0 005.78 1.47h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-1.25-6.2-3.48-8.38z"/></svg>
+            Geliştiriciyle WhatsApp
+          </a>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-card p-6">
+          <h3 class="font-serif font-bold text-primary mb-2">Çabuk yollar</h3>
+          <ul class="space-y-1.5 text-sm text-slate-600">
+            <li>
+              📂 <a href="file:///C:/Users/Administrator/Downloads/okmen-gorseller/" class="text-secondary hover:underline">Görsel klasörünü Windows'ta aç</a>
+            </li>
+            <li>
+              📄 <a href="/PROMPTS.txt" target="_blank" class="text-secondary hover:underline">Tüm prompt'lar (PROMPTS.txt)</a>
+            </li>
+            <li>
+              🎨 <a href="https://www.bing.com/create" target="_blank" rel="noopener" class="text-secondary hover:underline">Bing Image Creator</a> (ücretsiz)
+            </li>
+            <li>
+              📖 <a href="/AI-GORSEL-REHBERI.md" target="_blank" class="text-secondary hover:underline">Detaylı AI rehberi</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Toast bildirim -->
+      <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-3 rounded-xl bg-emerald-600 text-white font-medium shadow-2xl opacity-0 translate-y-4 pointer-events-none transition-all duration-300 z-50">
+        ✓ Kopyalandı
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Prompts library — slug → İngilizce prompt
+    const prompts = {
+      'havalandirma-sistemleri': 'Industrial ventilation system with galvanized metal ducts, multiple round and rectangular pipes connected at a junction with T-fittings and elbows, blue-gray metallic finish, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting with subtle shadows, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'aksiyal-fan': 'Industrial axial fan with large metal propeller blades inside circular mounting frame, electric motor at center hub, gray painted metal finish, wall-mount installation style with side flange, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting with subtle bottom shadow, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'hucreli-aspirator': 'Inline cabinet ventilation fan unit, rectangular galvanized steel box with backward-curved impeller visible through round inspection panel, two flanged duct connections on opposite sides, gray metallic finish, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'salyangoz-fan': 'Industrial centrifugal blower fan, gray painted metal scroll housing with snail-shell spiral shape, square inlet flange on left side, circular outlet pipe on front with bolted flange, mounted on a sturdy rectangular base plate, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting with subtle bottom shadow, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'klima-santrali': 'Modular air handling unit AHU, large rectangular sections with sandwich panels in beige and gray color, filter section, fan section, heat exchanger section connected together, mounted on steel base frame, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'toz-toplama-sistemleri': 'Industrial dust collector with cylindrical filter cartridges visible in upper section, jet-pulse cleaning manifold with valves on top, conical dust hopper at bottom, blue painted steel finish, side inspection panels with handles, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'celik-baca-sistemleri': 'Double-wall insulated stainless steel chimney flue pipe modular sections, polished metal finish with bands and clamps, includes a T-piece and a 45 degree elbow displayed together, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'hava-kanallari': 'Spiral round galvanized steel air ducts in multiple diameters arranged in a row, helical lock-seam visible on surface, silver metallic finish, plus a rectangular duct section beside them, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'elektrostatik-filtre': 'Electrostatic precipitator cabinet for restaurant kitchen exhaust, stainless steel housing with inspection door panel slightly open showing ionizer cells inside, digital control panel on front face, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'filtreler': 'HVAC filter cartridges collection in different sizes, pleated white filter material with metal end caps, HEPA filter and bag filter types displayed side by side, plus a cardboard frame panel filter, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'flexible-borular': 'Flexible aluminum HVAC duct hose, accordion-style corrugated metal pipe, silver metallic finish, both coiled and uncoiled examples shown side by side, plus a black insulated version, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'baglanti-ekipmanlari': 'Collection of HVAC duct fittings, galvanized steel elbows in 90 and 45 degree angles, T-pieces, reducers, dampers and pipe clamps arranged neatly together, silver metallic finish, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'menfez': 'Modern square ceiling air diffuser with 4-way blade pattern, white powder-coated aluminum finish, plus a linear slot diffuser and a circular diffuser displayed beside it, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'davlumbaz-sistemleri': 'Commercial stainless steel kitchen exhaust hood, wall-mount canopy style, polished AISI 304 stainless steel finish, grease baffle filters visible inside, LED light strips underneath, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'isitma-sistemleri': 'Industrial unit heater for warehouse, suspended hot-air blower in painted metal cabinet with louvered front grille, ceiling mounting brackets visible on top, red and gray industrial color scheme, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'sulu-filtre': 'Industrial wet scrubber filter, tall vertical cylindrical stainless steel tank with water curtain system inside visible through inspection window, water inlet and outlet pipes on sides, control valves at base, mounting platform, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'esmatik': 'Roof turbine ventilator whirlybird, polished aluminum dome with curved spinning vanes, vertical exhaust shaft below, square base flange for roof mounting, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'baca-sistemleri': 'Industrial steel chimney stack section, painted dark gray finish, modular cylindrical sections with welded flange connections and support brackets, plus a smaller diameter section beside it, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'klima-sistemleri': 'VRF air conditioner outdoor unit, white painted metal cabinet with side intake grille and top exhaust fan, plus a modern slim wall-mount indoor split unit displayed beside it, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'izolasyon-kaplama': 'Insulated HVAC pipe with multiple layers visible in cross-section cut, foam insulation core and aluminum foil cladding exterior, silver metallic finish, plus rolls of insulation material beside it, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark',
+      'medikal-gaz-tesisati': 'Medical gas pipeline system, copper pipes with color-coded labels (oxygen blue, vacuum white, nitrogen black), wall-mount manifold with pressure gauges and shut-off valves, hospital wall outlets, clean medical aesthetic, professional product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, medical equipment catalog style, no text, no logo, no people, no watermark',
+      'somine-sistemleri': 'Modern minimalist fireplace insert, rectangular steel firebox with large clear glass window, polished black metal finish, glowing wood logs visible inside, stone wall surround, professional architectural product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, architectural fireplace catalog style, no text, no logo, no people, no watermark',
+    };
+
+    const toast = document.getElementById('toast');
+    const showToast = (msg) => {
+      toast.textContent = msg;
+      toast.classList.remove('opacity-0', 'translate-y-4');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'translate-y-4');
+      }, 2200);
+    };
+
+    document.querySelectorAll('.copy-btn').forEach((btn) => {
+      btn.addEventListener('click', async (e) => {
+        const slug = btn.dataset.copyPrompt;
+        const prompt = prompts[slug];
+        if (!prompt) {
+          showToast('✗ Prompt bulunamadı');
+          return;
+        }
+        try {
+          await navigator.clipboard.writeText(prompt);
+          showToast(`✓ ${slug} prompt'u kopyalandı`);
+        } catch {
+          showToast('✗ Kopyalama başarısız');
+        }
+      });
+    });
+  </script>
+</BaseLayout>

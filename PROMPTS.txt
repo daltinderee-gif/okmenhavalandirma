@@ -1,0 +1,159 @@
+================================================================
+ÖKMEN HAVALANDIRMA — ÇIPLAK PROMPT LİSTESİ (Manus için)
+================================================================
+
+KULLANIM:
+1. Manus'a sırayla aşağıdaki promptları yapıştır
+2. Üretilen görseli indir
+3. Dosya adını PROMPT'un BAŞINDAKİ slug-adı yap, .png olarak kaydet
+   Örnek: 1. promptun çıktısı → salyangoz-fan.png
+4. TÜM görselleri tek bir klasöre koy:
+      C:\Users\Administrator\Downloads\okmen-gorseller\
+5. Hepsi bitince bana "tamam, klasörde" de
+6. Ben tek komutla tüm sisteme entegre ederim
+
+================================================================
+HAVALANDIRMA ÜRÜNLERİ (22 adet)
+================================================================
+
+
+─── 1. salyangoz-fan ─────────────────────────────────────────
+Industrial centrifugal blower fan, gray painted metal scroll housing with snail-shell spiral shape, square inlet flange on left side, circular outlet pipe on front with bolted flange, mounted on a sturdy rectangular base plate, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting with subtle bottom shadow, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 2. aksiyal-fan ───────────────────────────────────────────
+Industrial axial fan with large metal propeller blades inside circular mounting frame, electric motor at center hub, gray painted metal finish, wall-mount installation style with side flange, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting with subtle bottom shadow, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 3. hucreli-aspirator ─────────────────────────────────────
+Inline cabinet ventilation fan unit, rectangular galvanized steel box with backward-curved impeller visible through round inspection panel, two flanged duct connections on opposite sides, gray metallic finish, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 4. havalandirma-sistemleri ───────────────────────────────
+Industrial ventilation system with galvanized metal ducts, multiple round and rectangular pipes connected at a junction with T-fittings and elbows, blue-gray metallic finish, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting with subtle shadows, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 5. klima-santrali ────────────────────────────────────────
+Modular air handling unit AHU, large rectangular sections with sandwich panels in beige and gray color, filter section, fan section, heat exchanger section connected together, mounted on steel base frame, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 6. toz-toplama-sistemleri ────────────────────────────────
+Industrial dust collector with cylindrical filter cartridges visible in upper section, jet-pulse cleaning manifold with valves on top, conical dust hopper at bottom, blue painted steel finish, side inspection panels with handles, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 7. celik-baca-sistemleri ─────────────────────────────────
+Double-wall insulated stainless steel chimney flue pipe modular sections, polished metal finish with bands and clamps, includes a T-piece and a 45 degree elbow displayed together, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 8. hava-kanallari ────────────────────────────────────────
+Spiral round galvanized steel air ducts in multiple diameters arranged in a row, helical lock-seam visible on surface, silver metallic finish, plus a rectangular duct section beside them, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 9. elektrostatik-filtre ──────────────────────────────────
+Electrostatic precipitator cabinet for restaurant kitchen exhaust, stainless steel housing with inspection door panel slightly open showing ionizer cells inside, digital control panel on front face, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 10. filtreler ────────────────────────────────────────────
+HVAC filter cartridges collection in different sizes, pleated white filter material with metal end caps, HEPA filter and bag filter types displayed side by side, plus a cardboard frame panel filter, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 11. flexible-borular ─────────────────────────────────────
+Flexible aluminum HVAC duct hose, accordion-style corrugated metal pipe, silver metallic finish, both coiled and uncoiled examples shown side by side, plus a black insulated version, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 12. baglanti-ekipmanlari ─────────────────────────────────
+Collection of HVAC duct fittings, galvanized steel elbows in 90 and 45 degree angles, T-pieces, reducers, dampers and pipe clamps arranged neatly together, silver metallic finish, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 13. menfez ───────────────────────────────────────────────
+Modern square ceiling air diffuser with 4-way blade pattern, white powder-coated aluminum finish, plus a linear slot diffuser and a circular diffuser displayed beside it, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 14. davlumbaz-sistemleri ─────────────────────────────────
+Commercial stainless steel kitchen exhaust hood, wall-mount canopy style, polished AISI 304 stainless steel finish, grease baffle filters visible inside, LED light strips underneath, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 15. isitma-sistemleri ────────────────────────────────────
+Industrial unit heater for warehouse, suspended hot-air blower in painted metal cabinet with louvered front grille, ceiling mounting brackets visible on top, red and gray industrial color scheme, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 16. sulu-filtre ──────────────────────────────────────────
+Industrial wet scrubber filter, tall vertical cylindrical stainless steel tank with water curtain system inside visible through inspection window, water inlet and outlet pipes on sides, control valves at base, mounting platform, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 17. esmatik ──────────────────────────────────────────────
+Roof turbine ventilator whirlybird, polished aluminum dome with curved spinning vanes, vertical exhaust shaft below, square base flange for roof mounting, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 18. baca-sistemleri ──────────────────────────────────────
+Industrial steel chimney stack section, painted dark gray finish, modular cylindrical sections with welded flange connections and support brackets, plus a smaller diameter section beside it, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 19. klima-sistemleri ─────────────────────────────────────
+VRF air conditioner outdoor unit, white painted metal cabinet with side intake grille and top exhaust fan, plus a modern slim wall-mount indoor split unit displayed beside it, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 20. izolasyon-kaplama ────────────────────────────────────
+Insulated HVAC pipe with multiple layers visible in cross-section cut, foam insulation core and aluminum foil cladding exterior, silver metallic finish, plus rolls of insulation material beside it, professional industrial product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, industrial HVAC catalog style, no text, no logo, no people, no watermark
+
+
+─── 21. medikal-gaz-tesisati ─────────────────────────────────
+Medical gas pipeline system, copper pipes with color-coded labels (oxygen blue, vacuum white, nitrogen black), wall-mount manifold with pressure gauges and shut-off valves, hospital wall outlets, clean medical aesthetic, professional product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, medical equipment catalog style, no text, no logo, no people, no watermark
+
+
+─── 22. somine-sistemleri ────────────────────────────────────
+Modern minimalist fireplace insert, rectangular steel firebox with large clear glass window, polished black metal finish, glowing wood logs visible inside, stone wall surround, professional architectural product photography, clean pure white seamless studio background, soft even diffused lighting, isometric three-quarter view, photorealistic, 4K resolution, architectural fireplace catalog style, no text, no logo, no people, no watermark
+
+
+================================================================
+MİR DEKORASYON (8 adet) — opsiyonel
+================================================================
+
+
+─── 23. ic-mimari-tasarim ────────────────────────────────────
+Modern minimalist living room interior, neutral color palette with beige and white tones, large floor-to-ceiling windows with natural daylight, designer furniture, oak wood floor, accent feature wall, indoor plants, architectural interior photography, no people, photorealistic, 4K resolution, premium home design magazine style
+
+
+─── 24. 3d-gorsellestirme ────────────────────────────────────
+3D architectural visualization render of a modern apartment interior, photorealistic V-Ray quality render, soft natural lighting from large windows, contemporary furniture, hardwood floor, neutral palette with beige and white, no people, 4K resolution, interior design visualization
+
+
+─── 25. tadilat-renovasyon ───────────────────────────────────
+Home renovation work site interior, partial wall demolition with new drywall going up, exposed metal stud framing, neatly placed tools and materials, work-in-progress residential space, professional construction photography, no people, photorealistic, 4K resolution
+
+
+─── 26. asma-tavan ───────────────────────────────────────────
+Modern multi-level dropped ceiling design with hidden LED cove lighting strips, geometric recessed patterns, white painted plaster finish, contemporary interior architecture, no people, photorealistic, 4K resolution, premium interior design magazine style
+
+
+─── 27. alcipan-duvar ────────────────────────────────────────
+Drywall installation in progress, metal stud framing visible, gypsum boards being mounted on wall, screw gun and tools on the floor, white drywall sheets, professional construction photography, no people, photorealistic, 4K resolution
+
+
+─── 28. boya-badana ──────────────────────────────────────────
+Interior wall painting in progress, fresh white paint roller application on smooth wall surface, paint tray with brushes nearby, drop cloth on floor, soft natural lighting, professional construction photography, no people, photorealistic, 4K resolution
+
+
+─── 29. dis-cephe-kaplama ────────────────────────────────────
+Modern residential building exterior facade with aluminum composite panel cladding, geometric pattern with white and gray finish, large windows, urban architecture, blue sky background, architectural photography, no people, photorealistic, 4K resolution, premium building exterior style
+
+
+─── 30. zemin-kaplama ────────────────────────────────────────
+Engineered hardwood floor installation, oak wood planks being laid in modern living room, tongue-and-groove pattern, soft natural lighting from windows, professional flooring photography, no people, photorealistic, 4K resolution, premium home design style
+
+
+================================================================
+TAMAMLANDIĞINDA
+================================================================
+
+1. C:\Users\Administrator\Downloads\okmen-gorseller\ klasörünü oluştur
+2. Tüm görselleri buraya kaydet (örn: salyangoz-fan.png, aksiyal-fan.png, ...)
+3. Bana de: "tamam, klasörde X tane görsel var"
+4. Ben tek script ile:
+   - PNG → JPG dönüştürür (boyut yarıya iner)
+   - public/products/ ve public/dekorasyon/ klasörlerine doğru yerleştirir
+   - products.ts ve decoration.ts'i otomatik günceller
+   - npm run build çalıştırır
+   - Site hazır
+
+Eksik görseller olsa bile sorun değil — Pexels yedek kalır.

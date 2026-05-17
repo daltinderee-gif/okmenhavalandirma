@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 26 58 92;
+    --color-secondary: 46 108 164;
+    --color-accent: 95 168 211;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-sans text-primary bg-white antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+    letter-spacing: -0.015em;
+    /* Color inherited from parent — section background dictates light/dark.
+       (Eski 'text-primary' kaldırıldı çünkü lacivert hero'larda başlığı görünmez yapıyordu.) */
+  }
+
+  ::selection {
+    background-color: #1a3a5c;
+    color: #ffffff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f5f7fa;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #8da8bf;
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2e6ca4;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  /* PRODUCT PHOTO TREATMENT
+     Catalog/product style — photos appear natural, only a soft gradient
+     at the very bottom for label legibility. No filters, no tint. */
+  .brand-photo-wrap {
+    @apply relative overflow-hidden bg-slate-50;
+  }
+  .brand-photo-wrap > img,
+  .brand-photo {
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .brand-photo-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(26, 58, 92, 0.55) 0%, rgba(26, 58, 92, 0) 38%);
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+  .brand-photo-wrap:hover > img,
+  .brand-photo-wrap:hover .brand-photo {
+    transform: scale(1.05);
+  }
+  .brand-photo-wrap > *:not(img):not(.brand-photo) {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Hero — natural photo, only minimal bottom gradient for headline contrast */
+  .hero-photo {
+    filter: none;
+  }
+  .hero-vignette {
+    background:
+      linear-gradient(to top, rgba(26, 58, 92, 0.92) 0%, rgba(26, 58, 92, 0.5) 30%, rgba(26, 58, 92, 0.05) 60%, rgba(26, 58, 92, 0) 80%);
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-secondary hover:shadow-card-hover focus:ring-primary;
+  }
+
+  .btn-secondary {
+    @apply btn bg-white text-primary border-2 border-primary hover:bg-primary hover:text-white focus:ring-primary;
+  }
+
+  .btn-accent {
+    @apply btn bg-accent text-white hover:bg-secondary focus:ring-accent;
+  }
+
+  .btn-ghost {
+    @apply btn bg-white/10 text-white border border-white/30 backdrop-blur hover:bg-white hover:text-primary focus:ring-white;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-5xl font-serif font-bold text-primary mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl text-secondary/80 max-w-3xl;
+  }
+
+  .eyebrow {
+    @apply inline-block text-xs uppercase tracking-[0.2em] font-semibold text-accent mb-3;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover;
+  }
+
+  .glass {
+    @apply bg-white/80 backdrop-blur-md border border-white/40;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  /* Massive display headline used in hero */
+  .display-headline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+  }
+
+  /* Animated accent strip — used as visual signature */
+  .accent-strip {
+    @apply inline-flex items-center gap-2;
+  }
+  .accent-strip::before {
+    content: '';
+    display: inline-block;
+    width: 2.5rem;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #5fa8d3);
+  }
+
+  /* Subtle grain texture for hero — adds film/cinematic feel */
+  .grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 3;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Large display headlines — capped so long Turkish words ("Havalandırma")
+     don't overflow on common screen widths. */
+  .text-mega {
+    font-size: clamp(2.25rem, 6vw, 5rem);
+    line-height: 0.98;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .text-giant {
+    font-size: clamp(2rem, 5vw, 4.25rem);
+    line-height: 1;
+  }
+}
+
+@keyframes ken-burns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.12) translate(-1%, -1%); }
+}
+.animate-kenburns {
+  animation: ken-burns 14s ease-out forwards;
+}
+
+@keyframes fade-up-slow {
+  0% { opacity: 0; transform: translateY(28px); }
+  100% { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const title = 'İletişim | Ökmen Havalandırma';
+const description = 'Ökmen Havalandırma ile iletişim: Diyarbakır merkez, +90 530 900 93 44, info@okmenhavalandirma.com. Ücretsiz keşif ve teklif için bizimle iletişime geçin.';
+
+const submitted = Astro.url.searchParams.get('gonderildi') === '1';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="relative bg-gradient-primary text-white py-20 md:py-24">
+    <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/586744/pexels-photo-586744.jpeg?auto=compress&cs=tinysrgb&w=1920')"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-primary/60 to-primary"></div>
+    <div class="relative container-x text-center">
+      <div class="eyebrow text-accent">İletişim</div>
+      <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4 text-balance">Bizimle İletişime Geçin</h1>
+      <p class="text-lg md:text-xl text-pale/90 max-w-3xl mx-auto text-balance">
+        Ücretsiz keşif, detaylı hesap ve şeffaf teklif için 7/24 ulaşabilirsiniz.
+      </p>
+    </div>
+  </section>
+
+  {submitted && (
+    <div class="bg-green-50 border-b border-green-200">
+      <div class="container-x py-4 flex items-center gap-3 text-green-800">
+        <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+        </svg>
+        <div>
+          <div class="font-semibold">Talebiniz başarıyla alındı.</div>
+          <div class="text-sm text-green-700">24 saat içinde size geri dönüş yapacağız.</div>
+        </div>
+      </div>
+    </div>
+  )}
+
+  <section class="section">
+    <div class="container-x grid lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-1 space-y-4">
+        <a href="tel:+905309009344" class="flex items-start gap-4 p-5 rounded-xl bg-white border border-slate-100 hover:border-primary hover:shadow-card transition group">
+          <div class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.7 2.8a2 2 0 01-.45 1.9L8.09 10.91a16 16 0 006 6l1.69-1.38a2 2 0 011.9-.45l2.8.7A2 2 0 0121 17.72V20a2 2 0 01-2 2A17 17 0 013 5z"/></svg>
+          </div>
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-500 mb-0.5">Telefon</div>
+            <div class="font-semibold text-primary group-hover:text-secondary transition text-lg">+90 530 900 93 44</div>
+            <div class="text-xs text-slate-500 mt-1">Hafta içi 08:00 - 18:00</div>
+          </div>
+        </a>
+
+        <a href="https://wa.me/905309009344" target="_blank" rel="noopener" class="flex items-start gap-4 p-5 rounded-xl bg-white border border-slate-100 hover:border-[#25D366] hover:shadow-card transition group">
+          <div class="w-12 h-12 rounded-xl bg-[#25D366] text-white flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.5 3.5A11.94 11.94 0 0012 0C5.4 0 .03 5.37.03 11.97c0 2.1.55 4.16 1.6 5.98L0 24l6.22-1.62a11.97 11.97 0 005.78 1.47h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-1.25-6.2-3.48-8.38zM12 21.8c-1.85 0-3.66-.5-5.24-1.43l-.38-.22-3.7.97.99-3.6-.25-.37A9.85 9.85 0 012.2 11.97C2.2 6.57 6.6 2.17 12 2.17s9.8 4.4 9.8 9.8c0 5.4-4.4 9.83-9.8 9.83z"/></svg>
+          </div>
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-500 mb-0.5">WhatsApp</div>
+            <div class="font-semibold text-primary group-hover:text-secondary transition text-lg">+90 530 900 93 44</div>
+            <div class="text-xs text-slate-500 mt-1">7/24 mesaj atabilirsiniz</div>
+          </div>
+        </a>
+
+        <a href="mailto:info@okmenhavalandirma.com" class="flex items-start gap-4 p-5 rounded-xl bg-white border border-slate-100 hover:border-secondary hover:shadow-card transition group">
+          <div class="w-12 h-12 rounded-xl bg-secondary text-white flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div class="min-w-0">
+            <div class="text-xs uppercase tracking-wider text-slate-500 mb-0.5">E-posta</div>
+            <div class="font-semibold text-primary group-hover:text-secondary transition break-all">info@okmenhavalandirma.com</div>
+            <div class="text-xs text-slate-500 mt-1">24 saat içinde yanıt</div>
+          </div>
+        </a>
+
+        <div class="flex items-start gap-4 p-5 rounded-xl bg-pale/40 border border-pale">
+          <div class="w-12 h-12 rounded-xl bg-accent text-white flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-500 mb-0.5">Adres</div>
+            <div class="font-semibold text-primary">Diyarbakır, Türkiye</div>
+            <div class="text-xs text-slate-500 mt-1">Tüm Türkiye'ye saha hizmeti</div>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 p-5 rounded-xl bg-white border border-slate-100">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-500 mb-0.5">Çalışma Saatleri</div>
+            <div class="font-semibold text-primary">Pzt - Cmt</div>
+            <div class="text-sm text-slate-600">08:00 - 18:00</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-pale/30">
+    <div class="container-x py-10">
+      <h2 class="font-serif text-2xl md:text-3xl font-semibold text-primary mb-6 text-center">Konumumuz</h2>
+      <div class="rounded-2xl overflow-hidden shadow-card-hover aspect-[16/9] md:aspect-[21/8]">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50871!2d40.197!3d37.910!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zRGl5YXJiYWvEsXI!5e0!3m2!1str!2str!4v1700000000"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen={true}
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Diyarbakır Konum"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

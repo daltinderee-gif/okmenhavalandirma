@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import { decorationServices, decorationCategories, getDecorationImage } from '../../data/decoration';
+
+export function getStaticPaths() {
+  return decorationServices.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const imageUrl = getDecorationImage(service);
+
+const title = `${service.seo} | Mir Dekorasyon`;
+const description = `${service.desc}. Mir Dekorasyon — Diyarbakır merkezli yapı & dekorasyon uzmanı. Ücretsiz keşif, 3D görsel, 2 yıl garanti.`;
+
+const related = decorationServices.filter((s) => s.slug !== service.slug).slice(0, 4);
+
+const serviceSchema = {
+  '@type': 'Service',
+  serviceType: service.title,
+  provider: { '@type': 'Organization', name: 'Mir Dekorasyon', sameAs: ['https://mirdekorasyon.com', 'https://mirdekorasyon.com.tr'] },
+  description: service.desc,
+  areaServed: 'Diyarbakır, Türkiye',
+};
+---
+
+<BaseLayout title={title} description={description} image={imageUrl} schema={serviceSchema}>
+  <section class="relative bg-gradient-primary text-white py-16 md:py-20 overflow-hidden">
+    <div class="absolute inset-0 opacity-30 bg-cover bg-center" style={`background-image: url('${imageUrl}')`}></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/80 to-primary"></div>
+
+    <div class="relative container-x">
+      <nav class="text-sm text-pale/70 mb-4">
+        <a href="/" class="hover:text-white">Ana Sayfa</a>
+        <span class="mx-2">/</span>
+        <a href="/yapi-dekorasyon" class="hover:text-white">Mir Dekorasyon</a>
+        <span class="mx-2">/</span>
+        <span class="text-white">{service.title}</span>
+      </nav>
+
+      <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur text-[11px] uppercase tracking-[0.18em]">
+        <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+        {decorationCategories[service.category]}
+      </div>
+
+      <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4 text-balance">{service.title}</h1>
+      <p class="text-lg md:text-xl text-pale/90 max-w-3xl text-balance">{service.desc}</p>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/iletisim" class="btn-accent">Ücretsiz Keşif Al
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <a href="tel:+905309009344" class="btn-ghost">+90 530 900 93 44</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x grid lg:grid-cols-2 gap-12 items-start">
+      <div class="relative" data-reveal>
+        <div class="absolute -inset-4 bg-gradient-accent opacity-15 rounded-3xl blur-2xl"></div>
+        <div class="relative brand-photo-wrap aspect-[4/3] rounded-2xl shadow-card-hover">
+          <img src={imageUrl} alt={service.title} loading="eager"/>
+        </div>
+      </div>
+
+      <div data-reveal>
+        <div class="eyebrow">Hizmet Detayı</div>
+        <h2 class="section-title text-3xl md:text-4xl">Neden {service.title}?</h2>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          {service.desc}. Mir Dekorasyon olarak 15+ yıllık inşaat tecrübemizle her projeye estetik ve fonksiyonu birlikte ele alan bir yaklaşım sunuyoruz.
+        </p>
+
+        <h3 class="font-serif text-xl font-semibold text-primary mb-4">Hizmet Kapsamı</h3>
+        <ul class="space-y-3 mb-8">
+          {service.features.map((f) => (
+            <li class="flex items-start gap-3">
+              <span class="flex-shrink-0 w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center mt-0.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <span class="text-slate-700">{f}</span>
+            </li>
+          ))}
+        </ul>
+
+        <h3 class="font-serif text-xl font-semibold text-primary mb-4">Uygulama Alanları</h3>
+        <div class="flex flex-wrap gap-2">
+          {service.applications.map((a) => (
+            <span class="px-3 py-1.5 text-sm rounded-full bg-pale/60 text-primary font-medium border border-pale">{a}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-pale/30">
+    <div class="container-x">
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-6 shadow-card">
+          <div class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-primary mb-2">Ücretsiz Keşif</h3>
+          <p class="text-sm text-slate-600">Yerinde ölçü, ihtiyaç analizi, detaylı maliyet raporu — hiçbir ücret talep edilmez.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-card">
+          <div class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-primary mb-2">3D Tasarım</h3>
+          <p class="text-sm text-slate-600">Uygulamadan önce projeyi foto-gerçekçi 3D render ile görme imkânı.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-card">
+          <div class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-primary mb-2">2 Yıl Garanti</h3>
+          <p class="text-sm text-slate-600">Tüm uygulamalar ve kullanılan malzemeler için 2 yıl tam garanti.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x grid lg:grid-cols-5 gap-10">
+      <div class="lg:col-span-2">
+        <div class="eyebrow">Hemen Başlayalım</div>
+        <h2 class="section-title">{service.title} İçin Teklif</h2>
+        <p class="section-subtitle mb-6">Projeniz için 24 saat içinde detaylı teklif ve görsel hazırlıyoruz.</p>
+        <div class="space-y-3">
+          <a href="tel:+905309009344" class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 hover:border-primary hover:bg-pale/30 transition">
+            <div class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.7 2.8a2 2 0 01-.45 1.9L8.09 10.91a16 16 0 006 6l1.69-1.38a2 2 0 011.9-.45l2.8.7A2 2 0 0121 17.72V20a2 2 0 01-2 2A17 17 0 013 5z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500">Telefon</div>
+              <div class="font-semibold text-primary">+90 530 900 93 44</div>
+            </div>
+          </a>
+          <a href="https://wa.me/905309009344" target="_blank" rel="noopener" class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 hover:border-[#25D366] hover:bg-pale/30 transition">
+            <div class="w-12 h-12 rounded-xl bg-[#25D366] text-white flex items-center justify-center">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.5 3.5A11.94 11.94 0 0012 0C5.4 0 .03 5.37.03 11.97c0 2.1.55 4.16 1.6 5.98L0 24l6.22-1.62a11.97 11.97 0 005.78 1.47h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-1.25-6.2-3.48-8.38z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500">WhatsApp</div>
+              <div class="font-semibold text-primary">Anında yazışın</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="lg:col-span-3">
+        <ContactForm defaultService={service.title} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-pale/20">
+    <div class="container-x">
+      <div class="flex items-end justify-between mb-10 gap-4">
+        <div>
+          <div class="eyebrow">Diğer Hizmetlerimiz</div>
+          <h2 class="section-title text-3xl md:text-4xl">Mir Dekorasyon</h2>
+        </div>
+        <a href="/yapi-dekorasyon" class="hidden md:inline-flex items-center gap-2 text-primary font-semibold hover:text-secondary transition">
+          Tüm Hizmetler
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {related.map((s) => (
+          <a href={`/yapi-dekorasyon/${s.slug}`} class="group bg-white rounded-2xl overflow-hidden shadow-card card-hover">
+            <div class="brand-photo-wrap aspect-[4/3]">
+              <img src={s.image} alt={s.title} loading="lazy"/>
+            </div>
+            <div class="p-5">
+              <h4 class="font-serif text-lg font-semibold text-primary mb-1 group-hover:text-secondary transition">{s.title}</h4>
+              <p class="text-xs text-slate-500 line-clamp-2">{s.desc}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { galleryImages } from '../data/gallery';
+
+const title = 'Galeri | Ökmen Havalandırma';
+const description = 'Ökmen Havalandırma tarafından gerçekleştirilen endüstriyel havalandırma, klima santrali, toz toplama ve baca projelerinden kareler.';
+
+const images = galleryImages;
+const categories = ['Tümü', ...Array.from(new Set(images.map((i) => i.cat)))];
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="relative bg-gradient-primary text-white py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/586744/pexels-photo-586744.jpeg?auto=compress&cs=tinysrgb&w=1920')"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-primary/60 to-primary"></div>
+    <div class="relative container-x text-center">
+      <div class="eyebrow text-accent">Projelerimizden Kareler</div>
+      <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4 text-balance">Galeri</h1>
+      <p class="text-lg md:text-xl text-pale/90 max-w-3xl mx-auto text-balance">
+        500+ tamamlanmış projemizden seçilmiş anlar — montaj, mühendislik ve teslim aşamalarından.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x">
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
+        {categories.map((c, i) => (
+          <button
+            class={`filter-btn px-4 py-2 rounded-full text-sm font-medium border transition ${i === 0 ? 'bg-primary text-white border-primary' : 'bg-white text-slate-700 border-slate-200 hover:border-primary hover:text-primary'}`}
+            data-filter={c}
+          >{c}</button>
+        ))}
+      </div>
+
+      <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+        {images.map((img, i) => (
+          <button
+            class="gallery-item brand-photo-wrap group aspect-square rounded-xl focus:outline-none focus:ring-2 focus:ring-accent"
+            data-cat={img.cat}
+            data-index={i}
+          >
+            <img src={img.src} alt={img.alt} loading="lazy" class="w-full h-full object-cover"/>
+            <div class="absolute top-3 left-3 z-10">
+              <span class="inline-block px-2 py-0.5 rounded-full text-[10px] uppercase tracking-wider bg-white/95 text-primary font-semibold">{img.cat}</span>
+            </div>
+            <div class="absolute bottom-3 left-3 right-3 z-10 text-white text-sm font-medium text-left opacity-0 group-hover:opacity-100 transition translate-y-2 group-hover:translate-y-0">
+              {img.alt}
+            </div>
+            <div class="absolute inset-0 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition pointer-events-none">
+              <div class="w-12 h-12 rounded-full bg-white/95 text-primary flex items-center justify-center shadow-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"/></svg>
+              </div>
+            </div>
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 p-4">
+    <button id="lightbox-close" class="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/10 hover:bg-white text-white hover:text-primary flex items-center justify-center transition" aria-label="Kapat">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white text-white hover:text-primary flex items-center justify-center transition" aria-label="Önceki">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white text-white hover:text-primary flex items-center justify-center transition" aria-label="Sonraki">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+    </button>
+    <img id="lightbox-img" class="max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl" alt=""/>
+  </div>
+</BaseLayout>
+
+<script define:vars={{ images }}>
+  const items = document.querySelectorAll('.gallery-item');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('lightbox-close');
+  const prevBtn = document.getElementById('lightbox-prev');
+  const nextBtn = document.getElementById('lightbox-next');
+
+  let currentIndex = 0;
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      filterBtns.forEach((b) => {
+        b.classList.remove('bg-primary', 'text-white', 'border-primary');
+        b.classList.add('bg-white', 'text-slate-700', 'border-slate-200');
+      });
+      btn.classList.add('bg-primary', 'text-white', 'border-primary');
+      btn.classList.remove('bg-white', 'text-slate-700', 'border-slate-200');
+
+      items.forEach((item) => {
+        if (filter === 'Tümü' || item.dataset.cat === filter) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  const openLightbox = (i) => {
+    currentIndex = i;
+    lightboxImg.src = images[i].src;
+    lightboxImg.alt = images[i].alt;
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    document.body.style.overflow = '';
+  };
+
+  const next = () => openLightbox((currentIndex + 1) % images.length);
+  const prev = () => openLightbox((currentIndex - 1 + images.length) % images.length);
+
+  items.forEach((item) => {
+    item.addEventListener('click', () => openLightbox(Number(item.dataset.index)));
+  });
+
+  closeBtn?.addEventListener('click', closeLightbox);
+  prevBtn?.addEventListener('click', prev);
+  nextBtn?.addEventListener('click', next);
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('hidden')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft') prev();
+  });
+</script>

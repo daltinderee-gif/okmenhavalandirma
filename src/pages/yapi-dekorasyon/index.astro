@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import { decorationServices, decorationCategories } from '../../data/decoration';
+
+const title = 'Mir Dekorasyon | Yapı & Dekorasyon Hizmetleri';
+const description = 'İç mimari, tadilat, asma tavan, alçıpan, boya, dış cephe ve zemin kaplama — Mir Dekorasyon ile anahtar teslim çözümler. Diyarbakır merkezli, Türkiye geneli.';
+
+const byCategory = (cat: keyof typeof decorationCategories) =>
+  decorationServices.filter((s) => s.category === cat);
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- HERO -->
+  <section class="relative bg-gradient-to-br from-primary via-secondary to-primary text-white py-20 md:py-32 overflow-hidden">
+    <div class="absolute inset-0 opacity-30 bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=2000')"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-primary/40 via-primary/55 to-primary"></div>
+
+    <div class="relative container-x">
+      <div class="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full bg-white/15 border border-white/25 backdrop-blur text-xs uppercase tracking-[0.18em] font-semibold">
+        <span class="w-2 h-2 rounded-full bg-accent"></span>
+        Ökmen Grup · 2. Marka
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7">
+          <div class="text-pale/70 text-sm uppercase tracking-[0.22em] mb-3">mirdekorasyon.com</div>
+          <h1 class="display-headline text-mega leading-[0.95] mb-6 text-balance">
+            Mir <span class="text-accent">Dekorasyon</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-pale/95 mb-4 max-w-2xl text-pretty">
+            Bir mekânı yaşanır kılmak — tasarımdan tadilata, asma tavandan zemin kaplamaya tek elden.
+          </p>
+          <p class="text-base text-pale/80 mb-8 max-w-2xl text-pretty">
+            Ökmen çatısı altında yapı & dekorasyon kolumuz. 15+ yıllık inşaat tecrübemizle iç mimari tasarım, komple tadilat ve tüm yüzey uygulamalarında anahtar teslim çözümler.
+          </p>
+
+          <div class="flex flex-wrap gap-3">
+            <a href="https://wa.me/905309009344" target="_blank" rel="noopener" class="btn-accent text-base shadow-xl px-7 py-3.5">
+              Ücretsiz Keşif Talep Et
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="#hizmetler" class="btn-ghost text-base px-7 py-3.5">Hizmetlerimizi İncele</a>
+          </div>
+
+          <div class="mt-8 flex flex-wrap items-center gap-5 text-sm text-pale/85">
+            <a href="https://mirdekorasyon.com" target="_blank" rel="noopener" class="hover:text-accent transition inline-flex items-center gap-1.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 015.656 5.656l-3 3a4 4 0 01-5.656-5.656M10.172 13.828a4 4 0 01-5.656-5.656l3-3a4 4 0 015.656 5.656"/></svg>
+              mirdekorasyon.com
+            </a>
+            <a href="https://mirdekorasyon.com.tr" target="_blank" rel="noopener" class="hover:text-accent transition inline-flex items-center gap-1.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 015.656 5.656l-3 3a4 4 0 01-5.656-5.656M10.172 13.828a4 4 0 01-5.656-5.656l3-3a4 4 0 015.656 5.656"/></svg>
+              mirdekorasyon.com.tr
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 hidden lg:block">
+          <div class="brand-photo-wrap aspect-[4/5] rounded-3xl shadow-2xl">
+            <img src="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Mir Dekorasyon iç mimari" loading="eager"/>
+            <div class="absolute bottom-6 left-6 right-6 text-white">
+              <div class="text-xs uppercase tracking-[0.18em] text-accent mb-1">Showcase</div>
+              <div class="font-serif text-xl font-semibold">Modern Yaşam Mekânları</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HİZMETLER -->
+  <section id="hizmetler" class="section">
+    <div class="container-x">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="eyebrow">Hizmet Kapsamımız</div>
+        <h2 class="section-title">Tasarımdan Uygulamaya Tek Çatı</h2>
+        <p class="section-subtitle mx-auto">3 ana başlıkta toplam 8 hizmet — projelendirme, tadilat ve yüzey uygulamaları.</p>
+      </div>
+
+      {(['tasarim', 'tadilat', 'uygulama'] as const).map((cat) => {
+        const items = byCategory(cat);
+        if (!items.length) return null;
+        return (
+          <div class="mb-14">
+            <div class="flex items-center gap-4 mb-6">
+              <span class="text-xs font-mono uppercase tracking-[0.22em] text-accent">0{cat === 'tasarim' ? 1 : cat === 'tadilat' ? 2 : 3}.</span>
+              <h3 class="font-serif text-2xl md:text-3xl font-bold text-primary">{decorationCategories[cat]}</h3>
+              <div class="flex-1 h-px bg-slate-200"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {items.map((s) => (
+                <a href={`/yapi-dekorasyon/${s.slug}`} class="group bg-white rounded-2xl overflow-hidden shadow-card card-hover" data-reveal>
+                  <div class="brand-photo-wrap aspect-[4/3]">
+                    <img src={s.image} alt={s.title} loading="lazy" class="w-full h-full object-cover"/>
+                    <div class="absolute top-3 left-3 z-10">
+                      <div class="w-11 h-11 rounded-xl bg-white/95 backdrop-blur flex items-center justify-center shadow-card">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" d={s.icon}/>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="p-5 md:p-6">
+                    <h4 class="font-serif text-xl font-semibold text-primary mb-2 group-hover:text-secondary transition">
+                      {s.title}
+                    </h4>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-4 line-clamp-2">{s.desc}</p>
+                    <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-secondary group-hover:text-primary transition">
+                      Detayları Gör
+                      <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- SÜREÇ -->
+  <section class="section bg-pale/30">
+    <div class="container-x">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="eyebrow">Nasıl Çalışıyoruz?</div>
+        <h2 class="section-title">4 Adımda Anahtar Teslim</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        {[
+          { n: '01', t: 'Keşif & Görüşme', d: 'Mekânınızı yerinde inceler, ihtiyaç ve beklentilerinizi dinleriz.', icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' },
+          { n: '02', t: 'Tasarım & Teklif', d: 'Mood-board, 3D görsel ve detaylı maliyet raporunu birlikte hazırlarız.', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2' },
+          { n: '03', t: 'Uygulama', d: 'Uzman ekibimiz işi takvime uygun, temiz ve denetimli yürütür.', icon: 'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z' },
+          { n: '04', t: 'Teslim & Garanti', d: 'Temizlik, son kontrol ve garanti belgenizle teslim — sonrası servis.', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
+        ].map((step) => (
+          <div class="bg-white p-6 md:p-7 rounded-2xl shadow-card relative overflow-hidden" data-reveal>
+            <div class="absolute -top-6 -right-6 font-serif text-7xl font-bold text-pale opacity-60 select-none">{step.n}</div>
+            <div class="relative">
+              <div class="w-12 h-12 rounded-xl bg-gradient-primary text-white flex items-center justify-center mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d={step.icon}/></svg>
+              </div>
+              <h3 class="font-serif text-xl font-semibold text-primary mb-2">{step.t}</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">{step.d}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ÇİFT MARKA TANITIMI -->
+  <section class="section bg-primary text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/586744/pexels-photo-586744.jpeg?auto=compress&cs=tinysrgb&w=2000')"></div>
+    <div class="relative container-x text-center">
+      <div class="eyebrow text-accent">Ökmen Çatısı</div>
+      <h2 class="font-serif text-3xl md:text-5xl font-bold mb-4 text-balance">İki Marka, Tek Güven</h2>
+      <p class="text-pale/90 max-w-2xl mx-auto mb-10 text-balance">
+        Mir Dekorasyon ve Ökmen Havalandırma aynı çatı altında. İster bir restoran tadilatında hem yapı hem havalandırma, ister sadece bir mantolama — tek noktadan koordinasyon, tek noktadan sorumluluk.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <a href="/yapi-dekorasyon" class="bg-white/10 hover:bg-white/15 border border-white/20 rounded-2xl p-6 transition group">
+          <div class="text-xs uppercase tracking-[0.2em] text-accent mb-2">Marka 1</div>
+          <div class="font-serif text-2xl font-bold mb-2">Mir Dekorasyon</div>
+          <div class="text-sm text-pale/80">İç mimari · Tadilat · Cephe · Zemin</div>
+          <div class="text-xs text-pale/60 mt-3 font-mono">mirdekorasyon.com</div>
+        </a>
+        <a href="/urunler" class="bg-white/10 hover:bg-white/15 border border-white/20 rounded-2xl p-6 transition group">
+          <div class="text-xs uppercase tracking-[0.2em] text-accent mb-2">Marka 2</div>
+          <div class="font-serif text-2xl font-bold mb-2">Ökmen Havalandırma</div>
+          <div class="text-sm text-pale/80">Endüstriyel havalandırma · İklimlendirme</div>
+          <div class="text-xs text-pale/60 mt-3 font-mono">okmenhavalandirma.com</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- İLETİŞİM -->
+  <section class="section">
+    <div class="container-x grid lg:grid-cols-5 gap-10">
+      <div class="lg:col-span-2">
+        <div class="eyebrow">Ücretsiz Keşif</div>
+        <h2 class="section-title">Mekânınızı Birlikte Tasarlayalım</h2>
+        <p class="section-subtitle mb-6">
+          Konutunuz, ofisiniz veya işletmeniz için Mir Dekorasyon ekibi ücretsiz yerinde keşif yapar, 3D görsel ve detaylı teklif hazırlar.
+        </p>
+        <ul class="space-y-3 text-slate-700">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <span>Ücretsiz yerinde keşif</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <span>3D görsel ve detay teklif</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <span>2 yıl uygulama garantisi</span>
+          </li>
+        </ul>
+      </div>
+      <div class="lg:col-span-3">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

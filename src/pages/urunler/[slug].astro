@@ -1,0 +1,203 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import { products, getProductImage } from '../../data/products';
+
+export function getStaticPaths() {
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+const imageUrl = getProductImage(product);
+
+const title = `${product.seo} | Ökmen Havalandırma`;
+const description = `Diyarbakır ${product.title.toLowerCase()} kurulum, montaj ve servis. ${product.desc}. Anahtar teslim çözüm, ücretsiz keşif, 2 yıl garanti.`;
+
+const related = products.filter((p) => p.slug !== product.slug).slice(0, 4);
+
+const productSchema = {
+  '@type': 'Product',
+  name: product.title,
+  description: product.desc,
+  image: imageUrl,
+  brand: { '@type': 'Brand', name: 'Ökmen Havalandırma' },
+  category: 'Endüstriyel Havalandırma',
+  offers: {
+    '@type': 'AggregateOffer',
+    availability: 'https://schema.org/InStock',
+    priceCurrency: 'TRY',
+    seller: { '@type': 'Organization', name: 'Ökmen Havalandırma' },
+  },
+};
+---
+
+<BaseLayout title={title} description={description} image={imageUrl} schema={productSchema}>
+  <section class="relative bg-gradient-primary text-white py-16 md:py-20 overflow-hidden">
+    <div class="absolute inset-0 opacity-30 bg-cover bg-center" style={`background-image: url('${imageUrl}')`}></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/80 to-primary"></div>
+
+    <div class="relative container-x">
+      <nav class="text-sm text-pale/70 mb-4" aria-label="Ekmek kırıntısı">
+        <a href="/" class="hover:text-white">Ana Sayfa</a>
+        <span class="mx-2">/</span>
+        <a href="/urunler" class="hover:text-white">Ürünler</a>
+        <span class="mx-2">/</span>
+        <span class="text-white">{product.title}</span>
+      </nav>
+
+      <div class="eyebrow text-accent">{product.seo}</div>
+      <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4 text-balance">{product.title}</h1>
+      <p class="text-lg md:text-xl text-pale/90 max-w-3xl text-balance">{product.desc}</p>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/iletisim" class="btn-accent">
+          Bu Ürün İçin Teklif Al
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <a href="tel:+905309009344" class="btn-ghost">
+          Hemen Ara: +90 530 900 93 44
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x grid lg:grid-cols-2 gap-12 items-start">
+      <div class="relative" data-reveal>
+        <div class="absolute -inset-4 bg-gradient-accent opacity-20 rounded-3xl blur-2xl"></div>
+        <img
+          src={imageUrl}
+          alt={product.title}
+          class="relative w-full h-auto rounded-2xl shadow-card-hover"
+          loading="eager"
+        />
+      </div>
+
+      <div data-reveal>
+        <div class="eyebrow">Ürün Detayı</div>
+        <h2 class="section-title text-3xl md:text-4xl">Neden {product.title}?</h2>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          {product.desc}. Ökmen Havalandırma olarak {product.title.toLowerCase()} alanında 15+ yıllık tecrübemiz, geniş ürün gamımız ve uzman mühendis kadromuzla projenize özel çözümler sunuyoruz.
+        </p>
+
+        <h3 class="font-serif text-xl font-semibold text-primary mb-4">Öne Çıkan Özellikler</h3>
+        <ul class="space-y-3 mb-8">
+          {product.features.map((f) => (
+            <li class="flex items-start gap-3">
+              <span class="flex-shrink-0 w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center mt-0.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                </svg>
+              </span>
+              <span class="text-slate-700">{f}</span>
+            </li>
+          ))}
+        </ul>
+
+        <h3 class="font-serif text-xl font-semibold text-primary mb-4">Uygulama Alanları</h3>
+        <div class="flex flex-wrap gap-2">
+          {product.applications.map((a) => (
+            <span class="px-3 py-1.5 text-sm rounded-full bg-pale/60 text-primary font-medium border border-pale">{a}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-pale/30">
+    <div class="container-x">
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-6 shadow-card">
+          <div class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-primary mb-2">CE Belgeli Üretim</h3>
+          <p class="text-sm text-slate-600">Avrupa standartlarında, Eurovent ve TSE sertifikalı ürünler.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-card">
+          <div class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-primary mb-2">Hızlı Teslimat</h3>
+          <p class="text-sm text-slate-600">Stoklu ürünlerde 48 saat, özel imalatta 7-15 gün teslim.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-card">
+          <div class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-primary mb-2">2 Yıl Garanti</h3>
+          <p class="text-sm text-slate-600">Üretim ve montaj garantili, ömür boyu yedek parça desteği.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x grid lg:grid-cols-5 gap-10">
+      <div class="lg:col-span-2">
+        <div class="eyebrow">Hemen Teklif</div>
+        <h2 class="section-title">{product.title} İçin Teklif Alın</h2>
+        <p class="section-subtitle mb-6">
+          Projenize özel fiyat, teknik şartname ve kapasiteyi 24 saat içinde size iletelim.
+        </p>
+        <div class="space-y-3">
+          <a href="tel:+905309009344" class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 hover:border-primary hover:bg-pale/30 transition">
+            <div class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.7 2.8a2 2 0 01-.45 1.9L8.09 10.91a16 16 0 006 6l1.69-1.38a2 2 0 011.9-.45l2.8.7A2 2 0 0121 17.72V20a2 2 0 01-2 2A17 17 0 013 5z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500">Telefon</div>
+              <div class="font-semibold text-primary">+90 530 900 93 44</div>
+            </div>
+          </a>
+          <a href="https://wa.me/905309009344" target="_blank" rel="noopener" class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 hover:border-[#25D366] hover:bg-pale/30 transition">
+            <div class="w-12 h-12 rounded-xl bg-[#25D366] text-white flex items-center justify-center">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.5 3.5A11.94 11.94 0 0012 0C5.4 0 .03 5.37.03 11.97c0 2.1.55 4.16 1.6 5.98L0 24l6.22-1.62a11.97 11.97 0 005.78 1.47h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-1.25-6.2-3.48-8.38zM12 21.8c-1.85 0-3.66-.5-5.24-1.43l-.38-.22-3.7.97.99-3.6-.25-.37A9.85 9.85 0 012.2 11.97C2.2 6.57 6.6 2.17 12 2.17s9.8 4.4 9.8 9.8c0 5.4-4.4 9.83-9.8 9.83z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500">WhatsApp</div>
+              <div class="font-semibold text-primary">Anında yazışın</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="lg:col-span-3">
+        <ContactForm defaultService={product.title} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-pale/20">
+    <div class="container-x">
+      <div class="flex items-end justify-between mb-10 gap-4">
+        <div>
+          <div class="eyebrow">Diğer Ürünlerimiz</div>
+          <h2 class="section-title text-3xl md:text-4xl">Benzer Çözümler</h2>
+        </div>
+        <a href="/urunler" class="hidden md:inline-flex items-center gap-2 text-primary font-semibold hover:text-secondary transition">
+          Tüm Ürünler
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {related.map((p) => <ProductCard product={p} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

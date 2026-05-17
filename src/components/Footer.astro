@@ -1,0 +1,149 @@
+---
+import { products } from '../data/products';
+import { decorationServices } from '../data/decoration';
+
+const year = new Date().getFullYear();
+const topProducts = products.slice(0, 6);
+const topDecoration = decorationServices.slice(0, 6);
+
+const regions = [
+  { slug: 'diyarbakir-havalandirma', title: 'Diyarbakır' },
+  { slug: 'sanliurfa-havalandirma', title: 'Şanlıurfa' },
+  { slug: 'batman-havalandirma', title: 'Batman' },
+  { slug: 'mardin-havalandirma', title: 'Mardin' },
+  { slug: 'gaziantep-havalandirma', title: 'Gaziantep' },
+  { slug: 'elazig-havalandirma', title: 'Elazığ' },
+];
+---
+
+<footer class="bg-primary text-white mt-16">
+  <div class="container-x py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <div class="mb-5">
+          <img src="/logo.png" alt="Ökmen Havalandırma" class="h-20 md:h-24 w-auto brightness-0 invert" />
+        </div>
+        <p class="text-sm text-pale/80 leading-relaxed mb-5">
+          Diyarbakır merkezli, 15+ yıllık tecrübemizle endüstriyel havalandırma, iklimlendirme ve filtrasyon sistemlerinde Güneydoğu'nun lider çözüm ortağıyız.
+        </p>
+        <div class="flex items-center gap-3">
+          <a href="https://wa.me/905309009344" aria-label="WhatsApp" class="w-9 h-9 rounded-full bg-white/10 hover:bg-accent flex items-center justify-center transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.5 3.5A11.94 11.94 0 0012 0C5.4 0 .03 5.37.03 11.97c0 2.1.55 4.16 1.6 5.98L0 24l6.22-1.62a11.97 11.97 0 005.78 1.47h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-1.25-6.2-3.48-8.38zM12 21.8c-1.85 0-3.66-.5-5.24-1.43l-.38-.22-3.7.97.99-3.6-.25-.37A9.85 9.85 0 012.2 11.97C2.2 6.57 6.6 2.17 12 2.17s9.8 4.4 9.8 9.8c0 5.4-4.4 9.83-9.8 9.83zm5.36-7.33c-.29-.15-1.74-.86-2.01-.96-.27-.1-.47-.15-.66.15-.2.29-.76.96-.93 1.16-.17.2-.34.22-.63.07-.29-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.51-.07-.15-.66-1.6-.91-2.18-.24-.58-.49-.5-.66-.51l-.56-.01c-.2 0-.51.07-.78.37-.27.29-1.02.99-1.02 2.42 0 1.43 1.04 2.81 1.18 3 .15.2 2.05 3.13 4.96 4.39.69.3 1.24.48 1.66.62.7.22 1.33.19 1.83.11.56-.08 1.74-.71 1.98-1.4.24-.69.24-1.27.17-1.4-.07-.13-.27-.2-.56-.34z"/></svg>
+          </a>
+          <a href="tel:+905309009344" aria-label="Telefon" class="w-9 h-9 rounded-full bg-white/10 hover:bg-accent flex items-center justify-center transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.7 2.8a2 2 0 01-.45 1.9L8.09 10.91a16 16 0 006 6l1.69-1.38a2 2 0 011.9-.45l2.8.7A2 2 0 0121 17.72V20a2 2 0 01-2 2A17 17 0 013 5z"/>
+            </svg>
+          </a>
+          <a href="mailto:info@okmenhavalandirma.com" aria-label="E-posta" class="w-9 h-9 rounded-full bg-white/10 hover:bg-accent flex items-center justify-center transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex items-center gap-2 mb-5">
+          <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-accent">Marka 1</span>
+        </div>
+        <h4 class="font-serif text-lg font-semibold mb-4 text-white">Ökmen Havalandırma</h4>
+        <ul class="space-y-2.5 text-sm">
+          {topProducts.map((p) => (
+            <li>
+              <a href={`/urunler/${p.slug}`} class="text-pale/75 hover:text-accent transition flex items-center gap-2">
+                <span class="w-1 h-1 rounded-full bg-accent"></span>
+                {p.title}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a href="/urunler" class="text-accent font-semibold hover:underline flex items-center gap-1 mt-1">
+              Tüm Havalandırma Ürünleri →
+            </a>
+          </li>
+          <li class="pt-2 mt-2 border-t border-white/10">
+            <span class="text-pale/60 text-xs uppercase tracking-wider">Hizmet Bölgeleri:</span>
+            <div class="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-pale/70">
+              {regions.map((r) => (
+                <a href={`/bolgeler/${r.slug}`} class="hover:text-accent transition">{r.title}</a>
+              ))}
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="flex items-center gap-2 mb-5">
+          <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-accent">Marka 2</span>
+        </div>
+        <h4 class="font-serif text-lg font-semibold mb-4 text-white">Mir Dekorasyon</h4>
+        <ul class="space-y-2.5 text-sm">
+          {topDecoration.map((s) => (
+            <li>
+              <a href={`/yapi-dekorasyon/${s.slug}`} class="text-pale/75 hover:text-accent transition flex items-center gap-2">
+                <span class="w-1 h-1 rounded-full bg-accent"></span>
+                {s.title}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a href="/yapi-dekorasyon" class="text-accent font-semibold hover:underline flex items-center gap-1 mt-1">
+              Tüm Dekorasyon Hizmetleri →
+            </a>
+          </li>
+          <li class="pt-2 mt-2 border-t border-white/10 space-y-1">
+            <a href="https://mirdekorasyon.com" target="_blank" rel="noopener" class="text-pale/60 hover:text-accent transition text-xs font-mono block">mirdekorasyon.com ↗</a>
+            <a href="https://mirdekorasyon.com.tr" target="_blank" rel="noopener" class="text-pale/60 hover:text-accent transition text-xs font-mono block">mirdekorasyon.com.tr ↗</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-serif text-lg font-semibold mb-5 text-white">İletişim</h4>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-start gap-3">
+            <svg class="w-4 h-4 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span class="text-pale/75">Diyarbakır, Türkiye</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-4 h-4 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.7 2.8a2 2 0 01-.45 1.9L8.09 10.91a16 16 0 006 6l1.69-1.38a2 2 0 011.9-.45l2.8.7A2 2 0 0121 17.72V20a2 2 0 01-2 2A17 17 0 013 5z"/>
+            </svg>
+            <a href="tel:+905309009344" class="text-pale/75 hover:text-accent transition">+90 530 900 93 44</a>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-4 h-4 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <a href="mailto:info@okmenhavalandirma.com" class="text-pale/75 hover:text-accent transition break-all">info@okmenhavalandirma.com</a>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-4 h-4 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span class="text-pale/75">Pzt-Cmt 08:00 - 18:00</span>
+          </li>
+        </ul>
+
+        <a href="/iletisim" class="btn-accent w-full mt-5 text-sm">Ücretsiz Keşif Talep Et</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="container-x py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-pale/60">
+      <div class="text-center md:text-left">
+        © {year} Ökmen Havalandırma Isıtma Soğutma Mak. İth. İhr. San. ve Tic. Ltd. Şti. Tüm hakları saklıdır.
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="/" class="hover:text-accent transition">Anasayfa</a>
+        <a href="/hakkimizda" class="hover:text-accent transition">Hakkımızda</a>
+        <a href="/iletisim" class="hover:text-accent transition">İletişim</a>
+      </div>
+    </div>
+  </div>
+</footer>

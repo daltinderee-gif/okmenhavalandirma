@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Sayfa Bulunamadı | Ökmen Havalandırma';
+const description = 'Aradığınız sayfa bulunamadı.';
+---
+
+<BaseLayout title={title} description={description} noindex={true}>
+  <section class="min-h-[70vh] flex items-center justify-center py-16">
+    <div class="container-x text-center max-w-2xl">
+      <div class="font-serif text-[120px] md:text-[180px] font-bold leading-none gradient-text mb-4">404</div>
+      <h1 class="font-serif text-3xl md:text-4xl font-bold text-primary mb-4">Sayfa Bulunamadı</h1>
+      <p class="text-slate-600 mb-8 text-balance">
+        Aradığınız sayfa taşınmış, kaldırılmış veya hiç var olmamış olabilir. Ana sayfaya dönerek aramaya devam edebilirsiniz.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a href="/" class="btn-primary">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          Ana Sayfa
+        </a>
+        <a href="/urunler" class="btn-secondary">Ürünleri Gör</a>
+        <a href="/iletisim" class="btn-secondary">İletişim</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,65 @@
+---
+import { type Product, getProductImage } from '../data/products';
+
+export interface Props {
+  product: Product;
+  variant?: 'default' | 'compact';
+}
+
+const { product, variant = 'default' } = Astro.props as Props;
+const href = `/urunler/${product.slug}`;
+const imageUrl = getProductImage(product);
+---
+
+<article
+  class={`group relative bg-white rounded-2xl overflow-hidden shadow-card card-hover ${variant === 'compact' ? '' : ''}`}
+  data-reveal
+>
+  <a href={href} class="block" aria-label={`${product.title} detayları`}>
+    <div class="brand-photo-wrap aspect-[4/3]">
+      <img
+        src={imageUrl}
+        alt={product.title}
+        loading="lazy"
+        decoding="async"
+        class="w-full h-full object-cover"
+      />
+
+      <div class="absolute top-3 left-3 z-10">
+        <div class="w-11 h-11 rounded-xl bg-white/95 backdrop-blur flex items-center justify-center shadow-card">
+          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d={product.icon}/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="absolute bottom-3 left-3 right-3 z-10">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-accent/90 backdrop-blur text-white text-[10px] font-semibold uppercase tracking-wider">
+          <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+          Diyarbakır
+        </div>
+      </div>
+    </div>
+
+    <div class="p-5 md:p-6">
+      <h3 class="font-serif text-xl md:text-2xl font-semibold text-primary mb-2 group-hover:text-secondary transition">
+        {product.title}
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed mb-4 line-clamp-2">
+        {product.desc}
+      </p>
+
+      <div class="flex items-center justify-between">
+        <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-secondary group-hover:text-primary transition">
+          Detayları Gör
+          <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </span>
+        <span class="text-xs px-3 py-1.5 rounded-full bg-pale/60 text-primary font-medium">
+          Teklif Al
+        </span>
+      </div>
+    </div>
+  </a>
+</article>

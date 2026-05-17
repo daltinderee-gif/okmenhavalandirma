@@ -1,0 +1,24 @@
+{
+  "name": "okmen-havalandirma",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Ökmen Havalandırma - Isıtma Soğutma Makina İthalat İhracat San. ve Tic. Ltd. Şti.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview --host",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "3.2.1",
+    "@astrojs/tailwind": "^5.1.4",
+    "astro": "^4.16.18",
+    "framer-motion": "^11.15.0",
+    "swiper": "^11.1.15",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2"
+  }
+}

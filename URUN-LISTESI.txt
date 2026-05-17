@@ -1,0 +1,174 @@
+================================================================
+ÖKMEN HAVALANDIRMA + MİR DEKORASYON
+GÖRSEL ÜRETME LİSTESİ
+================================================================
+
+Aşağıdaki listede her görselin:
+  • Numarası (sıra)
+  • slug-adi (dosya kaydederken bu adı kullan, küçük harf-tireli)
+  • Türkçe Adı (görselin ne olduğunu anlatır)
+
+Dosyayı kaydederken: {slug-adi}.jpg veya {slug-adi}.png
+Kaydetme klasörü her kategorinin başında belirtildi.
+
+================================================================
+A. HAVALANDIRMA ÜRÜNLERİ — 22 adet
+================================================================
+Kaydetme yolu: public/products/{slug}.jpg
+
+01.  havalandirma-sistemleri      → Havalandırma Sistemleri
+02.  aksiyal-fan                  → Aksiyal Fan
+03.  hucreli-aspirator            → Hücreli Aspiratör
+04.  salyangoz-fan                → Salyangoz Fan
+05.  klima-santrali               → Klima Santrali
+06.  toz-toplama-sistemleri       → Toz Toplama Sistemleri
+07.  celik-baca-sistemleri        → Çelik Baca Sistemleri
+08.  hava-kanallari               → Hava Kanalları
+09.  elektrostatik-filtre         → Elektrostatik Filtre
+10.  filtreler                    → Filtreler
+11.  flexible-borular             → Flexible Borular
+12.  baglanti-ekipmanlari         → Bağlantı Ekipmanları
+13.  menfez                       → Menfez
+14.  davlumbaz-sistemleri         → Davlumbaz Sistemleri
+15.  isitma-sistemleri            → Isıtma Sistemleri
+16.  sulu-filtre                  → Sulu Filtre
+17.  esmatik                      → Esmatik (Çatı Rüzgar Gülü)
+18.  baca-sistemleri              → Baca Sistemleri
+19.  klima-sistemleri             → Klima Sistemleri (VRF / Split)
+20.  izolasyon-kaplama            → İzolasyon Kaplama
+21.  medikal-gaz-tesisati         → Medikal Gaz Tesisatı
+22.  somine-sistemleri            → Şömine Sistemleri
+
+
+================================================================
+B. MİR DEKORASYON HİZMETLERİ — 8 adet
+================================================================
+Kaydetme yolu: public/dekorasyon/{slug}.jpg
+
+23.  ic-mimari-tasarim            → İç Mimari & Tasarım
+24.  3d-gorsellestirme            → 3D Tasarım & Görselleştirme
+25.  tadilat-renovasyon           → Komple Tadilat & Renovasyon
+26.  asma-tavan                   → Asma Tavan Sistemleri
+27.  alcipan-duvar                → Alçıpan & Duvar Sistemleri
+28.  boya-badana                  → Boya & Badana
+29.  dis-cephe-kaplama            → Dış Cephe Kaplama
+30.  zemin-kaplama                → Zemin Kaplama (Parke/Seramik/Laminat)
+
+
+================================================================
+C. SEKTÖR / İŞLETME GÖRSELLERİ — 7 adet
+================================================================
+Kaydetme yolu: public/sektor/{slug}.jpg
+
+31.  restoran-cafe                → Restoran & Cafe iç mekanı
+32.  magaza-market                → Mağaza & Market iç mekanı
+33.  ofis-isyeri                  → Modern Ofis çalışma alanı
+34.  otel-konaklama               → Otel Lobisi
+35.  fabrika-uretim               → Fabrika Üretim Hattı
+36.  saglik-klinik                → Hastane / Klinik Koridoru
+37.  okul-egitim                  → Kreş / Sınıf
+
+
+================================================================
+D. BÖLGE / ŞEHİR GÖRSELLERİ — 6 adet
+================================================================
+Kaydetme yolu: public/bolgeler/{slug}.jpg
+
+38.  diyarbakir-havalandirma      → Diyarbakır şehir görünüm
+39.  sanliurfa-havalandirma       → Şanlıurfa şehir görünüm
+40.  batman-havalandirma          → Batman şehir görünüm
+41.  mardin-havalandirma          → Mardin şehir görünüm
+42.  gaziantep-havalandirma       → Gaziantep şehir/sanayi
+43.  elazig-havalandirma          → Elazığ şehir/sanayi
+
+
+================================================================
+E. ANA SAYFA HERO SLIDER — 5 adet
+================================================================
+Kaydetme yolu: public/hero/{slug}.jpg
+
+44.  hero-1-genel                 → Slide 1: Genel havalandırma tanıtım
+45.  hero-2-klima-santrali        → Slide 2: Klima santrali / AHU
+46.  hero-3-toz-toplama           → Slide 3: Toz toplama sistemi
+47.  hero-4-restoran              → Slide 4: Restoran mutfağı
+48.  hero-5-iki-marka             → Slide 5: İki marka tek çatı (havalandırma + dekorasyon)
+
+
+================================================================
+F. BLOG KAPAK GÖRSELLERİ — 6 adet (OPSIYONEL)
+================================================================
+Kaydetme yolu: public/blog/{slug}.jpg
+
+49.  blog-fan-secimi              → Endüstriyel Havalandırmada Doğru Fan Seçimi
+50.  blog-klima-santrali          → Klima Santrali (AHU) Nedir, Nasıl Çalışır?
+51.  blog-toz-toplama-jetpulse    → Toz Toplama Sistemlerinde Jet-Pulse
+52.  blog-davlumbaz-hesabi        → Endüstriyel Davlumbaz Hesabı
+53.  blog-enerji-verimi           → HVAC Sistemlerinde Enerji Verimi
+54.  blog-baca-yangin             → Endüstriyel Bacalarda Yangın Güvenliği
+
+
+================================================================
+G. GALERİ EK GÖRSELLERİ — 24 adet (OPSIYONEL)
+================================================================
+Kaydetme yolu: public/galeri/{slug}.jpg
+NOT: Galeri zaten Pexels'ten otomatik dolu. Sadece kendi
+projelerinin fotoğraflarını koymak istersen kullan.
+
+55-57.  galeri-havalandirma-1.jpg → 3
+58-60.  galeri-klima-santrali-1.jpg → 3
+61-63.  galeri-toz-toplama-1.jpg → 3
+64-66.  galeri-davlumbaz-1.jpg → 3
+67-69.  galeri-baca-1.jpg → 3
+70-72.  galeri-fan-1.jpg → 3
+73-75.  galeri-filtre-1.jpg → 3
+76-78.  galeri-klima-sistemleri-1.jpg → 3
+
+
+================================================================
+ÖZET
+================================================================
+🔴 ZORUNLU      30 görsel  →  A + B  (Ürünler + Dekorasyon)
+🟡 ÖNERİLEN     12 görsel  →  C + E  (Sektör + Hero)
+🟢 OPSIYONEL    36 görsel  →  D + F + G  (Bölge + Blog + Galeri)
+                ──────────
+                78 GÖRSEL TOPLAM
+
+Sadece zorunluları yaparsan site %90 hazır olur.
+Opsiyonellerde mevcut Pexels fotoları kullanılmaya devam eder.
+
+
+================================================================
+AI PROMPT'LARI İÇİN
+================================================================
+Her görselin İngilizce, hazır prompt'u için bak:
+  → AI-GORSEL-REHBERI.md
+
+Her prompt copy-paste hazır, Bing / Manus / DALL-E / Midjourney
+üzerinde olduğu gibi çalışır.
+
+Önerilen AI aracı: https://www.bing.com/create (ücretsiz)
+
+
+================================================================
+GÖRSEL EKLEDİKTEN SONRA
+================================================================
+1) Dosyayı public/products/{slug}.jpg olarak kaydet
+   (slug yukarıda her görselin adı — örn: aksiyal-fan.jpg)
+
+2) src/data/products.ts dosyasını aç, ilgili ürünü bul, şunu ekle:
+
+      localImage: '/products/aksiyal-fan.jpg',
+
+3) Aynı şeyi decoration.ts ve sectors.ts için de yap (gerekirse).
+
+4) Terminalde:
+      npm run build
+   ve
+      npm run preview
+
+Site artık AI görsellerini kullanır, Pexels yedek olarak kalır.
+
+
+================================================================
+İYİ ÜRETİMLER 🚀
+================================================================

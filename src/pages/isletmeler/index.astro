@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import { sectors } from '../../data/sectors';
+
+const title = 'İşletmeniz İçin Havalandırma | Ökmen';
+const description = 'Restoran, cafe, mağaza, ofis, otel, fabrika veya hastane — işletmeniz hangisi olursa olsun, doğru havalandırma paketini öneriyoruz. Diyarbakır merkezli, Türkiye geneli.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="relative bg-gradient-primary text-white py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/586744/pexels-photo-586744.jpeg?auto=compress&cs=tinysrgb&w=1920')"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-primary/60 to-primary"></div>
+    <div class="relative container-x text-center">
+      <div class="eyebrow text-accent">İşletmenize Özel</div>
+      <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4 text-balance">Hangi İşletmeyi Yönetiyorsunuz?</h1>
+      <p class="text-lg md:text-xl text-pale/90 max-w-3xl mx-auto text-balance">
+        Restoran, mağaza, ofis veya fabrika — her birinin havalandırma ihtiyacı farklı. İşletmenizi seçin, size özel paket öneriyi gösterelim.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sectors.map((s) => (
+          <a href={`/isletmeler/${s.slug}`} class="group relative bg-white rounded-2xl overflow-hidden shadow-card card-hover" data-reveal>
+            <div class="brand-photo-wrap aspect-[16/10]">
+              <img src={s.heroImage} alt={s.title} loading="lazy"/>
+              <div class="absolute top-4 left-4 z-10 text-5xl">{s.emoji}</div>
+              <div class="absolute bottom-4 left-4 right-4 z-10 text-white">
+                <div class="text-xs uppercase tracking-[0.18em] text-accent mb-1">{s.short}</div>
+                <div class="font-serif text-2xl font-bold">{s.title}</div>
+              </div>
+            </div>
+            <div class="p-5 md:p-6">
+              <p class="text-sm text-slate-600 leading-relaxed line-clamp-2 mb-3">{s.description}</p>
+              <div class="flex items-center justify-between text-xs text-slate-500">
+                <span class="font-medium">Paket: {s.budgetRange}</span>
+                <span class="inline-flex items-center gap-1 text-secondary group-hover:text-primary font-semibold transition">
+                  Detay
+                  <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-pale/30">
+    <div class="container-x grid lg:grid-cols-5 gap-10">
+      <div class="lg:col-span-2">
+        <div class="eyebrow">Kararsız mısınız?</div>
+        <h2 class="section-title">Hangi paket size uygun?</h2>
+        <p class="section-subtitle mb-6">
+          İşletmenizin türü, büyüklüğü ve özel ihtiyacınızı anlatın; ekibimiz <strong>5 dakikada</strong> hangi paketin uygun olduğunu söylesin.
+        </p>
+        <a href="https://wa.me/905309009344" target="_blank" rel="noopener" class="btn-accent">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.5 3.5A11.94 11.94 0 0012 0C5.4 0 .03 5.37.03 11.97c0 2.1.55 4.16 1.6 5.98L0 24l6.22-1.62a11.97 11.97 0 005.78 1.47h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-1.25-6.2-3.48-8.38z"/></svg>
+          WhatsApp'tan Sor
+        </a>
+      </div>
+      <div class="lg:col-span-3">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

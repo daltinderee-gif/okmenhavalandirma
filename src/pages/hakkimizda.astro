@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const title = 'Hakkımızda | Ökmen Havalandırma';
+const description = 'Ökmen Havalandırma Isıtma Soğutma Mak. İth. İhr. San. ve Tic. Ltd. Şti. - Diyarbakır merkezli 15+ yıllık endüstriyel havalandırma uzmanı.';
+
+const milestones = [
+  { year: '2010', title: 'Kuruluş', desc: 'Diyarbakır\'da küçük bir atölyede başlayan yolculuk.' },
+  { year: '2013', title: 'İlk Büyük Proje', desc: 'Bölgenin lider tekstil tesisine 50.000 m³/h kapasiteli sistem.' },
+  { year: '2016', title: 'Üretim Tesisi', desc: 'Diyarbakır OSB\'de modern üretim tesisi açıldı.' },
+  { year: '2019', title: 'CE & TSE Belgeleri', desc: 'Tüm ürün grubunda Avrupa standartlarına ulaşıldı.' },
+  { year: '2022', title: '500+ Proje', desc: 'Türkiye genelinde 500. projeyi başarıyla teslim ettik.' },
+  { year: '2026', title: 'Avrupa Açılımı', desc: 'İhracat ile uluslararası pazarlara genişleme dönemi.' },
+];
+
+const values = [
+  { icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', title: 'Güven', desc: 'Söz verdiğimizi zamanında ve eksiksiz teslim ederiz.' },
+  { icon: 'M13 10V3L4 14h7v7l9-11h-7z', title: 'Hız', desc: 'Hızlı teklif, hızlı imalat, hızlı montaj.' },
+  { icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10', title: 'Kalite', desc: 'CE belgeli ürün, Eurovent standardında imalat.' },
+  { icon: 'M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z', title: 'Yakınlık', desc: 'Diyarbakır\'dan tüm Türkiye\'ye, Avrupa\'ya saha desteği.' },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="relative bg-gradient-primary text-white py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/3846205/pexels-photo-3846205.jpeg?auto=compress&cs=tinysrgb&w=1920')"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-primary/60 to-primary"></div>
+    <div class="relative container-x">
+      <div class="eyebrow text-accent">Hakkımızda</div>
+      <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4 text-balance">Mühendis Yaklaşımıyla 15+ Yıllık Yolculuk</h1>
+      <p class="text-lg md:text-xl text-pale/90 max-w-3xl text-balance">
+        Ökmen Havalandırma Isıtma Soğutma Mak. İth. İhr. San. ve Tic. Ltd. Şti. — Güneydoğu'dan tüm Türkiye'ye uzanan, kaliteyi ve dürüstlüğü ilke edinmiş bir aile.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x grid lg:grid-cols-2 gap-12 items-center">
+      <div class="relative" data-reveal>
+        <div class="absolute -top-6 -left-6 w-40 h-40 bg-accent/20 rounded-3xl"></div>
+        <img src="https://images.pexels.com/photos/3846205/pexels-photo-3846205.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Ekibimiz" class="relative rounded-2xl shadow-card-hover w-full" loading="lazy"/>
+      </div>
+      <div data-reveal>
+        <div class="eyebrow">Hikayemiz</div>
+        <h2 class="section-title">Atölyeden Sanayi Tesisine</h2>
+        <p class="text-slate-700 leading-relaxed mb-4">
+          2010 yılında Diyarbakır'da küçük bir atölyede başlayan hikayemiz, bugün modern üretim tesisimiz, mühendis kadromuz ve saha ekiplerimizle Türkiye'nin pek çok şehrinde projeler yürüten bir kurum kimliğine dönüştü.
+        </p>
+        <p class="text-slate-700 leading-relaxed mb-4">
+          Isıtma, soğutma, makine ithalat ve ihracatı alanlarındaki uzmanlığımızla; fabrikalar, hastaneler, oteller, AVM'ler ve konut projelerine anahtar teslim havalandırma çözümleri sunuyoruz.
+        </p>
+        <p class="text-slate-700 leading-relaxed">
+          Diyarbakır → Güneydoğu → 81 İl → Avrupa rotasında büyüyoruz; ancak değişmeyen tek şey var: söz verdiğimizi yapma alışkanlığımız.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-pale/30">
+    <div class="container-x">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="eyebrow">Değerlerimiz</div>
+        <h2 class="section-title">Bizi Biz Yapan İlkeler</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {values.map((v) => (
+          <div class="bg-white p-6 md:p-8 rounded-2xl shadow-card text-center card-hover" data-reveal>
+            <div class="w-14 h-14 mx-auto rounded-xl bg-gradient-primary text-white flex items-center justify-center mb-4">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d={v.icon}/>
+              </svg>
+            </div>
+            <h3 class="font-serif text-xl font-semibold text-primary mb-2">{v.title}</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="eyebrow">Yol Haritamız</div>
+        <h2 class="section-title">15 Yıllık Yolculuğumuz</h2>
+      </div>
+
+      <div class="relative max-w-3xl mx-auto">
+        <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-secondary to-primary"></div>
+
+        <div class="space-y-10">
+          {milestones.map((m, i) => (
+            <div class={`relative flex items-start gap-6 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} md:gap-0`}>
+              <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-accent border-4 border-white shadow-card -translate-x-1/2 mt-2"></div>
+              <div class={`pl-12 md:pl-0 md:w-1/2 ${i % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
+                <div class="bg-white p-5 rounded-xl shadow-card border border-slate-100" data-reveal>
+                  <div class="font-serif text-2xl font-bold text-accent mb-1">{m.year}</div>
+                  <h3 class="font-serif text-lg font-semibold text-primary mb-1">{m.title}</h3>
+                  <p class="text-sm text-slate-600">{m.desc}</p>
+                </div>
+              </div>
+              <div class="hidden md:block md:w-1/2"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-primary text-white">
+    <div class="container-x grid lg:grid-cols-2 gap-12">
+      <div>
+        <div class="eyebrow text-accent">Vizyonumuz</div>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">Güneydoğu'nun Lideri, Türkiye'nin Tercihi</h2>
+        <p class="text-pale/90 leading-relaxed">
+          Endüstriyel havalandırma alanında bölgesinde lider, ülke genelinde en güvenilir, uluslararası pazarda tercih edilen firma olmak. Müşterilerimize sadece ürün değil, ömür boyu sürecek bir teknik ortaklık sunmak.
+        </p>
+      </div>
+      <div>
+        <div class="eyebrow text-accent">Misyonumuz</div>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">Doğru Mühendislik, Şeffaf İlişki</h2>
+        <p class="text-pale/90 leading-relaxed">
+          Her projeye doğru mühendislik hesabı, en verimli ürün seçimi ve şeffaf bir iş ilişkisiyle yaklaşmak. Müşterilerimizin işletme maliyetlerini düşürürken çalışma konforunu artırmak.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x grid lg:grid-cols-2 gap-12">
+      <div>
+        <div class="eyebrow">İletişim</div>
+        <h2 class="section-title">Bir Çay Sohbeti?</h2>
+        <p class="section-subtitle">
+          Diyarbakır'a yolunuz düşerse mutlaka uğrayın. Bir çay eşliğinde projenizi konuşalım.
+        </p>
+      </div>
+      <ContactForm />
+    </div>
+  </section>
+</BaseLayout>
