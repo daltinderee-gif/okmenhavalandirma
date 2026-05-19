@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import { decorationServices, decorationCategories } from '../../data/decoration';
@@ -90,7 +90,7 @@ const byCategory = (cat: keyof typeof decorationCategories) =>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {items.map((s) => (
-                <a href={`/yapi-dekorasyon/${s.slug}`} class="group bg-white rounded-2xl overflow-hidden shadow-card card-hover" data-reveal>
+                <a href={`/yapi-dekorasyon/${s.slug}/`} class="group bg-white rounded-2xl overflow-hidden shadow-card card-hover" data-reveal>
                   <div class="brand-photo-wrap aspect-[4/3]">
                     <img src={s.image} alt={s.title} loading="lazy" class="w-full h-full object-cover"/>
                     <div class="absolute top-3 left-3 z-10">
@@ -164,13 +164,13 @@ const byCategory = (cat: keyof typeof decorationCategories) =>
       </p>
 
       <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-        <a href="/yapi-dekorasyon" class="bg-white/10 hover:bg-white/15 border border-white/20 rounded-2xl p-6 transition group">
+        <a href="/yapi-dekorasyon/" class="bg-white/10 hover:bg-white/15 border border-white/20 rounded-2xl p-6 transition group">
           <div class="text-xs uppercase tracking-[0.2em] text-accent mb-2">Marka 1</div>
           <div class="font-serif text-2xl font-bold mb-2">Mir Dekorasyon</div>
           <div class="text-sm text-pale/80">İç mimari · Tadilat · Cephe · Zemin</div>
           <div class="text-xs text-pale/60 mt-3 font-mono">mirdekorasyon.com</div>
         </a>
-        <a href="/urunler" class="bg-white/10 hover:bg-white/15 border border-white/20 rounded-2xl p-6 transition group">
+        <a href="/urunler/" class="bg-white/10 hover:bg-white/15 border border-white/20 rounded-2xl p-6 transition group">
           <div class="text-xs uppercase tracking-[0.2em] text-accent mb-2">Marka 2</div>
           <div class="font-serif text-2xl font-bold mb-2">Ökmen Havalandırma</div>
           <div class="text-sm text-pale/80">Endüstriyel havalandırma · İklimlendirme</div>

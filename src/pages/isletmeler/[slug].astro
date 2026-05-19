@@ -36,7 +36,7 @@ const recommendedDecoration = sector.recommendedDecoration
       <nav class="text-sm text-pale/70 mb-4">
         <a href="/" class="hover:text-white">Ana Sayfa</a>
         <span class="mx-2">/</span>
-        <a href="/isletmeler" class="hover:text-white">İşletmeler</a>
+        <a href="/isletmeler/" class="hover:text-white">İşletmeler</a>
         <span class="mx-2">/</span>
         <span class="text-white">{sector.title}</span>
       </nav>
@@ -122,7 +122,7 @@ const recommendedDecoration = sector.recommendedDecoration
       <div class="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-secondary">Havalandırma Ürünleri</div>
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mb-10">
         {recommendedProducts.map((p) => (
-          <a href={`/urunler/${p.slug}`} class="group bg-white rounded-xl p-4 border border-slate-100 hover:border-accent hover:shadow-card transition text-center">
+          <a href={`/urunler/${p.slug}/`} class="group bg-white rounded-xl p-4 border border-slate-100 hover:border-accent hover:shadow-card transition text-center">
             <div class="w-12 h-12 mx-auto rounded-xl bg-pale/50 group-hover:bg-primary text-primary group-hover:text-white flex items-center justify-center mb-3 transition">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d={p.icon}/></svg>
             </div>
@@ -134,7 +134,7 @@ const recommendedDecoration = sector.recommendedDecoration
       <div class="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-secondary">Mir Dekorasyon ile Birlikte</div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
         {recommendedDecoration.map((s) => (
-          <a href={`/yapi-dekorasyon/${s.slug}`} class="group bg-white rounded-xl p-4 border border-slate-100 hover:border-accent hover:shadow-card transition text-center">
+          <a href={`/yapi-dekorasyon/${s.slug}/`} class="group bg-white rounded-xl p-4 border border-slate-100 hover:border-accent hover:shadow-card transition text-center">
             <div class="w-12 h-12 mx-auto rounded-xl bg-pale/50 group-hover:bg-secondary text-primary group-hover:text-white flex items-center justify-center mb-3 transition">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d={s.icon}/></svg>
             </div>
@@ -170,7 +170,7 @@ const recommendedDecoration = sector.recommendedDecoration
             "{sector.caseStudy.summary}"
           </p>
           <div class="flex gap-3">
-            <a href="/galeri" class="btn-secondary">Daha Fazla Proje</a>
+            <a href="/galeri/" class="btn-secondary">Daha Fazla Proje</a>
             <a href="https://wa.me/905309009344" target="_blank" rel="noopener" class="btn-primary">Benzer Proje İçin Yaz</a>
           </div>
         </div>

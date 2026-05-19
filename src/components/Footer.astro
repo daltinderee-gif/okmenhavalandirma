@@ -1,4 +1,4 @@
----
+﻿---
 import { products } from '../data/products';
 import { decorationServices } from '../data/decoration';
 
@@ -51,14 +51,14 @@ const regions = [
         <ul class="space-y-2.5 text-sm">
           {topProducts.map((p) => (
             <li>
-              <a href={`/urunler/${p.slug}`} class="text-pale/75 hover:text-accent transition flex items-center gap-2">
+              <a href={`/urunler/${p.slug}/`} class="text-pale/75 hover:text-accent transition flex items-center gap-2">
                 <span class="w-1 h-1 rounded-full bg-accent"></span>
                 {p.title}
               </a>
             </li>
           ))}
           <li>
-            <a href="/urunler" class="text-accent font-semibold hover:underline flex items-center gap-1 mt-1">
+            <a href="/urunler/" class="text-accent font-semibold hover:underline flex items-center gap-1 mt-1">
               Tüm Havalandırma Ürünleri →
             </a>
           </li>
@@ -66,7 +66,7 @@ const regions = [
             <span class="text-pale/60 text-xs uppercase tracking-wider">Hizmet Bölgeleri:</span>
             <div class="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-pale/70">
               {regions.map((r) => (
-                <a href={`/bolgeler/${r.slug}`} class="hover:text-accent transition">{r.title}</a>
+                <a href={`/bolgeler/${r.slug}/`} class="hover:text-accent transition">{r.title}</a>
               ))}
             </div>
           </li>
@@ -81,14 +81,14 @@ const regions = [
         <ul class="space-y-2.5 text-sm">
           {topDecoration.map((s) => (
             <li>
-              <a href={`/yapi-dekorasyon/${s.slug}`} class="text-pale/75 hover:text-accent transition flex items-center gap-2">
+              <a href={`/yapi-dekorasyon/${s.slug}/`} class="text-pale/75 hover:text-accent transition flex items-center gap-2">
                 <span class="w-1 h-1 rounded-full bg-accent"></span>
                 {s.title}
               </a>
             </li>
           ))}
           <li>
-            <a href="/yapi-dekorasyon" class="text-accent font-semibold hover:underline flex items-center gap-1 mt-1">
+            <a href="/yapi-dekorasyon/" class="text-accent font-semibold hover:underline flex items-center gap-1 mt-1">
               Tüm Dekorasyon Hizmetleri →
             </a>
           </li>
@@ -129,7 +129,7 @@ const regions = [
           </li>
         </ul>
 
-        <a href="/iletisim" class="btn-accent w-full mt-5 text-sm">Ücretsiz Keşif Talep Et</a>
+        <a href="/iletisim/" class="btn-accent w-full mt-5 text-sm">Ücretsiz Keşif Talep Et</a>
       </div>
     </div>
   </div>
@@ -141,8 +141,8 @@ const regions = [
       </div>
       <div class="flex items-center gap-4">
         <a href="/" class="hover:text-accent transition">Anasayfa</a>
-        <a href="/hakkimizda" class="hover:text-accent transition">Hakkımızda</a>
-        <a href="/iletisim" class="hover:text-accent transition">İletişim</a>
+        <a href="/hakkimizda/" class="hover:text-accent transition">Hakkımızda</a>
+        <a href="/iletisim/" class="hover:text-accent transition">İletişim</a>
       </div>
     </div>
   </div>

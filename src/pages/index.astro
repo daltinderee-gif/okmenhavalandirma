@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ProductCard from '../components/ProductCard.astro';
@@ -116,13 +116,13 @@ const referenceLogos = ['ASTAŞ', 'EUROVENT', 'TSE', 'BOSCH', 'SIEMENS', 'DAIKIN
         </p>
 
         <div class="flex flex-wrap gap-3">
-          <a href="/hakkimizda" class="btn-primary">
+          <a href="/hakkimizda/" class="btn-primary">
             Bizi Tanıyın
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </a>
-          <a href="/galeri" class="btn-secondary">Projelerimiz</a>
+          <a href="/galeri/" class="btn-secondary">Projelerimiz</a>
         </div>
       </div>
 
@@ -191,7 +191,7 @@ const referenceLogos = ['ASTAŞ', 'EUROVENT', 'TSE', 'BOSCH', 'SIEMENS', 'DAIKIN
   <section class="bg-primary text-white py-6 overflow-hidden border-y border-white/10">
     <div class="marquee flex items-center gap-12 whitespace-nowrap">
       {[...products, ...products].map((p) => (
-        <a href={`/urunler/${p.slug}`} class="flex items-center gap-4 group">
+        <a href={`/urunler/${p.slug}/`} class="flex items-center gap-4 group">
           <span class="font-serif text-2xl md:text-3xl font-semibold text-white group-hover:text-accent transition uppercase tracking-tight">{p.title}</span>
           <span class="w-1.5 h-1.5 rounded-full bg-accent opacity-50"></span>
         </a>
@@ -224,7 +224,7 @@ const referenceLogos = ['ASTAŞ', 'EUROVENT', 'TSE', 'BOSCH', 'SIEMENS', 'DAIKIN
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
         {sectors.map((s, i) => (
           <a
-            href={`/isletmeler/${s.slug}`}
+            href={`/isletmeler/${s.slug}/`}
             class={`group relative rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 ${i === 0 ? 'lg:col-span-2 lg:row-span-2' : ''}`}
             data-reveal
           >
@@ -283,7 +283,7 @@ const referenceLogos = ['ASTAŞ', 'EUROVENT', 'TSE', 'BOSCH', 'SIEMENS', 'DAIKIN
       </div>
 
       <div class="text-center mt-10">
-        <a href="/urunler" class="btn-primary">
+        <a href="/urunler/" class="btn-primary">
           Tüm 20+ Ürünü Görüntüle
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -364,7 +364,7 @@ const referenceLogos = ['ASTAŞ', 'EUROVENT', 'TSE', 'BOSCH', 'SIEMENS', 'DAIKIN
             </div>
           </div>
         </div>
-        <a href="/hakkimizda" class="btn-primary">Bizi Daha Yakından Tanıyın</a>
+        <a href="/hakkimizda/" class="btn-primary">Bizi Daha Yakından Tanıyın</a>
       </div>
     </div>
   </section>
@@ -541,7 +541,7 @@ const referenceLogos = ['ASTAŞ', 'EUROVENT', 'TSE', 'BOSCH', 'SIEMENS', 'DAIKIN
         <div class="lg:col-span-5">
           <div class="grid grid-cols-2 gap-3 mb-6">
             {decorationServices.slice(0, 4).map((s) => (
-              <a href={`/yapi-dekorasyon/${s.slug}`} class="group bg-white rounded-xl p-4 hover:shadow-card-hover transition border border-slate-100 hover:border-accent">
+              <a href={`/yapi-dekorasyon/${s.slug}/`} class="group bg-white rounded-xl p-4 hover:shadow-card-hover transition border border-slate-100 hover:border-accent">
                 <div class="w-10 h-10 rounded-lg bg-pale/60 group-hover:bg-primary text-primary group-hover:text-white flex items-center justify-center mb-3 transition">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d={s.icon}/></svg>
                 </div>
@@ -550,7 +550,7 @@ const referenceLogos = ['ASTAŞ', 'EUROVENT', 'TSE', 'BOSCH', 'SIEMENS', 'DAIKIN
             ))}
           </div>
 
-          <a href="/yapi-dekorasyon" class="btn-primary w-full">
+          <a href="/yapi-dekorasyon/" class="btn-primary w-full">
             Mir Dekorasyon'u Keşfet
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -567,7 +567,7 @@ const referenceLogos = ['ASTAŞ', 'EUROVENT', 'TSE', 'BOSCH', 'SIEMENS', 'DAIKIN
       <!-- All decoration services strip -->
       <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
         {decorationServices.map((s) => (
-          <a href={`/yapi-dekorasyon/${s.slug}`} class="group p-3 rounded-xl bg-white border border-slate-100 hover:border-accent hover:shadow-card text-center transition">
+          <a href={`/yapi-dekorasyon/${s.slug}/`} class="group p-3 rounded-xl bg-white border border-slate-100 hover:border-accent hover:shadow-card text-center transition">
             <div class="w-10 h-10 mx-auto rounded-lg bg-pale/40 group-hover:bg-primary text-primary group-hover:text-white flex items-center justify-center mb-2 transition">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d={s.icon}/></svg>
             </div>
@@ -585,7 +585,7 @@ const referenceLogos = ['ASTAŞ', 'EUROVENT', 'TSE', 'BOSCH', 'SIEMENS', 'DAIKIN
           <div class="eyebrow">Projelerimizden</div>
           <h2 class="section-title">Galeri</h2>
         </div>
-        <a href="/galeri" class="hidden md:inline-flex items-center gap-2 text-primary font-semibold hover:text-secondary transition">
+        <a href="/galeri/" class="hidden md:inline-flex items-center gap-2 text-primary font-semibold hover:text-secondary transition">
           Tüm Galeri
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
@@ -593,7 +593,7 @@ const referenceLogos = ['ASTAŞ', 'EUROVENT', 'TSE', 'BOSCH', 'SIEMENS', 'DAIKIN
 
       <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] md:auto-rows-[220px] gap-3">
         {galleryImages.map((g) => (
-          <a href="/galeri" class={`brand-photo-wrap rounded-xl group ${g.span}`}>
+          <a href="/galeri/" class={`brand-photo-wrap rounded-xl group ${g.span}`}>
             <img src={g.src} alt={g.alt} loading="lazy" class="w-full h-full object-cover"/>
             <div class="absolute bottom-3 left-3 right-3 z-10 text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition translate-y-2 group-hover:translate-y-0">
               {g.alt}
@@ -629,7 +629,7 @@ const referenceLogos = ['ASTAŞ', 'EUROVENT', 'TSE', 'BOSCH', 'SIEMENS', 'DAIKIN
           <div class="eyebrow">Bilgi Köşesi</div>
           <h2 class="section-title">Blog & Mühendislik</h2>
         </div>
-        <a href="/blog" class="hidden md:inline-flex items-center gap-2 text-primary font-semibold hover:text-secondary transition">
+        <a href="/blog/" class="hidden md:inline-flex items-center gap-2 text-primary font-semibold hover:text-secondary transition">
           Tüm Yazılar
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
@@ -638,7 +638,7 @@ const referenceLogos = ['ASTAŞ', 'EUROVENT', 'TSE', 'BOSCH', 'SIEMENS', 'DAIKIN
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {blogPosts.map((post) => (
           <article class="group bg-white rounded-2xl overflow-hidden shadow-card card-hover">
-            <a href="/blog" class="block">
+            <a href="/blog/" class="block">
               <div class="aspect-[5/3] overflow-hidden">
                 <img src={post.image} alt={post.title} loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
               </div>
@@ -669,7 +669,7 @@ const referenceLogos = ['ASTAŞ', 'EUROVENT', 'TSE', 'BOSCH', 'SIEMENS', 'DAIKIN
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
         {regions.map((r) => (
-          <a href={`/bolgeler/${r.slug}`} class="group p-5 bg-white rounded-2xl border border-slate-100 hover:border-accent hover:shadow-card text-center transition-all duration-300 hover:-translate-y-0.5">
+          <a href={`/bolgeler/${r.slug}/`} class="group p-5 bg-white rounded-2xl border border-slate-100 hover:border-accent hover:shadow-card text-center transition-all duration-300 hover:-translate-y-0.5">
             <div class="w-10 h-10 mx-auto rounded-full bg-pale/50 group-hover:bg-accent text-primary group-hover:text-white flex items-center justify-center mb-2 transition">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/>

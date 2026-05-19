@@ -36,7 +36,7 @@ const serviceSchema = {
       <nav class="text-sm text-pale/70 mb-4">
         <a href="/" class="hover:text-white">Ana Sayfa</a>
         <span class="mx-2">/</span>
-        <a href="/yapi-dekorasyon" class="hover:text-white">Mir Dekorasyon</a>
+        <a href="/yapi-dekorasyon/" class="hover:text-white">Mir Dekorasyon</a>
         <span class="mx-2">/</span>
         <span class="text-white">{service.title}</span>
       </nav>
@@ -50,7 +50,7 @@ const serviceSchema = {
       <p class="text-lg md:text-xl text-pale/90 max-w-3xl text-balance">{service.desc}</p>
 
       <div class="mt-6 flex flex-wrap gap-3">
-        <a href="/iletisim" class="btn-accent">Ücretsiz Keşif Al
+        <a href="/iletisim/" class="btn-accent">Ücretsiz Keşif Al
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
         <a href="tel:+905309009344" class="btn-ghost">+90 530 900 93 44</a>
@@ -164,14 +164,14 @@ const serviceSchema = {
           <div class="eyebrow">Diğer Hizmetlerimiz</div>
           <h2 class="section-title text-3xl md:text-4xl">Mir Dekorasyon</h2>
         </div>
-        <a href="/yapi-dekorasyon" class="hidden md:inline-flex items-center gap-2 text-primary font-semibold hover:text-secondary transition">
+        <a href="/yapi-dekorasyon/" class="hidden md:inline-flex items-center gap-2 text-primary font-semibold hover:text-secondary transition">
           Tüm Hizmetler
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {related.map((s) => (
-          <a href={`/yapi-dekorasyon/${s.slug}`} class="group bg-white rounded-2xl overflow-hidden shadow-card card-hover">
+          <a href={`/yapi-dekorasyon/${s.slug}/`} class="group bg-white rounded-2xl overflow-hidden shadow-card card-hover">
             <div class="brand-photo-wrap aspect-[4/3]">
               <img src={s.image} alt={s.title} loading="lazy"/>
             </div>
