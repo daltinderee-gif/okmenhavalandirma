@@ -7,6 +7,7 @@ import { products } from '../data/products';
 import { regions } from '../data/regions';
 import { decorationServices } from '../data/decoration';
 import { sectors } from '../data/sectors';
+import References from '../components/References.astro';
 
 const title = 'Ökmen Havalandırma | Diyarbakır Endüstriyel Havalandırma Çözümleri';
 const description = 'Diyarbakır merkezli endüstriyel havalandırma, klima santrali, toz toplama, davlumbaz ve baca sistemleri. 15+ yıl tecrübe, 500+ proje, CE belgeli ürünler, 7/24 servis.';
@@ -743,4 +744,12 @@ const referenceLogos = ['ASTAŞ', 'EUROVENT', 'TSE', 'BOSCH', 'SIEMENS', 'DAIKIN
       </div>
     </div>
   </section>
+
+  <!-- REFERANSLAR — Footer'ın hemen üstünde -->
+  <References
+    title="İşbirliği Yaptığımız Markalar"
+    subtitle="Güneydoğu'nun önde gelen firmalarına hizmet veriyoruz"
+    bgClass="bg-slate-50"
+  />
+
 </BaseLayout>
