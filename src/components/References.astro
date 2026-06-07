@@ -1,0 +1,114 @@
+---
+/**
+ * References.astro — Referans logo carousel bileşeni
+ * Props: title, subtitle, logos[], bgClass
+ */
+
+interface Logo {
+  src: string;
+  alt: string;
+  name?: string;
+}
+interface Props {
+  title?: string;
+  subtitle?: string;
+  logos?: Logo[];
+  bgClass?: string;
+}
+
+const {
+  title = "İşbirliği Yaptığımız Markalar",
+  subtitle = "Güneydoğu'nun önde gelen firmalarına hizmet veriyoruz",
+  logos = [],
+  bgClass = "bg-slate-50",
+} = Astro.props;
+
+const defaultLogos: Logo[] = [
+  { src: "https://www.mirdekorasyon.com/resim/167/167/userfiles!images!test_1228196213-1544881169.jpg", alt: "Doğanay Kesici Takımlar" },
+  { src: "https://www.mirdekorasyon.com/resim/167/167/userfiles!images!test_27195251-1544881169.jpg", alt: "Fon Klima" },
+  { src: "https://www.mirdekorasyon.com/resim/167/167/userfiles!images!test_2060192171-1544881169.jpg", alt: "Buketist" },
+  { src: "https://www.mirdekorasyon.com/resim/167/167/userfiles!images!test_1195525309-1544881169.jpg", alt: "Mertsav" },
+  { src: "https://www.mirdekorasyon.com/resim/167/167/userfiles!images!test_1859791991-1732738599.jpg", alt: "Bahçeşehir Kolejleri" },
+  { src: "https://www.mirdekorasyon.com/resim/167/167/userfiles!images!test_329921619-1544881169.jpg", alt: "Yellow Taxi" },
+  { src: "https://www.mirdekorasyon.com/resim/167/167/userfiles!images!test_1710447472-1544881169.jpg", alt: "Cafe Limon" },
+  { src: "https://www.mirdekorasyon.com/resim/167/167/userfiles!images!test_938009023-1544881169.jpg", alt: "Buffalo Zoo" },
+  { src: "https://www.mirdekorasyon.com/resim/167/167/userfiles!images!test_1553174838-1732739080.jpg", alt: "Motherson" },
+  { src: "https://www.mirdekorasyon.com/resim/167/167/userfiles!images!test_200950898-1732738225.jpg", alt: "ND Referans" },
+  { src: "https://www.mirdekorasyon.com/resim/167/167/userfiles!images!test_114830965-1732738465.jpg", alt: "SH Referans" },
+  { src: "https://www.mirdekorasyon.com/resim/167/167/userfiles!images!test_892733224-1732737529.jpg", alt: "Wartsila" },
+  { src: "https://www.mirdekorasyon.com/resim/167/167/userfiles!images!test_1094096664-1732737972.png", alt: "Referans 13" },
+  { src: "https://www.mirdekorasyon.com/resim/167/167/userfiles!images!test_1647177133-1732738119.png", alt: "Referans 14" },
+];
+
+const displayLogos = logos.length > 0 ? logos : defaultLogos;
+const doubledLogos = [...displayLogos, ...displayLogos];
+---
+
+<section class={`${bgClass} py-14 md:py-20 overflow-hidden`}>
+  <div class="container-x mb-8 md:mb-12 text-center">
+    <div class="eyebrow mb-3">Referanslarımız</div>
+    <h2 class="section-title">{title}</h2>
+    {subtitle && (
+      <p class="section-subtitle mx-auto mt-3">{subtitle}</p>
+    )}
+  </div>
+
+  <!-- Sonsuz kayan carousel -->
+  <div class="relative w-full" aria-label="Referans logoları">
+    <div class="absolute left-0 top-0 bottom-0 w-20 md:w-32 z-10 pointer-events-none"
+         style="background: linear-gradient(to right, var(--tw-bg-opacity, 1) 0%, transparent 100%);"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-20 md:w-32 z-10 pointer-events-none"
+         style="background: linear-gradient(to left, var(--tw-bg-opacity, 1) 0%, transparent 100%);"></div>
+
+    <div class="flex gap-6 md:gap-8 refs-track">
+      {doubledLogos.map((logo, i) => (
+        <div
+          class="refs-item flex-shrink-0 w-36 h-24 md:w-44 md:h-28 bg-white rounded-xl shadow-sm border border-slate-100 flex items-center justify-center p-4 group hover:shadow-md hover:border-accent/30 transition-all duration-300"
+          title={logo.name ?? logo.alt}
+        >
+          <img
+            src={logo.src}
+            alt={logo.alt}
+            loading="lazy"
+            decoding="async"
+            class="max-w-full max-h-full w-auto h-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100"
+            width="140"
+            height="80"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Placeholder kutular — logo listesi gelince sil -->
+  <div class="container-x mt-8 hidden">
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-4">
+      {Array.from({ length: 14 }).map((_, i) => (
+        <div class="aspect-[3/2] rounded-xl border-2 border-dashed border-slate-200 flex items-center justify-center text-slate-300 text-xs font-mono">
+          Logo {i + 1}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .refs-track {
+    width: max-content;
+    animation: refs-scroll 32s linear infinite;
+  }
+  .refs-track:hover {
+    animation-play-state: paused;
+  }
+  @keyframes refs-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .refs-track {
+      animation: none;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+</style>
