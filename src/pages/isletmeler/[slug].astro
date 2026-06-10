@@ -4,6 +4,7 @@ import ContactForm from '../../components/ContactForm.astro';
 import { sectors, type Sector } from '../../data/sectors';
 import { products } from '../../data/products';
 import { decorationServices } from '../../data/decoration';
+import { regions } from '../../data/regions';
 import { breadcrumb, service, faqPage } from '../../lib/schema';
 
 export function getStaticPaths() {
@@ -239,6 +240,21 @@ const breadcrumbSchema = breadcrumb([
       </div>
       <div class="lg:col-span-3">
         <ContactForm defaultService={sector.title} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-primary text-white">
+    <div class="container-x text-center">
+      <div class="eyebrow text-accent">Hizmet Bölgelerimiz</div>
+      <h2 class="font-serif text-3xl md:text-4xl font-bold mb-3">{sector.title} Havalandırması — Hangi Şehirde?</h2>
+      <p class="text-pale/80 mb-8 max-w-2xl mx-auto">Diyarbakır merkez başta olmak üzere Güneydoğu'nun 6 ilinde {sector.title.toLowerCase()} işletmelerine yerinde hizmet veriyoruz.</p>
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        {regions.map((r) => (
+          <a href={`/bolgeler/${r.slug}/`} class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white hover:text-primary border border-white/20 transition font-medium">
+            {r.city}
+          </a>
+        ))}
       </div>
     </div>
   </section>

@@ -1,70 +1,16 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { blogPosts } from '../../data/blog';
 
 const title = 'Blog | Ökmen Havalandırma';
 const description = 'Endüstriyel havalandırma, klima santrali, toz toplama ve iklimlendirme konularında uzman yazıları, sektörel haberler ve mühendislik rehberleri.';
 
-const posts = [
-  {
-    slug: 'fan-secimi',
-    title: 'Endüstriyel Havalandırmada Doğru Fan Seçimi',
-    excerpt: 'Aksiyal mı, salyangoz mu, hücreli mi? Tesisinize uygun fan tipini seçmenin püf noktaları ve hesaplama yöntemleri.',
-    image: 'https://images.pexels.com/photos/162568/oil-pump-jack-sunset-clouds-silhouette-162568.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    date: '12 Mayıs 2026',
-    category: 'Mühendislik',
-    readTime: '6 dk',
-  },
-  {
-    slug: 'klima-santrali',
-    title: 'Klima Santrali (AHU) Nedir, Nasıl Çalışır?',
-    excerpt: 'Modern binalarda iklimlendirmenin kalbi olan AHU sistemlerinin çalışma prensibi ve seçim kriterleri.',
-    image: 'https://images.pexels.com/photos/3964736/pexels-photo-3964736.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    date: '5 Mayıs 2026',
-    category: 'Eğitim',
-    readTime: '8 dk',
-  },
-  {
-    slug: 'toz-toplama',
-    title: 'Toz Toplama Sistemlerinde Jet-Pulse Teknolojisi',
-    excerpt: 'Otomatik filtre temizleme nasıl çalışır, hangi sektörlerde tercih edilir ve verim hesabı.',
-    image: 'https://images.pexels.com/photos/2760243/pexels-photo-2760243.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    date: '28 Nisan 2026',
-    category: 'Teknoloji',
-    readTime: '5 dk',
-  },
-  {
-    slug: 'davlumbaz',
-    title: 'Endüstriyel Davlumbaz Hesabı: Mutfak vs Üretim',
-    excerpt: 'Restoran ve endüstriyel üretim alanları için davlumbaz boyutlandırma ve egzoz hesabı.',
-    image: 'https://images.pexels.com/photos/2544829/pexels-photo-2544829.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    date: '20 Nisan 2026',
-    category: 'Mühendislik',
-    readTime: '7 dk',
-  },
-  {
-    slug: 'enerji-verimi',
-    title: 'HVAC Sistemlerinde Enerji Verimi: 7 İpucu',
-    excerpt: 'İşletme maliyetlerini %30\'a kadar düşüren pratik enerji verimliliği önlemleri.',
-    image: 'https://images.pexels.com/photos/3964705/pexels-photo-3964705.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    date: '14 Nisan 2026',
-    category: 'Tasarruf',
-    readTime: '6 dk',
-  },
-  {
-    slug: 'baca-yangin',
-    title: 'Endüstriyel Bacalarda Yangın Güvenliği',
-    excerpt: 'Çelik baca sistemlerinde yangın güvenliği önlemleri ve TS EN standartları.',
-    image: 'https://images.pexels.com/photos/459728/pexels-photo-459728.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    date: '8 Nisan 2026',
-    category: 'Güvenlik',
-    readTime: '5 dk',
-  },
-];
+const posts = blogPosts;
 ---
 
 <BaseLayout title={title} description={description}>
   <section class="relative bg-gradient-primary text-white py-20 md:py-28">
-    <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/3964736/pexels-photo-3964736.jpeg?auto=compress&cs=tinysrgb&w=1920')"></div>
+    <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('/images/lib/pexels-3964736.webp')"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-primary/60 to-primary"></div>
     <div class="relative container-x text-center">
       <div class="eyebrow text-accent">Bilgi & Mühendislik</div>
@@ -82,7 +28,7 @@ const posts = [
           <article class="group bg-white rounded-2xl overflow-hidden shadow-card card-hover">
             <a href={`/blog/${post.slug}/`} class="block">
               <div class="aspect-[5/3] overflow-hidden">
-                <img src={post.image} alt={post.title} loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+                <img src={post.image} alt={post.imageAlt} loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
               </div>
               <div class="p-6">
                 <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
@@ -90,7 +36,7 @@ const posts = [
                   <span>•</span>
                   <span>{post.date}</span>
                   <span>•</span>
-                  <span>{post.readTime}</span>
+                  <span>{post.readingTime}</span>
                 </div>
                 <h2 class="font-serif text-xl font-semibold text-primary mb-2 group-hover:text-secondary transition line-clamp-2">
                   {post.title}

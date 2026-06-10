@@ -1,5 +1,7 @@
 export interface Region {
   slug: string;
+  /** Şehrin sanayisine uygun öne çıkan ürün slug'ları (local SEO + alaka) */
+  recommendedProducts: string[];
   city: string;
   title: string;
   description: string;
@@ -15,6 +17,7 @@ export interface Region {
 export const regions: Region[] = [
   {
     slug: 'diyarbakir-havalandirma',
+    recommendedProducts: ['havalandirma-sistemleri', 'klima-santrali', 'toz-toplama-sistemleri', 'davlumbaz-sistemleri', 'celik-baca-sistemleri', 'hava-kanallari'],
     city: 'Diyarbakır',
     title: 'Diyarbakır Havalandırma Sistemleri',
     description: 'Diyarbakır endüstriyel havalandırma, klima santrali, toz toplama, davlumbaz ve baca sistemleri kurulum, montaj ve servis.',
@@ -37,6 +40,7 @@ export const regions: Region[] = [
   },
   {
     slug: 'sanliurfa-havalandirma',
+    recommendedProducts: ['aksiyal-fan', 'klima-santrali', 'toz-toplama-sistemleri', 'davlumbaz-sistemleri', 'filtreler', 'hava-kanallari'],
     city: 'Şanlıurfa',
     title: 'Şanlıurfa Havalandırma Sistemleri',
     description: 'Şanlıurfa OSB ve sanayi bölgesinde endüstriyel havalandırma, soğutma, toz toplama ve baca sistemleri.',
@@ -59,6 +63,7 @@ export const regions: Region[] = [
   },
   {
     slug: 'batman-havalandirma',
+    recommendedProducts: ['aksiyal-fan', 'celik-baca-sistemleri', 'toz-toplama-sistemleri', 'sulu-filtre', 'elektrostatik-filtre', 'davlumbaz-sistemleri'],
     city: 'Batman',
     title: 'Batman Havalandırma Sistemleri',
     description: 'Batman petrol, kimya ve gıda sanayi tesislerinde havalandırma, Ex-proof fan ve toz toplama çözümleri.',
@@ -81,6 +86,7 @@ export const regions: Region[] = [
   },
   {
     slug: 'mardin-havalandirma',
+    recommendedProducts: ['klima-santrali', 'davlumbaz-sistemleri', 'klima-sistemleri', 'celik-baca-sistemleri', 'elektrostatik-filtre', 'menfez'],
     city: 'Mardin',
     title: 'Mardin Havalandırma Sistemleri',
     description: 'Mardin OSB ve turizm tesislerinde havalandırma, klima santrali ve davlumbaz sistemleri.',
@@ -103,6 +109,7 @@ export const regions: Region[] = [
   },
   {
     slug: 'gaziantep-havalandirma',
+    recommendedProducts: ['toz-toplama-sistemleri', 'aksiyal-fan', 'salyangoz-fan', 'klima-santrali', 'hava-kanallari', 'davlumbaz-sistemleri'],
     city: 'Gaziantep',
     title: 'Gaziantep Havalandırma Sistemleri',
     description: 'Gaziantep OSB, tekstil ve gıda sanayisinde endüstriyel havalandırma ve toz toplama sistemleri.',
@@ -125,6 +132,7 @@ export const regions: Region[] = [
   },
   {
     slug: 'elazig-havalandirma',
+    recommendedProducts: ['toz-toplama-sistemleri', 'celik-baca-sistemleri', 'isitma-sistemleri', 'sulu-filtre', 'baca-sistemleri', 'salyangoz-fan'],
     city: 'Elazığ',
     title: 'Elazığ Havalandırma Sistemleri',
     description: 'Elazığ OSB ve sanayi bölgesinde endüstriyel havalandırma, baca ve filtre sistemleri.',
