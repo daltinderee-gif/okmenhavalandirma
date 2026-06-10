@@ -18,11 +18,25 @@ export interface Product {
   icon: string;
 }
 
+/** Yerel AI/gerçek ürün görseli bulunan ürünler (public/products/{slug}.webp).
+ *  Hepsi Gemini ile üretildi, WebP'ye çevrildi. Yeni görsel ekledikçe slug'ı buraya ekle. */
+const LOCAL_IMAGE_SLUGS = new Set<string>([
+  'havalandirma-sistemleri', 'aksiyal-fan', 'hucreli-aspirator', 'salyangoz-fan',
+  'klima-santrali', 'toz-toplama-sistemleri', 'celik-baca-sistemleri', 'hava-kanallari',
+  'elektrostatik-filtre', 'filtreler', 'flexible-borular', 'baglanti-ekipmanlari',
+  'menfez', 'davlumbaz-sistemleri', 'isitma-sistemleri', 'sulu-filtre', 'esmatik',
+  'baca-sistemleri', 'klima-sistemleri', 'izolasyon-kaplama', 'medikal-gaz-tesisati',
+  'somine-sistemleri',
+]);
+
 /** Returns the best available image for a product:
- *  1. localImage (AI-generated or owner photo in /public/products/) if set
- *  2. Pexels fallback otherwise */
+ *  1. localImage alanı elle set edilmişse onu
+ *  2. public/products/{slug}.webp varsa onu (LOCAL_IMAGE_SLUGS)
+ *  3. Pexels/Pixabay fallback */
 export function getProductImage(product: Product): string {
-  return product.localImage || product.image;
+  if (product.localImage) return product.localImage;
+  if (LOCAL_IMAGE_SLUGS.has(product.slug)) return `/products/${product.slug}.webp`;
+  return product.image;
 }
 
 export const products: Product[] = [
@@ -86,7 +100,7 @@ export const products: Product[] = [
     desc: 'Yüksek debi santrifüj fan sistemleri',
     pexels: 'centrifugal blower fan',
     image: 'https://pixabay.com/get/g72b651b999de3000e1276bfc1cf0b0d111d67e812eefcd0afcb50ff0edf92191869730a75c9659e9f51e43f9c394412b36f724eaa9a0497333e8c09c206612e1_1280.jpg',
-    localImage: '/products/salyangoz-fan.jpg',
+    localImage: '/products/salyangoz-fan.webp',
     features: [
       'Yüksek statik basınç',
       'İleri/geri eğimli kanat',
