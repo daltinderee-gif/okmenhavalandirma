@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import { products, getProductImage } from '../../data/products';
+import { breadcrumb } from '../../lib/schema';
 
 export function getStaticPaths() {
   return products.map((product) => ({
@@ -33,9 +34,15 @@ const productSchema = {
     seller: { '@type': 'Organization', name: 'Ökmen Havalandırma' },
   },
 };
+
+const breadcrumbSchema = breadcrumb([
+  { name: 'Ana Sayfa', path: '/' },
+  { name: 'Ürünler', path: '/urunler/' },
+  { name: product.title, path: `/urunler/${product.slug}/` },
+]);
 ---
 
-<BaseLayout title={title} description={description} image={imageUrl} schema={productSchema}>
+<BaseLayout title={title} description={description} image={imageUrl} schema={[productSchema, breadcrumbSchema]}>
   <section class="relative bg-gradient-primary text-white py-16 md:py-20 overflow-hidden">
     <div class="absolute inset-0 opacity-30 bg-cover bg-center" style={`background-image: url('${imageUrl}')`}></div>
     <div class="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/80 to-primary"></div>

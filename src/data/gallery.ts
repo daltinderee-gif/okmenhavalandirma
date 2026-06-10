@@ -4,121 +4,121 @@ export const galleryImages: GalleryImage[] = [
   {
     "src": "/images/lib/pexels-11538226.webp",
     "cat": "Havalandırma",
-    "alt": "Havalandırma — Close-up view of an air duct labeled 'SUPPLY' in an industrial setting."
+    "alt": "Endüstriyel bir tesiste temiz hava beslemesi sağlayan galvaniz havalandırma kanalının yakın görünümü"
   },
   {
     "src": "/images/lib/pexels-11538226.webp",
     "cat": "Havalandırma",
-    "alt": "Havalandırma — Close-up view of an air duct labeled 'SUPPLY' in an industrial setting."
+    "alt": "Fabrika içinde monte edilmiş havalandırma kanalı detayı ve hava dağıtım hattının yakın çekimi"
   },
   {
     "src": "/images/lib/pexels-29452977.webp",
     "cat": "Havalandırma",
-    "alt": "Havalandırma — Close-up of an industrial HVAC unit outdoors, showcasing its metal texture."
+    "alt": "Bina dışına yerleştirilmiş endüstriyel havalandırma ünitesinin metal gövdesinin yakın görünümü"
   },
   {
     "src": "/images/lib/pexels-13109834.webp",
     "cat": "Klima Santrali",
-    "alt": "Klima Santrali — Black and white image showcasing a modern rooftop with air conditioning and ventilation units by the waterfront."
+    "alt": "Bir binanın çatısına kurulmuş klima santrali ve havalandırma üniteleri"
   },
   {
     "src": "/images/lib/pexels-29452977.webp",
     "cat": "Klima Santrali",
-    "alt": "Klima Santrali — Close-up of an industrial HVAC unit outdoors, showcasing its metal texture."
+    "alt": "Açık alana monte edilmiş klima santrali ünitesinin paslanmaz metal gövdesi"
   },
   {
     "src": "/images/lib/pexels-14522790.webp",
     "cat": "Klima Santrali",
-    "alt": "Klima Santrali — Close-up of an industrial air conditioner setup on a building wall, showcasing pipes and a ladder."
+    "alt": "Bina dış cephesine kurulmuş klima santrali, bağlantı boruları ve servis merdiveni"
   },
   {
     "src": "/images/lib/pexels-13806340.webp",
     "cat": "Toz Toplama",
-    "alt": "Toz Toplama — Close-up of a Dust-Hog industrial dust collector with six rusty filtration units."
+    "alt": "Çok kartuşlu filtre üniteleriyle çalışan endüstriyel toz toplama sisteminin yakın görünümü"
   },
   {
     "src": "/images/lib/pexels-4235037.webp",
     "cat": "Toz Toplama",
-    "alt": "Toz Toplama — A dramatic view of a road leading through Banff National Park capturing the essence of travel and adventure."
+    "alt": "Tesis sahasında konumlanmış toz toplama ünitesi ve emiş hattı görünümü"
   },
   {
     "src": "/images/lib/pexels-12726229.webp",
     "cat": "Toz Toplama",
-    "alt": "Toz Toplama — Four beige tanks in an outdoor water treatment setup with blue piping."
+    "alt": "Açık alanda sıralı toz toplama tankları ve mavi bağlantı borularıyla kurulu filtrasyon hattı"
   },
   {
     "src": "/images/lib/pexels-33986701.webp",
     "cat": "Davlumbaz",
-    "alt": "Davlumbaz — Modern industrial kitchen interior featuring stainless steel appliances and tiled flooring, ideal for commercial use."
+    "alt": "Endüstriyel mutfakta paslanmaz çelik davlumbaz ve egzoz havalandırma sistemi"
   },
   {
     "src": "/images/lib/pexels-33986701.webp",
     "cat": "Davlumbaz",
-    "alt": "Davlumbaz — Modern industrial kitchen interior featuring stainless steel appliances and tiled flooring, ideal for commercial use."
+    "alt": "Ticari mutfağa kurulmuş paslanmaz çelik davlumbaz ve hava emiş bacası detayı"
   },
   {
     "src": "/images/lib/pexels-10827337.webp",
     "cat": "Davlumbaz",
-    "alt": "Davlumbaz — Spacious kitchen with granite countertops and natural light from large windows."
+    "alt": "Geniş mutfakta tezgah üzerine yerleştirilmiş davlumbaz ve havalandırma çıkışı"
   },
   {
     "src": "/images/lib/pexels-10611307.webp",
     "cat": "Baca",
-    "alt": "Baca — A factory chimney releasing smoke against a clear blue sky, highlighting air pollution."
+    "alt": "Açık mavi gökyüzüne uzanan endüstriyel fabrika bacası ve baca tahliye sistemi"
   },
   {
     "src": "/images/lib/pexels-16191930.webp",
     "cat": "Baca",
-    "alt": "Baca — A large industrial factory emitting smoke from chimneys under a clear blue sky."
+    "alt": "Büyük bir sanayi tesisinin bacaları ve atık gaz tahliye hattı"
   },
   {
     "src": "/images/lib/pexels-33333020.webp",
     "cat": "Baca",
-    "alt": "Baca — Modern industrial chimneys and support mast with flues against a clear blue sky, showcasing advanced infrastructure."
+    "alt": "Mavi gökyüzüne karşı yükselen modern endüstriyel bacalar ve taşıyıcı baca konstrüksiyonu"
   },
   {
     "src": "/images/lib/pexels-17875903.webp",
     "cat": "Fan & Aspiratör",
-    "alt": "Fan & Aspiratör — Black and white photo of industrial fans mounted on a concrete wall in an urban environment."
+    "alt": "Beton duvara monte edilmiş endüstriyel aspiratör fanları ve hava tahliye ızgaraları"
   },
   {
     "src": "/images/lib/pexels-29802716.webp",
     "cat": "Fan & Aspiratör",
-    "alt": "Fan & Aspiratör — A row of large colorful ventilation fans on a rustic industrial building exterior."
+    "alt": "Sanayi binası cephesine sıralı şekilde yerleştirilmiş büyük havalandırma fanları"
   },
   {
     "src": "/images/lib/pexels-416423.webp",
     "cat": "Fan & Aspiratör",
-    "alt": "Fan & Aspiratör — Close-up of large red and blue industrial fans on a rustic wall showcasing machinery and ventilation."
+    "alt": "Duvara kurulmuş büyük endüstriyel aspiratör fanlarının ve davlumbaz çıkışının yakın görünümü"
   },
   {
     "src": "/images/lib/pexels-29452977.webp",
     "cat": "Filtre",
-    "alt": "Filtre — Close-up of an industrial HVAC unit outdoors, showcasing its metal texture."
+    "alt": "Açık alandaki havalandırma ünitesinin hava filtresi ve metal gövde detayı"
   },
   {
     "src": "/images/lib/pexels-9381013.webp",
     "cat": "Filtre",
-    "alt": "Filtre — Close-up of a mechanic installing air filters on a classic red car's engine inside a garage."
+    "alt": "Havalandırma sistemine takılan hava filtresinin yakın çekim montaj görünümü"
   },
   {
     "src": "/images/lib/pexels-13806340.webp",
     "cat": "Filtre",
-    "alt": "Filtre — Close-up of a Dust-Hog industrial dust collector with six rusty filtration units."
+    "alt": "Toz toplama sisteminin kartuş filtre üniteleri ve filtrasyon hücrelerinin yakın görünümü"
   },
   {
     "src": "/images/lib/pexels-24828656.webp",
     "cat": "Klima Sistemleri",
-    "alt": "Klima Sistemleri — A Ballu air conditioner condenser unit mounted on a building exterior, showcasing modern HVAC technology."
+    "alt": "Bina dış cephesine monte edilmiş klima dış ünitesi ve kondenser grubu"
   },
   {
     "src": "/images/lib/pexels-3964341.webp",
     "cat": "Klima Sistemleri",
-    "alt": "Klima Sistemleri — External air conditioner unit placed on metal platform near gray shabby wall of modern building on street"
+    "alt": "Bina dış duvarındaki metal platforma yerleştirilmiş klima dış ünitesi"
   },
   {
     "src": "/images/lib/pexels-33671149.webp",
     "cat": "Klima Sistemleri",
-    "alt": "Klima Sistemleri — Technician repairing an air conditioner unit in New Delhi workshop."
+    "alt": "Klima ünitesinin bakım ve onarım çalışması yapan teknisyen"
   }
 ];

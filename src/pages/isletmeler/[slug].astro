@@ -4,6 +4,7 @@ import ContactForm from '../../components/ContactForm.astro';
 import { sectors, type Sector } from '../../data/sectors';
 import { products } from '../../data/products';
 import { decorationServices } from '../../data/decoration';
+import { breadcrumb, service, faqPage } from '../../lib/schema';
 
 export function getStaticPaths() {
   return sectors.map((sector) => ({
@@ -24,9 +25,38 @@ const recommendedProducts = sector.recommendedProducts
 const recommendedDecoration = sector.recommendedDecoration
   .map((slug) => decorationServices.find((s) => s.slug === slug))
   .filter(Boolean) as typeof decorationServices;
+
+const AREA = ['Diyarbakır', 'Şanlıurfa', 'Batman', 'Mardin', 'Gaziantep', 'Elazığ'];
+
+const serviceSchema = service({
+  serviceType: `${sector.title} Havalandırma Çözümleri`,
+  description: sector.description,
+  areaServed: AREA,
+});
+
+const faqSchema = faqPage([
+  {
+    q: `${sector.title} için havalandırma keşfi ücretli mi?`,
+    a: 'Hayır. Diyarbakır ve çevre illerde yerinde keşif ve fiyat teklifimiz ücretsizdir. İşletmenize gelip ihtiyacınızı inceliyor, size özel projelendirilmiş teklif sunuyoruz.',
+  },
+  {
+    q: `${sector.title} havalandırma kurulumu ne kadar sürer?`,
+    a: 'Proje kapsamına göre değişir; keşif sonrası net süre ve teslim tarihi veriyoruz. Açılış/teslim tarihinize göre planlama yapıp anahtar teslim tamamlıyoruz.',
+  },
+  {
+    q: `${sector.title} için hangi sistemleri kuruyorsunuz?`,
+    a: `${sector.description} Davlumbaz, baca, filtre, klima ve kanal sistemlerini tek elden projelendirip montajını yapıyoruz.`,
+  },
+]);
+
+const breadcrumbSchema = breadcrumb([
+  { name: 'Ana Sayfa', path: '/' },
+  { name: 'İşletmeler', path: '/isletmeler/' },
+  { name: sector.title, path: `/isletmeler/${sector.slug}/` },
+]);
 ---
 
-<BaseLayout title={title} description={description} image={sector.heroImage}>
+<BaseLayout title={title} description={description} image={sector.heroImage} schema={[serviceSchema, faqSchema, breadcrumbSchema]}>
   <!-- HERO -->
   <section class="relative bg-gradient-primary text-white py-16 md:py-24 overflow-hidden">
     <div class="absolute inset-0 opacity-35 bg-cover bg-center" style={`background-image: url('${sector.heroImage}')`}></div>

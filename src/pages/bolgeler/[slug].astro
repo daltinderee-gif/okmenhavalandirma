@@ -4,6 +4,7 @@ import ContactForm from '../../components/ContactForm.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import { regions } from '../../data/regions';
 import { products } from '../../data/products';
+import { breadcrumb, service } from '../../lib/schema';
 
 export function getStaticPaths() {
   return regions.map((region) => ({
@@ -19,16 +20,20 @@ const description = region.description;
 
 const featuredProducts = products.slice(0, 6);
 
-const serviceSchema = {
-  '@type': 'Service',
+const serviceSchema = service({
   serviceType: 'Endüstriyel Havalandırma',
-  provider: { '@type': 'LocalBusiness', name: 'Ökmen Havalandırma' },
-  areaServed: { '@type': 'City', name: region.city },
   description: region.description,
-};
+  areaServed: [region.city],
+});
+
+const breadcrumbSchema = breadcrumb([
+  { name: 'Ana Sayfa', path: '/' },
+  { name: 'Bölgeler', path: '/bolgeler/' },
+  { name: region.city, path: `/bolgeler/${region.slug}/` },
+]);
 ---
 
-<BaseLayout title={title} description={description} image={region.heroImage} schema={serviceSchema}>
+<BaseLayout title={title} description={description} image={region.heroImage} schema={[serviceSchema, breadcrumbSchema]}>
   <section class="relative bg-gradient-primary text-white py-20 md:py-28 overflow-hidden">
     <div class="absolute inset-0 opacity-30 bg-cover bg-center" style={`background-image: url('${region.heroImage}')`}></div>
     <div class="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/80 to-primary"></div>
