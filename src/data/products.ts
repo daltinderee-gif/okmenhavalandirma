@@ -50,6 +50,7 @@ export const products: Product[] = [
     desc: 'Yüksek performanslı aksiyal fan sistemleri',
     pexels: 'industrial axial fan',
     image: 'https://pixabay.com/get/g5cfb0103217294234f431decdf822bb67824673dc61ff1e820528ce0bd544dbae7825b9859679455f7b7714989f26ec5299b49ff04fc7e3fa7a59bc22747a442_1280.jpg',
+    localImage: '/products/aksiyal-fan.webp',
     features: [
       'Yüksek hava debisi',
       'Düşük statik basınç',
@@ -67,6 +68,7 @@ export const products: Product[] = [
     desc: 'Yüksek basınçlı sessiz hücreli fan sistemleri',
     pexels: 'duct fan ventilation',
     image: 'https://pixabay.com/get/g678bd2d93593af7baa94647a45491a4800bd4cca4fe155adaaeee6572402fdce712c42511a032887378bfd862a0caceaa8f3393e7d61e83422a2a2ba5ba517f4_1280.jpg',
+    localImage: '/products/hucreli-aspirator.webp',
     features: [
       'Akustik ses yalıtımı',
       'Geri eğimli kanat yapısı',
@@ -102,6 +104,7 @@ export const products: Product[] = [
     desc: 'Isıtma soğutma nemlendirme bir arada AHU sistemleri',
     pexels: 'air handling unit HVAC',
     image: 'https://pixabay.com/get/gf7339d38079a316890186003b5b185c95823253c7ee251fb106c5b10c66f225db454578b39d3a26e239f0ad6ca174b58c3db37f62e5ee82fea3dfb9fdeda3b20_1280.jpg',
+    localImage: '/products/klima-santrali.webp',
     features: [
       'Eurovent sertifikalı paneller',
       'Isı geri kazanım üniteleri',
@@ -119,6 +122,7 @@ export const products: Product[] = [
     desc: 'Jet-Pulse filtreli endüstriyel toz toplama',
     pexels: 'dust collector industrial',
     image: 'https://pixabay.com/get/g54c5f7b32805e130fc865b877738403835b5cf76a3016af5af299aa4ab580dc221665c918ceec08b405b3ffbcbf82c617d3983324007e71d6e420725ce72279a_1280.jpg',
+    localImage: '/products/toz-toplama-sistemleri.webp',
     features: [
       'Jet-Pulse otomatik temizleme',
       'M-sınıfı kartuş filtre',
@@ -136,6 +140,7 @@ export const products: Product[] = [
     desc: 'Paslanmaz çelik baca ve egzoz sistemleri',
     pexels: 'stainless steel chimney flue',
     image: 'https://pixabay.com/get/gfa9b4533a2f57aca6975a33f1d524c39e8b2478fa216f3b3ac4390e28e2350815777858f932de545be57a4f264baa18a547b12b1c488bf487cf8adf2bc806937_1280.jpg',
+    localImage: '/products/celik-baca-sistemleri.webp',
     features: [
       'AISI 304/316 paslanmaz çelik',
       'Çift cidarlı izoleli model',
@@ -255,6 +260,7 @@ export const products: Product[] = [
     desc: 'Mutfak üretim alanı duman emme sistemleri',
     pexels: 'commercial kitchen hood exhaust',
     image: 'https://pixabay.com/get/gd1be7341c93321c5285ca1772c824cd799dde60b0f2c86af205f16aba7f8cf716104509b663238328414de301d3eb93ed3fdacd6f7a5b471dbb00dc077efa771_1280.jpg',
+    localImage: '/products/davlumbaz-sistemleri.webp',
     features: [
       'AISI 304 paslanmaz gövde',
       'Yağ tutucu kasetli filtre',

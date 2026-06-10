@@ -12,6 +12,8 @@ export interface Props {
   canonical?: string;
   noindex?: boolean;
   schema?: Record<string, unknown>;
+  /** LCP görseli — verilirse <head>'de yüksek öncelikli preload edilir */
+  preloadImage?: string;
 }
 
 const {
@@ -21,6 +23,7 @@ const {
   canonical,
   noindex = false,
   schema,
+  preloadImage,
 } = Astro.props as Props;
 
 const siteUrl = 'https://okmenhavalandirma.com';
@@ -91,6 +94,10 @@ const combinedSchema = schema
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+
+    {preloadImage && (
+      <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
+    )}
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />

@@ -44,6 +44,13 @@ ErrorDocument 404 /404.html
   ExpiresByType text/plain "access plus 1 week"
 </IfModule>
 
+# Hash'li asset'ler (içerik değişince adı değişir) → immutable, asla yeniden doğrulama
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|woff2|woff|webp|avif)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
 # Security headers
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
