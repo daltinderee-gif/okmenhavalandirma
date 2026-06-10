@@ -34,7 +34,7 @@ export const sectors: Sector[] = [
     short: 'Yeni açılış veya yenileme',
     seo: 'Restoran Cafe Havalandırma',
     description: 'Yeni restoran açıyorsanız ya da mevcut işletmenizde yağ kokusu/duman sorunu yaşıyorsanız — havalandırmadan tadilata her şey burada.',
-    heroImage: 'https://images.pexels.com/photos/15945660/pexels-photo-15945660.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=1600',
+    heroImage: '/images/lib/pexels-15945660.webp',
     problems: [
       'Mutfaktan yağ kokusu salona geçiyor',
       'Müşteri "havasız" diye şikayet ediyor',
@@ -77,7 +77,7 @@ export const sectors: Sector[] = [
     short: 'Perakende mağazası',
     seo: 'Mağaza Market Havalandırma',
     description: 'Giyim mağazası, market, eczane veya kuyumcu — kapalı ortamda müşterinin rahat alışveriş yapması için doğru iklim ve hava kalitesi.',
-    heroImage: 'https://images.pexels.com/photos/13068378/pexels-photo-13068378.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=1600',
+    heroImage: '/images/lib/pexels-13068378.webp',
     problems: [
       'Yazın klima yeterli gelmiyor, müşteri kaçıyor',
       'Vitrinde buğulanma var',
@@ -120,7 +120,7 @@ export const sectors: Sector[] = [
     short: 'Ofis veya plaza',
     seo: 'Ofis İşyeri Havalandırma',
     description: 'Plaza, kurumsal ofis, mimarlık bürosu veya 5-50 kişilik işletmeler — çalışan verimliliği için temiz hava ve sessiz iklimlendirme.',
-    heroImage: 'https://images.pexels.com/photos/5444186/pexels-photo-5444186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=1600',
+    heroImage: '/images/lib/pexels-5444186.webp',
     problems: [
       'Toplantı odası havasız, dikkat dağılıyor',
       'Klima ses yapıyor, telefon görüşmesinde duyuluyor',
@@ -163,7 +163,7 @@ export const sectors: Sector[] = [
     short: 'Konaklama tesisi',
     seo: 'Otel Pansiyon Havalandırma',
     description: 'Butik otel, apart otel, pansiyon — misafir konforu için odadan ortak alanlara kadar sessiz, verimli ve kontrolü kolay sistem.',
-    heroImage: 'https://images.pexels.com/photos/7942132/pexels-photo-7942132.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=1600',
+    heroImage: '/images/lib/pexels-7942132.webp',
     problems: [
       'Misafir "klima çok ses yapıyor" diye şikayet ediyor',
       'Banyolarda küf, koku problemi',
@@ -206,7 +206,7 @@ export const sectors: Sector[] = [
     short: 'Endüstriyel tesis',
     seo: 'Fabrika Üretim Havalandırma',
     description: 'Tekstil, gıda, metal, plastik üretim — işçi sağlığı, ürün kalitesi ve yönetmeliklere uygun havalandırma çözümleri.',
-    heroImage: 'https://images.pexels.com/photos/31112181/pexels-photo-31112181.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=1600',
+    heroImage: '/images/lib/pexels-31112181.webp',
     problems: [
       'Toz/duman yönetmeliğe takılıyor',
       'İşçiler "sıcak/havasız" diye verim düşük',
@@ -249,7 +249,7 @@ export const sectors: Sector[] = [
     short: 'Sağlık kuruluşu',
     seo: 'Hastane Klinik Havalandırma',
     description: 'Özel hastane, klinik, diş hekimi, fizik tedavi — Sağlık Bakanlığı standartlarında HEPA filtreli temiz hava sistemleri.',
-    heroImage: 'https://images.pexels.com/photos/11660582/pexels-photo-11660582.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=1600',
+    heroImage: '/images/lib/pexels-11660582.webp',
     problems: [
       'Sağlık Bakanlığı denetimi geliyor, HEPA gerek',
       'Ameliyathane temiz oda standardı yok',
@@ -292,7 +292,7 @@ export const sectors: Sector[] = [
     short: 'Eğitim kurumu',
     seo: 'Okul Kreş Havalandırma',
     description: 'Özel okul, kreş, kurs merkezi, üniversite — öğrenci sağlığı ve dikkat seviyesi için CO₂ kontrollü taze hava.',
-    heroImage: 'https://images.pexels.com/photos/8363119/pexels-photo-8363119.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=1600',
+    heroImage: '/images/lib/pexels-8363119.webp',
     problems: [
       'Sınıfta 30 çocuk var, hava ağırlaşıyor',
       'Veliler "havasız" diye şikayetçi',

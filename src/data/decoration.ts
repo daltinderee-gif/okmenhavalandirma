@@ -30,7 +30,7 @@ export const decorationServices: DecorationService[] = [
     title: 'İç Mimari & Tasarım',
     seo: 'Diyarbakır İç Mimari Tasarım',
     desc: 'Konut, ofis ve ticari mekanlar için fonksiyonel ve estetik iç mimari çözümler',
-    image: 'https://images.pexels.com/photos/34538288/pexels-photo-34538288.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: '/images/lib/pexels-34538288.webp',
     features: [
       'İhtiyaç & kullanım analizi',
       'Konsept ve mood-board',
@@ -47,7 +47,7 @@ export const decorationServices: DecorationService[] = [
     title: '3D Tasarım & Görselleştirme',
     seo: '3D İç Mekan Görselleştirme',
     desc: 'Uygulamadan önce projeyi fotoğraf gerçekçiliğinde görmenizi sağlayan 3D render',
-    image: 'https://images.pexels.com/photos/10145678/pexels-photo-10145678.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: '/images/lib/pexels-10145678.webp',
     features: [
       'Foto-gerçekçi 3D render',
       '360° sanal tur',
@@ -64,7 +64,7 @@ export const decorationServices: DecorationService[] = [
     title: 'Komple Tadilat & Renovasyon',
     seo: 'Diyarbakır Komple Tadilat',
     desc: 'Anahtar teslim ev ve işyeri tadilatı — projeden teslime tek elden',
-    image: 'https://images.pexels.com/photos/15798782/pexels-photo-15798782.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: '/images/lib/pexels-15798782.webp',
     features: [
       'Kırım-döküm ve hafriyat',
       'Elektrik & sıhhi tesisat yenileme',
@@ -81,7 +81,7 @@ export const decorationServices: DecorationService[] = [
     title: 'Asma Tavan Sistemleri',
     seo: 'Diyarbakır Asma Tavan',
     desc: 'Modern asma tavan tasarımları — alçıpan, akustik panel, dekoratif modeller',
-    image: 'https://images.pexels.com/photos/33898341/pexels-photo-33898341.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: '/images/lib/pexels-33898341.webp',
     features: [
       'Alçıpan asma tavan',
       'Akustik panel uygulaması',
@@ -98,7 +98,7 @@ export const decorationServices: DecorationService[] = [
     title: 'Alçıpan & Duvar Sistemleri',
     seo: 'Alçıpan Duvar Uygulaması',
     desc: 'Bölme duvar, dekoratif niş ve akustik yalıtımlı alçıpan sistemleri',
-    image: 'https://images.pexels.com/photos/11427055/pexels-photo-11427055.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: '/images/lib/pexels-11427055.webp',
     features: [
       'Bölme duvar (single/double katmanlı)',
       'Dekoratif niş ve raf',
@@ -115,7 +115,7 @@ export const decorationServices: DecorationService[] = [
     title: 'Boya & Badana',
     seo: 'Diyarbakır Boya Badana',
     desc: 'İç-dış mekan boya, dekoratif boya teknikleri ve profesyonel uygulama',
-    image: 'https://images.pexels.com/photos/6764289/pexels-photo-6764289.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: '/images/lib/pexels-6764289.webp',
     features: [
       'İç cephe silikonlu plastik boya',
       'Dış cephe akrilik / silikon',
@@ -132,7 +132,7 @@ export const decorationServices: DecorationService[] = [
     title: 'Dış Cephe Kaplama',
     seo: 'Diyarbakır Dış Cephe Kaplama',
     desc: 'Mantolama, kompozit panel, taş ve klinker tuğla cephe sistemleri',
-    image: 'https://images.pexels.com/photos/12789936/pexels-photo-12789936.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: '/images/lib/pexels-12789936.webp',
     features: [
       'Mantolama (EPS / XPS / taş yünü)',
       'Alüminyum kompozit panel (ACP)',
@@ -149,7 +149,7 @@ export const decorationServices: DecorationService[] = [
     title: 'Zemin Kaplama',
     seo: 'Parke Seramik Laminat Diyarbakır',
     desc: 'Laminat parke, masif parke, seramik ve dekoratif beton zemin uygulamaları',
-    image: 'https://images.pexels.com/photos/4263067/pexels-photo-4263067.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: '/images/lib/pexels-4263067.webp',
     features: [
       'Laminat parke (AC4 / AC5)',
       'Masif ve mühendislik parke',

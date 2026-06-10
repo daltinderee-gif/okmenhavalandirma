@@ -40,7 +40,7 @@ const categories = ['Tümü', ...Array.from(new Set(images.map((i) => i.cat)))];
             data-cat={img.cat}
             data-index={i}
           >
-            <img src={img.src} alt={img.alt} loading="lazy" class="w-full h-full object-cover"/>
+            <img src={img.src} alt={img.alt} width="650" height="650" loading="lazy" class="w-full h-full object-cover"/>
             <div class="absolute top-3 left-3 z-10">
               <span class="inline-block px-2 py-0.5 rounded-full text-[10px] uppercase tracking-wider bg-white/95 text-primary font-semibold">{img.cat}</span>
             </div>

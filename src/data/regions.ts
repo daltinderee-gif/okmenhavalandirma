@@ -33,7 +33,7 @@ export const regions: Region[] = [
     ],
     districts: ['Bağlar', 'Kayapınar', 'Yenişehir', 'Sur', 'Bismil', 'Çınar', 'Ergani', 'Silvan'],
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50871.46!2d40.197!3d37.910!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4007588c4b5e8e35%3A0x0!2zRGl5YXJiYWvEsXI!5e0!3m2!1str!2str!4v1700000000',
-    heroImage: 'https://images.pexels.com/photos/586744/pexels-photo-586744.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    heroImage: '/images/lib/pexels-586744.webp',
   },
   {
     slug: 'sanliurfa-havalandirma',
@@ -55,7 +55,7 @@ export const regions: Region[] = [
     ],
     districts: ['Haliliye', 'Eyyübiye', 'Karaköprü', 'Viranşehir', 'Siverek', 'Suruç', 'Akçakale', 'Birecik'],
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51200!2d38.78!2d3d37.16!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x153336!2zxJ5hbmzEsXVyZmE!5e0!3m2!1str!2str!4v1700000000',
-    heroImage: 'https://images.pexels.com/photos/3964736/pexels-photo-3964736.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    heroImage: '/images/lib/pexels-3964736.webp',
   },
   {
     slug: 'batman-havalandirma',
@@ -77,7 +77,7 @@ export const regions: Region[] = [
     ],
     districts: ['Merkez', 'Beşiri', 'Gercüş', 'Hasankeyf', 'Kozluk', 'Sason'],
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50000!2d41.13!3d37.88!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40078!2zQmF0bWFu!5e0!3m2!1str!2str!4v1700000000',
-    heroImage: 'https://images.pexels.com/photos/459728/pexels-photo-459728.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    heroImage: '/images/lib/pexels-459728.webp',
   },
   {
     slug: 'mardin-havalandirma',
@@ -99,7 +99,7 @@ export const regions: Region[] = [
     ],
     districts: ['Artuklu', 'Kızıltepe', 'Midyat', 'Nusaybin', 'Derik', 'Mazıdağı', 'Savur', 'Yeşilli'],
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51500!2d40.74!3d37.31!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40076!2zTWFyZGlu!5e0!3m2!1str!2str!4v1700000000',
-    heroImage: 'https://images.pexels.com/photos/2544829/pexels-photo-2544829.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    heroImage: '/images/lib/pexels-2544829.webp',
   },
   {
     slug: 'gaziantep-havalandirma',
@@ -121,7 +121,7 @@ export const regions: Region[] = [
     ],
     districts: ['Şehitkamil', 'Şahinbey', 'Oğuzeli', 'Nizip', 'İslahiye', 'Nurdağı', 'Araban', 'Yavuzeli'],
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51800!2d37.38!3d37.07!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x153181!2zR2F6aWFudGVw!5e0!3m2!1str!2str!4v1700000000',
-    heroImage: 'https://images.pexels.com/photos/2760243/pexels-photo-2760243.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    heroImage: '/images/lib/pexels-2760243.webp',
   },
   {
     slug: 'elazig-havalandirma',
@@ -143,7 +143,7 @@ export const regions: Region[] = [
     ],
     districts: ['Merkez', 'Kovancılar', 'Karakoçan', 'Palu', 'Maden', 'Sivrice', 'Baskil', 'Keban'],
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52000!2d39.22!3d38.68!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40751!2zRWxhesSxxJ8!5e0!3m2!1str!2str!4v1700000000',
-    heroImage: 'https://images.pexels.com/photos/162568/oil-pump-jack-sunset-clouds-silhouette-162568.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    heroImage: '/images/lib/pexels-162568.webp',
   },
 ];
 
