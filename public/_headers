@@ -1,0 +1,22 @@
+# Cloudflare Pages — HTTP başlıkları (.htaccess'in Pages karşılığı)
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+# Hash'li asset'ler (içerik değişince adı değişir) → 1 yıl, immutable
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Görseller (hero, lib, ürünler hepsi /images ve /products altında)
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/products/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Admin panelini arama motorlarından gizle
+/admin/*
+  X-Robots-Tag: noindex, nofollow

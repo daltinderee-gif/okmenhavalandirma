@@ -7,7 +7,7 @@ const slides = [
     titleBig: 'Havalandırma',
     titleAccent: 'Uzmanı',
     subtitle: 'Restoran, cafe, mağaza, ofis, otel veya fabrika — işletmeniz hangi olursa olsun havalandırmadan tadilata tek çatı altında çözüm.',
-    cta1: { href: '/isletmeler', label: 'İşletmenize Özel Paket', external: false },
+    cta1: { href: '/isletmeler/', label: 'İşletmenize Özel Paket', external: false },
     cta2: { href: 'https://wa.me/905309009344', label: 'WhatsApp\'tan Yaz', external: true },
   },
   {
@@ -17,8 +17,8 @@ const slides = [
     titleBig: '& AHU',
     titleAccent: 'Sistemleri',
     subtitle: 'Modüler santraller — 1.000 ile 100.000 m³/h arası tüm kapasitelerde proje, imalat ve anahtar teslim montaj.',
-    cta1: { href: '/urunler/klima-santrali', label: 'Klima Santrali', external: false },
-    cta2: { href: '/iletisim', label: 'Mühendis Görüşmesi', external: false },
+    cta1: { href: '/urunler/klima-santrali/', label: 'Klima Santrali', external: false },
+    cta2: { href: '/iletisim/', label: 'Mühendis Görüşmesi', external: false },
   },
   {
     image: '/images/hero/slide-3.webp',
@@ -27,8 +27,8 @@ const slides = [
     titleBig: 'Jet-Pulse',
     titleAccent: 'Sistemleri',
     subtitle: '%99,9 verimli filtreleme — metal işleme, ahşap, gıda, kimya ve çimento tesisleri için temiz üretim alanı.',
-    cta1: { href: '/urunler/toz-toplama-sistemleri', label: 'Detaylı Bilgi', external: false },
-    cta2: { href: '/iletisim', label: 'Ücretsiz Keşif', external: false },
+    cta1: { href: '/urunler/toz-toplama-sistemleri/', label: 'Detaylı Bilgi', external: false },
+    cta2: { href: '/iletisim/', label: 'Ücretsiz Keşif', external: false },
   },
   {
     image: '/images/hero/slide-4.webp',
@@ -37,7 +37,7 @@ const slides = [
     titleBig: 'Açıyor',
     titleAccent: 'musunuz?',
     subtitle: 'Davlumbaz, baca, koku tutma ve klima — açılış için gereken tüm havalandırma sistemi 15 günde anahtar teslim. Belediye belgeleri dahil.',
-    cta1: { href: '/isletmeler/restoran-cafe', label: 'Restoran Paketini Gör', external: false },
+    cta1: { href: '/isletmeler/restoran-cafe/', label: 'Restoran Paketini Gör', external: false },
     cta2: { href: 'https://wa.me/905309009344', label: 'WhatsApp\'tan Sor', external: true },
   },
   {
@@ -47,8 +47,8 @@ const slides = [
     titleBig: 'Tek',
     titleAccent: 'Adres',
     subtitle: 'Ökmen Havalandırma + Mir Dekorasyon birleşik — tadilat, asma tavan, boya, klima ve havalandırma. Restoranınız, mağazanız veya ofisiniz için tek koordinasyon.',
-    cta1: { href: '/yapi-dekorasyon', label: 'Mir Dekorasyon\'u Keşfet', external: false },
-    cta2: { href: '/urunler', label: 'Havalandırma Ürünleri', external: false },
+    cta1: { href: '/yapi-dekorasyon/', label: 'Mir Dekorasyon\'u Keşfet', external: false },
+    cta2: { href: '/urunler/', label: 'Havalandırma Ürünleri', external: false },
   },
 ];
 
@@ -74,7 +74,8 @@ const trustBadges = [
       >
         <div
           class="hero-bg absolute inset-0 bg-cover bg-center hero-photo"
-          style={`background-image: url('${slide.image}')`}
+          style={i === 0 ? `background-image: url('${slide.image}')` : undefined}
+          data-bg={i === 0 ? undefined : slide.image}
         ></div>
         <div class="hero-vignette absolute inset-0"></div>
         <div class="grain absolute inset-0"></div>
@@ -245,8 +246,19 @@ const trustBadges = [
   let timer: ReturnType<typeof setInterval> | null = null;
   const INTERVAL = 6500;
 
+  // Yalnızca ilk slide eager yüklenir; diğerlerinin arka planı gösterildikçe atanır (LCP/CWV).
+  const loadBg = (s: HTMLElement) => {
+    const bgEl = s.querySelector<HTMLElement>('.hero-bg');
+    if (bgEl && bgEl.dataset.bg) {
+      bgEl.style.backgroundImage = `url('${bgEl.dataset.bg}')`;
+      delete bgEl.dataset.bg;
+    }
+  };
+
   const go = (i: number) => {
     current = (i + slidesEls.length) % slidesEls.length;
+    loadBg(slidesEls[current]);
+    loadBg(slidesEls[(current + 1) % slidesEls.length]);
     slidesEls.forEach((s, k) => {
       const active = k === current;
       s.classList.toggle('opacity-100', active);
@@ -298,4 +310,8 @@ const trustBadges = [
   slider?.addEventListener('mouseleave', start);
 
   start();
+
+  // Kalan slide görsellerini tarayıcı boştayken önceden yükle (LCP'yi engellemeden)
+  const idle = (window as any).requestIdleCallback || ((cb: () => void) => setTimeout(cb, 1800));
+  idle(() => slidesEls.forEach((s) => loadBg(s)));
 </script>

@@ -19,7 +19,7 @@ export interface Props {
 const {
   title,
   description,
-  image = '/og-default.jpg',
+  image = '/images/hero/slide-1.webp',
   canonical,
   noindex = false,
   schema,
@@ -33,7 +33,7 @@ const ogImage = new URL(image, siteUrl).toString();
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': 'HVACBusiness',
   '@id': `${siteUrl}/#organization`,
   name: 'Ökmen Havalandırma',
   legalName: 'Ökmen Havalandırma Isıtma Soğutma Makina İthalat İhracat San. ve Tic. Ltd. Şti.',
@@ -44,8 +44,16 @@ const localBusinessSchema = {
   email: 'info@okmenhavalandirma.com',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Diyarbakır',
+    streetAddress: 'Bağcılar Mahallesi',
+    addressLocality: 'Bağlar',
+    addressRegion: 'Diyarbakır',
+    postalCode: '21070',
     addressCountry: 'TR',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 37.91108,
+    longitude: 40.09292,
   },
   areaServed: ['Diyarbakır', 'Şanlıurfa', 'Batman', 'Mardin', 'Gaziantep', 'Elazığ', 'Türkiye'],
   openingHoursSpecification: {
