@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { blogPosts } from '../../data/blog';
+import { faqPage } from '../../lib/schema';
 
 export function getStaticPaths() {
   return blogPosts.map((post) => ({
@@ -49,7 +50,9 @@ const breadcrumbSchema = {
   ],
 };
 
-const schema = { '@graph': [blogPostingSchema, breadcrumbSchema] };
+const schema = {
+  '@graph': [blogPostingSchema, breadcrumbSchema, ...(post.faq?.length ? [faqPage(post.faq)] : [])],
+};
 
 const waMessage = encodeURIComponent(
   `Merhaba, "${post.title}" yazınızı okudum. Bu konuda bir projem için bilgi almak istiyorum.`
@@ -100,6 +103,18 @@ const waMessage = encodeURIComponent(
         </div>
 
         <div class="blog-body" set:html={post.body}></div>
+
+        {post.faq?.length && (
+          <section class="blog-body mt-10">
+            <h2>Sık Sorulan Sorular</h2>
+            {post.faq.map(({ q, a }) => (
+              <>
+                <h3>{q}</h3>
+                <p>{a}</p>
+              </>
+            ))}
+          </section>
+        )}
 
         <!-- WhatsApp CTA kutusu -->
         <div class="mt-10 p-6 md:p-8 rounded-2xl bg-gradient-primary text-white">
