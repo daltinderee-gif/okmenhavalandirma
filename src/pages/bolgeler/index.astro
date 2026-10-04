@@ -2,10 +2,48 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import { regions } from '../../data/regions';
-import { breadcrumb } from '../../lib/schema';
+import { breadcrumb, faqPage, service } from '../../lib/schema';
 
-const title = 'Hizmet Bölgelerimiz | Ökmen Havalandırma';
+const title = 'Güneydoğu Anadolu Havalandırma Firması | Ökmen Havalandırma';
 const description = 'Diyarbakır merkezli Ökmen Havalandırma; Diyarbakır, Şanlıurfa, Batman, Mardin, Gaziantep ve Elazığ\'da endüstriyel havalandırma, davlumbaz ve baca sistemleri kurulumu ve servisi.';
+
+const faqs = [
+  {
+    q: 'Güneydoğu\'da havalandırma firması seçerken nelere bakılmalı?',
+    a: 'Yerinde ücretsiz keşif yapıp yapmadığına, ölçüye ve hesaba dayalı yazılı teklif verip vermediğine, ürünlerin belgeli ve garantili olup olmadığına, bölgede servis verebilecek yakınlıkta bulunup bulunmadığına ve daha önce benzer işletmelerde iş yapıp yapmadığına bakın.',
+  },
+  {
+    q: 'Şanlıurfa, Batman ve Mardin\'e keşfe geliyor musunuz?',
+    a: 'Evet. Diyarbakır merkezimizden Şanlıurfa, Batman, Mardin, Gaziantep ve Elazığ\'a keşif, montaj ve servis için geliyoruz. Keşif ücretsizdir.',
+  },
+  {
+    q: 'Hangi işletmelere havalandırma yapıyorsunuz?',
+    a: 'Restoran, ocakbaşı ve kafe mutfakları, mağaza ve marketler, ofisler, oteller, fabrikalar ve üretim tesisleri, hastane ve klinikler, okullar.',
+  },
+  {
+    q: 'Bölgenin sıcak yazları havalandırma hesabını etkiler mi?',
+    a: 'Evet. Yazın 40°C\'yi aşan sıcaklıklar mutfak ve üretim alanlarındaki ısı yükünü artırır. Fan kapasitesi, temiz hava miktarı ve klima seçimi bu uç değerler dikkate alınarak hesaplanır.',
+  },
+  {
+    q: 'Keşif ve teklif ücretli mi?',
+    a: 'Hayır. Hizmet verdiğimiz illerde yerinde keşif ve fiyat teklifi ücretsizdir.',
+  },
+  {
+    q: 'Ürünleriniz belgeli ve garantili mi?',
+    a: 'Ürünlerimiz CE belgelidir; üretim ve montaj 2 yıl tam garantilidir.',
+  },
+  {
+    q: 'Size nasıl ulaşabilirim?',
+    a: 'Telefon ve WhatsApp: +90 530 900 93 44. Çalışma saatlerimiz Pazartesi–Cumartesi 08:00–18:00. Adresimiz Bağlar, Diyarbakır.',
+  },
+];
+
+const serviceSchema = service({
+  serviceType: 'Endüstriyel Havalandırma',
+  description,
+  areaServed: regions.map((r) => r.city),
+});
+const faqSchema = faqPage(faqs);
 
 const breadcrumbSchema = breadcrumb([
   { name: 'Ana Sayfa', path: '/' },
@@ -13,16 +51,37 @@ const breadcrumbSchema = breadcrumb([
 ]);
 ---
 
-<BaseLayout title={title} description={description} schema={[breadcrumbSchema]}>
+<BaseLayout title={title} description={description} schema={[serviceSchema, faqSchema, breadcrumbSchema]}>
   <section class="relative bg-gradient-primary text-white py-20 md:py-28 overflow-hidden">
     <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('/images/lib/pexels-586744.webp')"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-primary/60 to-primary"></div>
     <div class="relative container-x text-center">
       <div class="eyebrow text-accent">Hizmet Bölgeleri</div>
-      <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4 text-balance">Güneydoğu'da Havalandırma Çözümleri</h1>
+      <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4 text-balance">Güneydoğu Anadolu Havalandırma Firması</h1>
       <p class="text-lg md:text-xl text-pale/90 max-w-3xl mx-auto text-balance">
         Diyarbakır merkezimizden çevre illere keşif, proje, montaj ve servis hizmeti veriyoruz. Bölgenizi seçin.
       </p>
+    </div>
+  </section>
+
+  <section class="section pb-0">
+    <div class="container-x max-w-4xl">
+      <div class="eyebrow">Diyarbakır Merkezli</div>
+      <h2 class="section-title">Bölgenin havalandırma işini bölgeden yapıyoruz</h2>
+      <div class="space-y-4 text-slate-700 leading-relaxed">
+        <p>
+          Ökmen Havalandırma, Bağlar/Diyarbakır'daki merkezinden 15 yılı aşkın süredir Güneydoğu Anadolu'daki işletmelere havalandırma, davlumbaz, baca, klima santrali ve toz toplama sistemleri kuruyor. Bugüne kadar 500'ü aşkın projeyi tamamladık.
+        </p>
+        <p>
+          Diyarbakır'ın yanı sıra Şanlıurfa, Batman, Mardin, Gaziantep ve Elazığ'a keşif, montaj ve servis için gidiyoruz. Bu illerde organize sanayi bölgelerindeki fabrikalardan şehir merkezindeki ocakbaşı ve restoranlara, otellerden hastane ve kliniklere kadar farklı ölçekte işler yapıyoruz.
+        </p>
+        <p>
+          Bölgenin iklimi havalandırma hesabını doğrudan etkiler: yazın 40°C'yi aşan sıcaklıklar mutfak ve üretim alanlarında ısı yükünü artırır, kışın ise dışarıdan alınan temiz havanın ısıtılması gerekir. Fan kapasitesini, temiz hava miktarını ve filtre seçimini bu uç değerlere göre yapıyoruz.
+        </p>
+        <p>
+          Her iş ücretsiz yerinde keşifle başlar. Ölçü alınır, ihtiyaç hesaplanır ve yazılı teklif verilir. Ürünlerimiz CE belgelidir; üretim ve montaj 2 yıl tam garantilidir. Restoran mutfakları için ayrıntılı rehberimiz: <a href="/ocakbasi-davlumbaz/" class="text-secondary font-semibold hover:text-primary">ocakbaşı ve restoran davlumbazı</a>.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -43,6 +102,26 @@ const breadcrumbSchema = breadcrumb([
               <div class="text-xs text-slate-500">{r.districts.slice(0, 5).join(' · ')}</div>
             </div>
           </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x max-w-3xl">
+      <div class="text-center mb-10">
+        <div class="eyebrow">Sık Sorulan Sorular</div>
+        <h2 class="section-title">Güneydoğu'da havalandırma hakkında</h2>
+      </div>
+      <div class="space-y-3">
+        {faqs.map((f) => (
+          <details class="group bg-white rounded-2xl shadow-card p-5 md:p-6">
+            <summary class="cursor-pointer list-none flex items-start justify-between gap-4 font-semibold text-primary">
+              <span>{f.q}</span>
+              <span class="text-accent transition group-open:rotate-45 text-xl leading-none">+</span>
+            </summary>
+            <p class="mt-3 text-slate-600 leading-relaxed">{f.a}</p>
+          </details>
         ))}
       </div>
     </div>
