@@ -1,0 +1,12 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><style>
+@font-face{font-family:Mont;src:url(../../assets/fontlar/Montserrat-VF.ttf);font-weight:100 900}
+html,body{margin:0;width:1080px;height:1920px;background:transparent;font-family:Mont;color:#fff;overflow:hidden}
+.ust{position:absolute;inset:0 0 auto 0;height:900px;background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,0))}
+.t{position:absolute;left:60px;right:60px;top:300px;text-align:center}
+.cizgi{width:90px;height:6px;background:#2e6ca4;margin:0 auto 34px}
+h1{font-weight:800;font-size:var(--b,86px);line-height:1.08;text-transform:uppercase;letter-spacing:.02em;margin:0;text-shadow:0 4px 20px rgba(0,0,0,.55)}
+p{font-weight:500;font-size:34px;margin:30px 0 0;opacity:.92;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.alt{top:auto;bottom:260px}
+.alt h1{font-size:60px}
+</style></head><body><div class="ust" id="ust"></div><div class="t" id="t"><div class="cizgi"></div><h1 id="h"></h1><p id="p"></p></div>
+<script>const q=new URLSearchParams(location.search);h.innerHTML=q.get('h')||'';p.textContent=q.get('p')||'';if(!q.get('p'))p.remove();if(q.get('alt')){t.classList.add('alt');ust.style.display='none'}</script></body></html>
