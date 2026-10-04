@@ -43,7 +43,7 @@ export const products: Product[] = [
   {
     slug: 'havalandirma-sistemleri',
     title: 'Havalandırma Sistemleri',
-    seo: 'Diyarbakır Havalandırma Sistemleri',
+    seo: 'Endüstriyel Havalandırma Sistemi Kurulumu',
     desc: 'Kapalı ortamlara temiz hava sağlayan enerji verimli çözümler',
     pexels: 'industrial ventilation system',
     image: 'https://pixabay.com/get/gd0e6ddf6df0ccfd68ac4d9f6bd2ec5bb9fc2d3e5accf16c77ac3acf598ce4c1228380c2038e946c53827da976861552da9a8357bb92b8d88a472c82e0efa8820_1280.jpg',
