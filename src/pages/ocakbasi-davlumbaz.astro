@@ -1,0 +1,280 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { regions } from '../data/regions';
+import { breadcrumb, service, faqPage } from '../lib/schema';
+
+const title = 'Diyarbakır Ocakbaşı ve Restoran Davlumbazı | Ökmen Havalandırma';
+const description = 'Ocakbaşı, kebapçı, ciğerci ve pide fırını mutfakları için davlumbaz, egzoz fanı, yağ filtresi ve baca. Diyarbakır merkezli, Güneydoğu\'da ücretsiz keşif.';
+
+const AREA = ['Diyarbakır', 'Şanlıurfa', 'Batman', 'Mardin', 'Gaziantep', 'Elazığ'];
+
+const hoodTypes = [
+  {
+    title: 'Duvar tipi davlumbaz',
+    text: 'Ocak, mangal ya da ızgara duvara dayalıysa kullanılır. Ocakbaşı ve kebapçı mutfaklarında en sık kurulan tiptir; duman tek yönden toplanır ve kanala verilir.',
+  },
+  {
+    title: 'Ada tipi davlumbaz',
+    text: 'Pişirme ünitesi mutfağın ortasında duruyorsa tavana asılır ve dört yandan emiş yapar. Açık mutfaklı, salondan görünen ocakbaşılarda tercih edilir.',
+  },
+  {
+    title: 'Yağ tutucu kasetli filtreli davlumbaz',
+    text: 'Dumanla birlikte yükselen yağ buharını kasetli filtrede tutar. Kanala ve fana yağ taşınmasını azaltır, yangın riskini ve kokuyu düşürür. Filtreler sökülüp yıkanabilir.',
+  },
+  {
+    title: 'Elektrostatik filtreli sistem',
+    text: 'Bacanın komşu binaya ya da yaya yoluna yakın çıktığı yerlerde duman ve kokuyu bacadan çıkmadan önce süzer. Şehir merkezindeki, apartman altındaki işletmeler için uygundur.',
+  },
+];
+
+const priceFactors = [
+  { t: 'Ocak ve mangal uzunluğu', d: 'Davlumbazın boyu pişirme hattından biraz uzun olmalı; hat uzadıkça gövde ve filtre sayısı artar.' },
+  { t: 'Kanal mesafesi ve güzergâh', d: 'Davlumbazdan çatıya ya da dış cepheye kadar olan mesafe, dirsek sayısı ve geçilecek kat sayısı.' },
+  { t: 'Fan kapasitesi', d: 'Mangal kömürlü mü, gazlı mı; aynı anda kaç ocak yanıyor. Gereken emiş debisi fanın tipini ve gücünü belirler.' },
+  { t: 'Malzeme ve kalınlık', d: 'Paslanmaz çelik gövde (AISI 304) ve kanalda kullanılan saç kalınlığı; ağır kullanımda daha kalın malzeme gerekir.' },
+  { t: 'Filtre tipi', d: 'Yalnızca yağ tutucu kaset mi, yoksa ek olarak elektrostatik filtre mi gerekiyor.' },
+  { t: 'Temiz hava beslemesi', d: 'Mutfaktan atılan havanın yerine taze hava verilecekse ek fan ve menfez gerekir.' },
+];
+
+const steps = [
+  { n: '01', t: 'Keşif', d: 'Mesai saatinizi bozmadan mutfağa geliyoruz. Ocak düzenini, tavanı ve baca çıkışını yerinde inceliyoruz. Keşif ücretsizdir.' },
+  { n: '02', t: 'Ölçü ve proje', d: 'Ölçü alıp davlumbaz boyutunu, fan debisini ve kanal güzergâhını hesaplıyor; size net bir teklif hazırlıyoruz.' },
+  { n: '03', t: 'İmalat', d: 'Davlumbaz, kanal ve baca parçaları ölçünüze göre hazırlanıyor.' },
+  { n: '04', t: 'Montaj', d: 'Montajı işletmenizin çalışma düzenine göre planlıyoruz; servisinizi mümkün olduğunca az aksatıyoruz.' },
+  { n: '05', t: 'Servis ve bakım', d: 'Teslimden sonra filtre temizliği, fan bakımı ve arıza servisi için ulaşabileceğiniz bir ekip var.' },
+];
+
+const faqs = [
+  {
+    q: 'Ocakbaşı mutfağı için hangi davlumbaz uygun?',
+    a: 'Mangal duvara dayalıysa duvar tipi, mutfağın ortasındaysa ada tipi davlumbaz kurulur. Kömürlü mangalda yağ tutucu kasetli filtre şarttır; baca yerleşime yakın çıkıyorsa elektrostatik filtre de eklenir. Doğru seçim keşifte ocak düzenine bakılarak yapılır.',
+  },
+  {
+    q: 'Davlumbaz fiyatı neye göre değişir?',
+    a: 'Ocak uzunluğu, davlumbazdan bacaya kanal mesafesi, gereken fan kapasitesi, paslanmaz malzeme kalınlığı, filtre tipi ve temiz hava beslemesi gerekip gerekmediği fiyatı belirler. Bu yüzden net fiyatı ücretsiz keşiften sonra veriyoruz.',
+  },
+  {
+    q: 'Keşif ücretli mi?',
+    a: 'Hayır. Diyarbakır ve çevre illerde yerinde keşif ve teklif ücretsizdir.',
+  },
+  {
+    q: 'Mutfaktaki duman ve koku neden salona geçiyor?',
+    a: 'Genellikle davlumbazın ocağa göre küçük kalması, fanın yetersiz emmesi, filtrelerin yağdan tıkanması ya da mutfağa yeterli temiz hava verilmemesi yüzündendir. Keşifte hangisinin sorun olduğunu tespit ediyoruz.',
+  },
+  {
+    q: 'Yağ filtresi ne sıklıkla temizlenmeli?',
+    a: 'Kullanım yoğunluğuna bağlıdır. Ocakbaşı gibi yoğun mutfaklarda kasetli filtreler sık aralıklarla yıkanmalıdır. Yağlanmış filtre emişi düşürür ve yangın riskini artırır.',
+  },
+  {
+    q: 'Montaj sırasında işletmemi kapatmam gerekir mi?',
+    a: 'Montajı işletmenizin çalışma düzenine göre planlıyoruz. İşin kapsamına göre süreyi keşifte netleştiriyor, servisinizi en az aksatacak zamanı birlikte seçiyoruz.',
+  },
+  {
+    q: 'Hangi illerde hizmet veriyorsunuz?',
+    a: 'Diyarbakır merkezliyiz; Şanlıurfa, Batman, Mardin, Gaziantep ve Elazığ\'da keşif, montaj ve servis hizmeti veriyoruz.',
+  },
+  {
+    q: 'Eski davlumbazımı yenilemek mümkün mü?',
+    a: 'Evet. Mevcut davlumbaz, fan ve kanal yerinde incelenir; yetersiz kalan parça değiştirilir ya da sistem baştan kurulur. Hangisinin mantıklı olduğunu keşifte söylüyoruz.',
+  },
+  {
+    q: 'Ürünleriniz garantili mi?',
+    a: 'Evet. Ürünlerimiz CE belgelidir; üretim ve montaj 2 yıl tam garantilidir.',
+  },
+];
+
+const serviceSchema = service({
+  serviceType: 'Ocakbaşı ve Restoran Davlumbazı Kurulumu',
+  description,
+  areaServed: AREA,
+});
+
+const faqSchema = faqPage(faqs);
+
+const breadcrumbSchema = breadcrumb([
+  { name: 'Ana Sayfa', path: '/' },
+  { name: 'Ocakbaşı Davlumbazı', path: '/ocakbasi-davlumbaz/' },
+]);
+---
+
+<BaseLayout title={title} description={description} image="/products/davlumbaz-sistemleri.webp" schema={[serviceSchema, faqSchema, breadcrumbSchema]}>
+  <section class="relative bg-gradient-primary text-white py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('/products/davlumbaz-sistemleri.webp')"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-primary/60 to-primary"></div>
+    <div class="relative container-x text-center">
+      <div class="eyebrow text-accent">Ocakbaşı · Kebapçı · Ciğerci · Pide Fırını</div>
+      <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4 text-balance">Diyarbakır Ocakbaşı ve Restoran Davlumbazı</h1>
+      <p class="text-lg md:text-xl text-pale/90 max-w-3xl mx-auto text-balance mb-8">
+        Mangalın dumanı salona, kokusu komşuya, sıcağı ustanıza kalmasın. Davlumbaz, egzoz fanı, yağ filtresi ve bacayı mutfağınıza göre ölçüp kuruyoruz.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="tel:+905309009344" class="btn-accent">Ücretsiz Keşif İçin Arayın</a>
+        <a href="https://wa.me/905309009344" target="_blank" rel="noopener" class="btn-ghost">WhatsApp'tan Yazın</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x max-w-4xl">
+      <div class="eyebrow">Sorun</div>
+      <h2 class="section-title">Ocakbaşı mutfağında duman, ısı ve koku</h2>
+      <div class="space-y-4 text-slate-700 leading-relaxed">
+        <p>
+          Kömürlü mangal, şiş ve ciğer ızgarası, pide ve lahmacun fırını aynı anda yandığında mutfakta çok fazla duman, yağ buharı ve ısı oluşur. Davlumbaz küçük kalırsa ya da fan yetersiz emerse duman salona geçer, müşteri kokuyla çıkar, usta bunalır ve servis yavaşlar.
+        </p>
+        <p>
+          Sorun yalnızca konfor değildir. Kanalda biriken yağ yangın riskini artırır; bacadan çıkan duman ve koku komşu ve belediye şikâyetine dönüşebilir. Doğru kurulmuş bir sistem dumanı ocağın üstünde yakalar, yağı filtrede tutar, havayı güvenle dışarı atar ve mutfağa temiz hava verir.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-pale/30">
+    <div class="container-x">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <div class="eyebrow">Davlumbaz Tipleri</div>
+        <h2 class="section-title">Mutfağınıza hangisi uygun?</h2>
+        <p class="section-subtitle">Seçim, ocağın yerine, yakıt tipine ve bacanın nereye çıktığına göre yapılır.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        {hoodTypes.map((h) => (
+          <div class="bg-white rounded-2xl p-6 md:p-7 shadow-card" data-reveal>
+            <h3 class="font-serif text-xl font-semibold text-primary mb-2">{h.title}</h3>
+            <p class="text-slate-600 leading-relaxed">{h.text}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-sm text-slate-600 mt-6 text-center">
+        Davlumbaz gövdeleri AISI 304 paslanmaz çeliktir; aydınlatma ve otomatik söndürme sistemiyle uyumlu yapılabilir.
+        <a href="/urunler/davlumbaz-sistemleri/" class="text-secondary font-semibold hover:text-primary">Davlumbaz sistemleri →</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x max-w-4xl">
+      <div class="eyebrow">Sistemin Parçaları</div>
+      <h2 class="section-title">Davlumbaz tek başına yetmez</h2>
+      <div class="space-y-4 text-slate-700 leading-relaxed">
+        <p>
+          <strong>Egzoz fanı ve kanal:</strong> Davlumbazın topladığı duman, doğru debide bir fan ve sızdırmaz bir kanalla çatıya ya da dış cepheye taşınır. Kanal ne kadar uzun ve dirsekli olursa fanın o kadar güçlü olması gerekir. Baca hattı için <a href="/urunler/celik-baca-sistemleri/" class="text-secondary font-semibold hover:text-primary">çelik baca sistemleri</a> kullanılır.
+        </p>
+        <p>
+          <strong>Temiz hava dengesi:</strong> Mutfaktan dışarı atılan havanın yerine taze hava gelmezse kapılar zor açılır, salondaki hava mutfağa çekilir ve davlumbaz verimi düşer. Bu yüzden emişle birlikte temiz hava beslemesi de hesaplanır.
+        </p>
+        <p>
+          <strong>Koku ve duman filtresi:</strong> Bacanın yerleşime yakın çıktığı işletmelerde <a href="/urunler/elektrostatik-filtre/" class="text-secondary font-semibold hover:text-primary">elektrostatik filtre</a> dumanı ve kokuyu bacadan çıkmadan süzer.
+        </p>
+        <p>
+          <strong>Yangın güvenliği ve bakım:</strong> Yağ tutucu kasetli filtreler düzenli yıkanmalı, kanal ve fan periyodik olarak kontrol edilmelidir. Yağlanmış bir sistem hem az çeker hem de yangın riski taşır.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-pale/30">
+    <div class="container-x">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <div class="eyebrow">Fiyat</div>
+        <h2 class="section-title">Davlumbaz fiyatını belirleyen etkenler</h2>
+        <p class="section-subtitle">Her mutfak farklı olduğu için hazır fiyat yerine keşiften sonra net teklif veriyoruz.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {priceFactors.map((f) => (
+          <div class="bg-white rounded-2xl p-6 shadow-card" data-reveal>
+            <h3 class="font-serif text-lg font-semibold text-primary mb-2">{f.t}</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">{f.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <div class="eyebrow">Süreç</div>
+        <h2 class="section-title">Keşiften servise beş adım</h2>
+      </div>
+      <div class="grid md:grid-cols-5 gap-5">
+        {steps.map((s) => (
+          <div class="bg-white rounded-2xl p-6 shadow-card" data-reveal>
+            <div class="font-serif text-3xl font-bold text-accent mb-2">{s.n}</div>
+            <h3 class="font-serif text-lg font-semibold text-primary mb-2">{s.t}</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-pale/30">
+    <div class="container-x max-w-4xl">
+      <div class="eyebrow">Ökmen Havalandırma</div>
+      <h2 class="section-title">Diyarbakır merkezli, bölgeyi tanıyan ekip</h2>
+      <div class="space-y-4 text-slate-700 leading-relaxed">
+        <p>
+          15 yılı aşkın süredir Diyarbakır merkezimizden Güneydoğu Anadolu'daki işletmelerin havalandırma işlerini yapıyoruz; 500'ü aşkın projeyi geride bıraktık. Ürünlerimiz CE belgelidir, üretim ve montaj 2 yıl tam garantilidir.
+        </p>
+        <p>
+          Bölgenin yaz sıcağı mutfaktaki ısı yükünü artırır; bu yüzden fan ve temiz hava hesabını yalnızca ocağa göre değil, mevsime göre de yapıyoruz. Keşfe gelen ekibimiz ölçüyü alır, sorunu yerinde anlatır ve teklifi yazılı olarak verir.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-primary text-white">
+    <div class="container-x text-center">
+      <h2 class="font-serif text-3xl md:text-4xl font-bold mb-3">Hizmet verdiğimiz iller</h2>
+      <p class="text-pale/85 max-w-2xl mx-auto mb-8">Diyarbakır merkezimizden çevre illerdeki ocakbaşı, restoran ve kafelere keşif, montaj ve servis.</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        {regions.map((r) => (
+          <a href={`/bolgeler/${r.slug}/`} class="px-5 py-2.5 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition font-medium">{r.city}</a>
+        ))}
+      </div>
+      <p class="text-sm text-pale/70 mt-6">
+        Restoran ve kafe için tüm paket: <a href="/isletmeler/restoran-cafe/" class="text-accent font-semibold hover:underline">Restoran &amp; Cafe havalandırması →</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x max-w-3xl">
+      <div class="text-center mb-10">
+        <div class="eyebrow">Sık Sorulan Sorular</div>
+        <h2 class="section-title">Ocakbaşı davlumbazı hakkında</h2>
+      </div>
+      <div class="space-y-3">
+        {faqs.map((f) => (
+          <details class="group bg-white rounded-2xl shadow-card p-5 md:p-6">
+            <summary class="cursor-pointer list-none flex items-start justify-between gap-4 font-semibold text-primary">
+              <span>{f.q}</span>
+              <span class="text-accent transition group-open:rotate-45 text-xl leading-none">+</span>
+            </summary>
+            <p class="mt-3 text-slate-600 leading-relaxed">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-pale/30">
+    <div class="container-x grid lg:grid-cols-5 gap-10">
+      <div class="lg:col-span-2">
+        <div class="eyebrow">Ücretsiz Keşif</div>
+        <h2 class="section-title">Mutfağınızı görelim</h2>
+        <p class="section-subtitle mb-6">
+          Ocak düzeninizi ve sorununuzu anlatın; keşif için size uygun saati birlikte belirleyelim.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="tel:+905309009344" class="btn-primary">+90 530 900 93 44</a>
+          <a href="https://wa.me/905309009344" target="_blank" rel="noopener" class="btn-accent">WhatsApp'tan Yazın</a>
+        </div>
+      </div>
+      <div class="lg:col-span-3">
+        <ContactForm defaultService="Davlumbaz Sistemleri" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
