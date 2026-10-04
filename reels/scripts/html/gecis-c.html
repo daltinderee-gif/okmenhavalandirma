@@ -1,0 +1,22 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><style>
+@font-face{font-family:Mont;src:url(../../assets/fontlar/Montserrat-VF.ttf);font-weight:100 900}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;font-family:Mont;color:#fff;
+background:radial-gradient(120% 70% at 50% 40%,#1f4a74 0%,#12304f 55%,#0b1f35 100%)}
+.saat{position:absolute;left:50%;top:640px;width:420px;height:420px;margin-left:-210px;border:10px solid rgba(255,255,255,.9);border-radius:50%}
+.saat i{position:absolute;left:50%;top:50%;background:#fff;border-radius:6px;transform-origin:50% 100%}
+.yelkovan{width:10px;height:170px;margin:-170px 0 0 -5px}
+.akrep{width:14px;height:110px;margin:-110px 0 0 -7px;background:#4f9be0!important}
+.nokta{position:absolute;left:50%;top:50%;width:30px;height:30px;margin:-15px;border-radius:50%;background:#fff}
+.cent{position:absolute;left:0;right:0;top:1180px;text-align:center;opacity:var(--o)}
+.cizgi{width:90px;height:6px;background:#4f9be0;margin:0 auto 34px}
+h1{font-weight:800;font-size:110px;letter-spacing:.06em;text-transform:uppercase;margin:0}
+p{font-weight:500;font-size:36px;opacity:.85;margin:22px 0 0}
+</style></head><body>
+<div class="saat"><i class="akrep" id="a"></i><i class="yelkovan" id="y"></i><div class="nokta"></div></div>
+<div class="cent"><div class="cizgi"></div><h1 id="h">Ertesi gün</h1><p id="p">Montaj günü</p></div>
+<script>const q=new URLSearchParams(location.search),t=+(q.get('t')||1);
+const e=1-Math.pow(1-Math.min(1,t/0.8),3);
+document.getElementById('y').style.transform=`rotate(${e*24*360}deg)`;
+document.getElementById('a').style.transform=`rotate(${300+e*360*2}deg)`;
+document.documentElement.style.setProperty('--o',Math.min(1,Math.max(0,(t-0.45)/0.25)));
+if(q.get('h'))h.textContent=q.get('h'); if(q.has('p'))p.textContent=q.get('p');</script></body></html>
