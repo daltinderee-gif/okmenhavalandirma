@@ -110,13 +110,15 @@ const trustBadges = [
             <span class="text-xs uppercase tracking-[0.22em] font-semibold text-accent">{slide.eyebrow}</span>
           </div>
 
-          <h1 class="display-headline text-balance mb-6 max-w-4xl">
+          {(() => { const H = i === 0 ? 'h1' : 'h2'; return (
+          <H class="display-headline text-balance mb-6 max-w-4xl">
             <span class="block text-xl sm:text-2xl md:text-3xl font-medium text-pale/85 mb-2">{slide.titleTop}</span>
             <span class="block text-mega">
               {slide.titleBig}
               <span class="text-accent"> {slide.titleAccent}</span>
             </span>
-          </h1>
+          </H>
+          ); })()}
 
           <p class="text-base sm:text-lg md:text-xl text-pale/95 mb-8 max-w-2xl text-pretty leading-relaxed">
             {slide.subtitle}

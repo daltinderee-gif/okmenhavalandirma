@@ -25,3 +25,13 @@ pnpm-debug.log*
 
 # OS
 Thumbs.db
+
+# reel üretim hattı (videolar commit edilmez)
+reels/assets/
+reels/scenes/
+reels/output/
+reels/**/*.mp4
+reels/**/*.mov
+reels/**/*.png
+reels/**/*.wav
+reels/**/*.mp3
