@@ -78,6 +78,9 @@ Options -Indexes
 <Files "robots.txt">
   Require all granted
 </Files>
+<Files "llms.txt">
+  Require all granted
+</Files>
 <Files "sitemap-index.xml">
   Require all granted
 </Files>
