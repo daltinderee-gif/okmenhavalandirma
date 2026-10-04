@@ -8,6 +8,7 @@
 - Çalışma saatleri: Pazartesi–Cumartesi 08:00–18:00
 
 ## Hizmet bölgeleri
+- [Güneydoğu Anadolu havalandırma (tüm bölgeler)](https://okmenhavalandirma.com/bolgeler/)
 - [Diyarbakır havalandırma](https://okmenhavalandirma.com/bolgeler/diyarbakir-havalandirma/)
 - [Şanlıurfa havalandırma](https://okmenhavalandirma.com/bolgeler/sanliurfa-havalandirma/)
 - [Batman havalandırma](https://okmenhavalandirma.com/bolgeler/batman-havalandirma/)
@@ -16,6 +17,7 @@
 - [Elazığ havalandırma](https://okmenhavalandirma.com/bolgeler/elazig-havalandirma/)
 
 ## İşletmeye göre çözümler
+- [Ocakbaşı ve restoran davlumbazı rehberi (Diyarbakır)](https://okmenhavalandirma.com/ocakbasi-davlumbaz/)
 - [Restoran ve kafe havalandırması, davlumbaz](https://okmenhavalandirma.com/isletmeler/restoran-cafe/)
 - [Mağaza ve market](https://okmenhavalandirma.com/isletmeler/magaza-market/)
 - [Ofis ve iş yeri](https://okmenhavalandirma.com/isletmeler/ofis-isyeri/)
