@@ -167,5 +167,60 @@ const combinedSchema = extraSchemas.length
       );
       document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
     </script>
+    <script is:inline>
+      // Site takibi: ziyaret, Ara, WhatsApp, e-posta ve form olaylarını
+      // wesocialthen.com/panel/siteler'e sayar. Çerez ve IP tutulmaz.
+      (function () {
+        if (!/okmenhavalandirma\.com$/.test(location.hostname) || navigator.webdriver) return;
+        if (location.pathname.indexOf('/admin') === 0) return;
+        var UC = 'https://wesocialthen.com/api/olay';
+        var ss = { get: function (k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } },
+                   set: function (k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} } };
+        function kaynakBul() {
+          var u = new URLSearchParams(location.search).get('utm_source');
+          if (u) return u.toLowerCase();
+          var r = '';
+          try { r = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) {}
+          if (r && r.indexOf('okmenhavalandirma.com') === -1) {
+            if (/google\./.test(r)) return 'google';
+            if (/instagram\./.test(r)) return 'instagram';
+            if (/facebook\.|fb\./.test(r)) return 'facebook';
+            if (/bing\./.test(r)) return 'bing';
+            if (/yandex\./.test(r)) return 'yandex';
+            if (/chatgpt|openai|perplexity|gemini|copilot|claude/.test(r)) return 'yapay-zeka';
+            return r.replace(/^www\./, '');
+          }
+          return ss.get('okk') || 'dogrudan';
+        }
+        var kaynak = kaynakBul();
+        ss.set('okk', kaynak);
+        function gonder(tip, ek) {
+          var o = { site: 'okmen', tip: tip, sayfa: location.pathname, kaynak: kaynak };
+          if (ek) o.form = ek;
+          var g = JSON.stringify(o);
+          if (!(navigator.sendBeacon && navigator.sendBeacon(UC, g))) {
+            fetch(UC, { method: 'POST', body: g, keepalive: true, mode: 'no-cors' });
+          }
+        }
+        gonder(ss.get('okz') ? 'sayfa' : 'ziyaret');
+        ss.set('okz', '1');
+        document.addEventListener('click', function (e) {
+          var a = e.target.closest && e.target.closest('a[href]');
+          if (!a) return;
+          var h = a.getAttribute('href') || '';
+          if (h.indexOf('tel:') === 0) gonder('ara');
+          else if (/wa\.me|whatsapp\.com/.test(h)) gonder('whatsapp');
+          else if (h.indexOf('mailto:') === 0) gonder('eposta');
+        }, true);
+        document.addEventListener('submit', function (e) {
+          var f = e.target;
+          if (!f || f.getAttribute('name') !== 'contact') return;
+          var d = new FormData(f);
+          if (d.get('botcheck')) return;
+          gonder('form', { ad: d.get('name'), telefon: d.get('phone'), sehir: d.get('city'),
+                           hizmet: d.get('service'), mesaj: d.get('message') });
+        }, true);
+      })();
+    </script>
   </body>
 </html>
