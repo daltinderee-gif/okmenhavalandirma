@@ -28,8 +28,24 @@ Başlangıç görseli: Sahne 2'nin son karesi (ben çıkarıp göndereceğim)
 Vertical 9:16 video. The same Turkish restaurant owner in his mid-40s with short greying hair, moustache and dark navy shirt, in the same small office, holds a smartphone to his ear. As he listens, his expression slowly changes from worried to relieved; he nods and almost smiles. Static medium close-up, warm evening light. Photorealistic, ambient sounds only, no music, no dialogue, no text on screen, no logos.
 ```
 
-## Sahne 5: Mesut Bey keşifte (yapay zekâ seçilirse)
-Başlangıç görseli: yok
+## Sahne 5: Mesut Bey keşifte (gerçek yüzüyle, 2 adım)
+Mesut Bey'in yüzü fotoğraftan alınır. Önce bir **fotoğraf**, sonra o fotoğraftan **video** üretilir; böylece yüz videoda bozulmaz.
+Referans fotoğraflar: `reels/assets/mesut/mesut_referans_1.jpg` ve `mesut_referans_2.jpg` (başka kişiler kırpıldı).
+
+**Adım 1: Fotoğraf (Gemini'de normal sohbet, iki referansı ekle 📎)**
+```
+Using the man in these two reference photos (keep his face, beard, hairstyle and build exactly the same), create a photorealistic vertical 9:16 photo: he is a ventilation technician standing in an empty Turkish ocakbaşı restaurant kitchen after closing time, wearing a plain navy work vest with no text or logo over a grey t-shirt, holding a laser distance meter pointed at the ceiling above a long charcoal grill, with a clipboard under his arm. Calm warm evening light, realistic skin texture, no text anywhere.
+```
+Yüz benzemezse "make his face match the reference more closely" yazıp tekrar iste. Beğendiğin fotoğrafı indir.
+
+**Adım 2: Video (Video seçeneği, Adım 1'in fotoğrafını başlangıç görseli olarak ekle)**
+```
+Vertical 9:16 video starting from this image. The technician aims the laser distance meter at the ceiling above the grill, glances at the reading, then writes a note on his clipboard and nods confidently. The restaurant owner with greying hair and moustache in a dark navy shirt steps into frame and nods. Smooth slow handheld shot, calm evening light. Photorealistic, ambient sounds only, no music, no dialogue, no text on screen, no logos. Keep the technician's face identical to the starting image.
+```
+
+Gemini gerçek kişi fotoğrafından üretimi reddederse bana söyle; o zaman sahneyi tarif ederek (yüz benzerliği olmadan) üretiriz ya da Mesut Bey'in 5–6 saniyelik gerçek çekimini kullanırız.
+
+### Sahne 5 (yedek): yüz benzerliği olmadan
 
 ```
 Vertical 9:16 video. After closing time, in an empty Turkish ocakbaşı restaurant kitchen with a long charcoal grill, a Turkish technician in his 40s wearing a plain navy work vest with no text and a grey t-shirt measures the ceiling above the grill with a laser distance meter, then writes notes on a clipboard. The restaurant owner with greying hair and moustache in a dark navy shirt stands beside him, watching and nodding. Calm evening light, smooth handheld shot. Photorealistic, ambient sounds only, no music, no dialogue, no text on screen, no logos.

@@ -25,7 +25,7 @@ Restoran ve kafe sahiplerine Instagram'da reklam olarak gösterilecek, gerçekç
 - Sahne 1 ve 8 tek kaynaktan bölündü: `assets/kaynak_gemini.mp4` 0–13 sn / 13–20 sn.
 - Video üretimi önce **Gemini uygulaması** (Plus) ile; prompt'lar `reels/prompts/gemini-sahneler.md`. API anahtarı gelirse Veo API'ye geçilir.
 - Ekip/Mesut Bey etiketleri kurguda alt yazı olarak eklenir (yelek üstüne logo yok).
-- Bekleyen: "24 saat sonra" vaadi gerçek mi; Mesut Bey gerçek çekim mi.
+- Mesut Bey: gerçek kişi; fotoğrafları `reels/assets/mesut/` (commit edilmez). Sahne 5 fotoğraftan AI. Bekleyen: "24 saat sonra" vaadi gerçek mi.
 
 ## Bütçe
 - Toplam üst sınır: **20 $**. Her üretimden önce tahmini maliyeti yaz, toplamı takip et.
@@ -50,7 +50,7 @@ Her yeni sahneyi bir önceki klibin **son karesini** başlangıç görseli verer
 | 2 | İşletme sahibi ofiste bilgisayarda arama yapıyor | Üretilecek | Veo |
 | 3 | Arama sonuçlarında Ökmen en üstte | ✅ Hazır | `scenes/sahne3_arama.mp4` (`scripts/arama-kareler.py`) |
 | 4 | Sahibi telefonla arıyor, akşam randevusu | Üretilecek | Veo |
-| 5 | Mesut Bey keşifte, ölçü alıyor | **Kullanıcıya sor:** gerçek çekim mi, AI mı? | — |
+| 5 | Mesut Bey keşifte, ölçü alıyor | AI, gerçek yüzüyle (fotoğraf → video) | `assets/mesut/` referanslar |
 | 6 | "Ertesi gün" geçişi | Üretilecek | ffmpeg yazı |
 | 7 | Teknik ekip davlumbaz montajı yapıyor | Üretilecek | Veo |
 | 8 | Davlumbaz dumanı çekiyor | ✅ Hazır | `assets/sahne8.mp4` |
