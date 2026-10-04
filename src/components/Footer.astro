@@ -58,12 +58,18 @@ const regions = [
             </li>
           ))}
           <li>
+            <a href="/ocakbasi-davlumbaz/" class="text-pale/75 hover:text-accent transition flex items-center gap-2">
+              <span class="w-1 h-1 rounded-full bg-accent"></span>
+              Ocakbaşı ve Restoran Davlumbazı
+            </a>
+          </li>
+          <li>
             <a href="/urunler/" class="text-accent font-semibold hover:underline flex items-center gap-1 mt-1">
               Tüm Havalandırma Ürünleri →
             </a>
           </li>
           <li class="pt-2 mt-2 border-t border-white/10">
-            <span class="text-pale/60 text-xs uppercase tracking-wider">Hizmet Bölgeleri:</span>
+            <a href="/bolgeler/" class="text-pale/60 text-xs uppercase tracking-wider hover:text-accent transition">Hizmet Bölgeleri:</a>
             <div class="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-pale/70">
               {regions.map((r) => (
                 <a href={`/bolgeler/${r.slug}/`} class="hover:text-accent transition">{r.title}</a>
