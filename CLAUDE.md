@@ -25,7 +25,7 @@ Restoran ve kafe sahiplerine Instagram'da reklam olarak gösterilecek, gerçekç
 - Sahne 1 ve 8 tek kaynaktan bölündü: `assets/kaynak_gemini.mp4` 0–13 sn / 13–20 sn.
 - Video üretimi önce **Gemini uygulaması** (Plus) ile; prompt'lar `reels/prompts/gemini-sahneler.md`. API anahtarı gelirse Veo API'ye geçilir.
 - Ekip/Mesut Bey etiketleri kurguda alt yazı olarak eklenir (yelek üstüne logo yok).
-- Mesut Bey: gerçek kişi; fotoğrafları `reels/assets/mesut/` (commit edilmez). Sahne 5 fotoğraftan AI. Bekleyen: "24 saat sonra" vaadi gerçek mi.
+- Mesut Bey: gerçek kişi, reklamda yüzünün kullanılmasına izni var (kullanıcı 5 Eki 2026 teyit etti); fotoğrafları `reels/assets/mesut/` (commit edilmez). Sahne 5 fotoğraftan AI. Bekleyen: "24 saat sonra" vaadi gerçek mi.
 
 ## Bütçe
 - Toplam üst sınır: **20 $**. Her üretimden önce tahmini maliyeti yaz, toplamı takip et.
