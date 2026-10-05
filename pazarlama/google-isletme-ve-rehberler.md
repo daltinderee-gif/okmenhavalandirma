@@ -7,7 +7,7 @@ Her yerde **aynı** ad, adres ve telefon olmalı (Google bunları karşılaştı
 - **Adres:** Bağcılar Mahallesi, Bağlar / Diyarbakır 21070 (İşletme Profili'nde kayıtlı tam adres neyse, her yerde birebir o)
 - **Telefon:** 0530 900 93 44
 - **Web:** https://okmenhavalandirma.com/?utm_source=gbp (yalnız Google İşletme Profili'nde; diğer rehberlerde utm'siz `https://okmenhavalandirma.com`)
-- **Saatler:** Pazartesi–Cumartesi 08:00–18:00, Pazar kapalı
+- **Saatler:** 7 gün 24 saat açık (Haritalar'daki kayıtla aynı)
 
 ---
 
