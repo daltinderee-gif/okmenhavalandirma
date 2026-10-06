@@ -36,7 +36,7 @@ export const regions: Region[] = [
     ],
     districts: ['Bağlar', 'Kayapınar', 'Yenişehir', 'Sur', 'Bismil', 'Çınar', 'Ergani', 'Silvan'],
     mapEmbed: 'https://maps.google.com/maps?q=37.91108,40.09292&z=13&hl=tr&output=embed',
-    heroImage: '/images/lib/pexels-586744.webp',
+    heroImage: '/images/atolye/okmen-atolye-genel-gorunum.webp',
   },
   {
     slug: 'sanliurfa-havalandirma',
@@ -82,7 +82,7 @@ export const regions: Region[] = [
     ],
     districts: ['Merkez', 'Beşiri', 'Gercüş', 'Hasankeyf', 'Kozluk', 'Sason'],
     mapEmbed: 'https://maps.google.com/maps?q=37.8812,41.1351&z=12&hl=tr&output=embed',
-    heroImage: '/images/lib/pexels-459728.webp',
+    heroImage: '/images/atolye/okmen-spiral-kanal-stok.webp',
   },
   {
     slug: 'mardin-havalandirma',
@@ -151,7 +151,7 @@ export const regions: Region[] = [
     ],
     districts: ['Merkez', 'Kovancılar', 'Karakoçan', 'Palu', 'Maden', 'Sivrice', 'Baskil', 'Keban'],
     mapEmbed: 'https://maps.google.com/maps?q=38.6748,39.2226&z=12&hl=tr&output=embed',
-    heroImage: '/images/lib/pexels-162568.webp',
+    heroImage: '/images/atolye/okmen-spiral-kanal-makinesi.webp',
   },
 ];
 

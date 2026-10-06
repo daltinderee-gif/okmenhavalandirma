@@ -39,7 +39,7 @@ const values = [
     <div class="container-x grid lg:grid-cols-2 gap-12 items-center">
       <div class="relative" data-reveal>
         <div class="absolute -top-6 -left-6 w-40 h-40 bg-accent/20 rounded-3xl"></div>
-        <img src="https://images.pexels.com/photos/3846205/pexels-photo-3846205.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Ekibimiz" class="relative rounded-2xl shadow-card-hover w-full" loading="lazy"/>
+        <img src="/images/atolye/okmen-atolye-genel-gorunum.webp" alt="Ökmen Havalandırma atölyesi: spiral kanal, dirsek ve kanal imalat makineleri" width="1200" height="1600" class="relative rounded-2xl shadow-card-hover w-full aspect-[4/5] object-cover" loading="lazy"/>
       </div>
       <div data-reveal>
         <div class="eyebrow">Hikayemiz</div>
@@ -53,6 +53,29 @@ const values = [
         <p class="text-slate-700 leading-relaxed">
           Diyarbakır → Güneydoğu → 81 İl → Avrupa rotasında büyüyoruz; ancak değişmeyen tek şey var: söz verdiğimizi yapma alışkanlığımız.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x">
+      <div class="text-center mb-10" data-reveal>
+        <div class="eyebrow">Atölyemizden</div>
+        <h2 class="section-title">Kanalı, dirseği ve bacayı kendimiz üretiyoruz</h2>
+        <p class="section-subtitle max-w-3xl mx-auto">Spiral kanal makinesi, plazma kesim ve büküm tezgâhlarıyla donatılmış atölyemizde hava kanallarını, dirsekleri ve baca parçalarını projenize göre ölçüsünde imal ediyoruz. Ara tedarikçi beklemeden üretim, hızlı montaj demek.</p>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {[
+          ['okmen-spiral-kanal-makinesi', 'Spiral kanal makinesi ve üretime hazır galvaniz kanallar'],
+          ['okmen-dirsek-imalati', 'Atölyemizde imal edilen büyük çaplı galvaniz dirsekler'],
+          ['okmen-spiral-kanal-stok', 'Farklı çaplarda spiral hava kanalı stoğu'],
+          ['okmen-spiral-kanal-ve-baca-sapkasi', 'Spiral kanallar, dirsekler ve baca şapkası'],
+        ].map(([dosya, alt]) => (
+          <figure class="rounded-2xl overflow-hidden shadow-card bg-white" data-reveal>
+            <img src={`/images/atolye/${dosya}.webp`} alt={alt} width="1200" height="1600" loading="lazy" class="w-full aspect-[3/4] object-cover"/>
+            <figcaption class="p-3 text-xs text-slate-600 leading-snug">{alt}</figcaption>
+          </figure>
+        ))}
       </div>
     </div>
   </section>

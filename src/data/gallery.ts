@@ -2,6 +2,41 @@
 export interface GalleryImage { src: string; cat: string; alt: string; }
 export const galleryImages: GalleryImage[] = [
   {
+    "src": "/images/atolye/okmen-atolye-genel-gorunum.webp",
+    "cat": "Atölyemiz",
+    "alt": "Ökmen Havalandırma atölyesi: spiral kanal ve kanal imalat makineleri"
+  },
+  {
+    "src": "/images/atolye/okmen-spiral-kanal-makinesi.webp",
+    "cat": "Atölyemiz",
+    "alt": "Atölyemizdeki spiral kanal makinesi ve üretilen galvaniz kanallar"
+  },
+  {
+    "src": "/images/atolye/okmen-dirsek-imalati.webp",
+    "cat": "Atölyemiz",
+    "alt": "Atölyemizde imal edilen büyük çaplı galvaniz hava kanalı dirsekleri"
+  },
+  {
+    "src": "/images/atolye/okmen-spiral-kanal-ve-dirsekler.webp",
+    "cat": "Atölyemiz",
+    "alt": "Sevkiyata hazır galvaniz dirsekler ve kanal imalat tezgâhı"
+  },
+  {
+    "src": "/images/atolye/okmen-kanal-imalat-hatti.webp",
+    "cat": "Atölyemiz",
+    "alt": "Kanal imalat hattı, büküm tezgâhı ve sıralanmış galvaniz dirsekler"
+  },
+  {
+    "src": "/images/atolye/okmen-spiral-kanal-stok.webp",
+    "cat": "Atölyemiz",
+    "alt": "Farklı çaplarda spiral hava kanalı stoğu"
+  },
+  {
+    "src": "/images/atolye/okmen-spiral-kanal-ve-baca-sapkasi.webp",
+    "cat": "Atölyemiz",
+    "alt": "Spiral kanallar, dirsekler ve baca şapkası"
+  },
+  {
     "src": "/images/lib/pexels-11538226.webp",
     "cat": "Havalandırma",
     "alt": "Endüstriyel bir tesiste temiz hava beslemesi sağlayan galvaniz havalandırma kanalının yakın görünümü"
