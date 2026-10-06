@@ -113,7 +113,7 @@ const faqSchema = faqPage(homeFaqs);
       <!-- Left: copy block -->
       <div class="lg:col-span-5 order-2 lg:order-1">
         <div class="accent-strip mb-5">
-          <span class="text-xs uppercase tracking-[0.22em] font-semibold text-accent">Diyarbakır · 2010'dan Beri</span>
+          <span class="text-xs uppercase tracking-[0.22em] font-semibold text-secondary">Diyarbakır · 2010'dan Beri</span>
         </div>
         <h2 class="display-headline text-giant text-primary mb-6 text-balance leading-[0.95]">
           Havayı <span class="gradient-text">mühendis</span> gibi düşünüyoruz.
@@ -190,7 +190,7 @@ const faqSchema = faqPage(homeFaqs);
           </div>
           <div>
             <div class="font-serif text-base font-bold text-primary leading-tight">CE & Eurovent Sertifikalı</div>
-            <div class="text-xs text-slate-500 mt-0.5">AB standartlarında üretim</div>
+            <div class="text-xs text-slate-600 mt-0.5">AB standartlarında üretim</div>
           </div>
         </div>
       </div>
@@ -311,7 +311,9 @@ const faqSchema = faqPage(homeFaqs);
         <img
           src="/images/lib/pexels-3846205-800.webp"
           alt="Ökmen Havalandırma Mühendisleri"
-          class="relative rounded-2xl shadow-card-hover w-full"
+          width="800"
+          height="534"
+          class="relative rounded-2xl shadow-card-hover w-full h-auto"
           loading="lazy"
         />
         <div class="absolute -bottom-6 left-6 right-6 bg-white rounded-2xl p-5 shadow-card-hover flex items-center gap-4">
@@ -402,7 +404,7 @@ const faqSchema = faqPage(homeFaqs);
             <div class="w-11 h-11 rounded-full bg-primary text-white flex items-center justify-center font-serif font-bold">MK</div>
             <div>
               <div class="font-semibold text-primary text-sm">Mehmet K.</div>
-              <div class="text-xs text-slate-500">Tekstil İşletme Müdürü · Diyarbakır</div>
+              <div class="text-xs text-slate-600">Tekstil İşletme Müdürü · Diyarbakır</div>
             </div>
           </div>
         </div>
@@ -420,7 +422,7 @@ const faqSchema = faqPage(homeFaqs);
             <div class="w-11 h-11 rounded-full bg-secondary text-white flex items-center justify-center font-serif font-bold">EÇ</div>
             <div>
               <div class="font-semibold text-primary text-sm">Esra Ç.</div>
-              <div class="text-xs text-slate-500">Restoran İşletmecisi · Şanlıurfa</div>
+              <div class="text-xs text-slate-600">Restoran İşletmecisi · Şanlıurfa</div>
             </div>
           </div>
         </div>
@@ -435,10 +437,10 @@ const faqSchema = faqPage(homeFaqs);
             "Mermer atölyemizdeki toz sorununu Jet-Pulse sistemleriyle çözdüler. İşçi sağlığı için yatırdığımız en doğru bütçe. Servis ekibi de aynı gün geliyor."
           </p>
           <div class="flex items-center gap-3">
-            <div class="w-11 h-11 rounded-full bg-accent text-white flex items-center justify-center font-serif font-bold">YA</div>
+            <div class="w-11 h-11 rounded-full bg-secondary text-white flex items-center justify-center font-serif font-bold">YA</div>
             <div>
               <div class="font-semibold text-primary text-sm">Yusuf A.</div>
-              <div class="text-xs text-slate-500">Mermer Atölyesi Sahibi · Elazığ</div>
+              <div class="text-xs text-slate-600">Mermer Atölyesi Sahibi · Elazığ</div>
             </div>
           </div>
         </div>
@@ -485,7 +487,7 @@ const faqSchema = faqPage(homeFaqs);
       </div>
 
       <div class="mt-8 text-center">
-        <a href="https://wa.me/905309009344" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-base font-semibold text-[#25D366] hover:text-[#1ebe57] transition">
+        <a href="https://wa.me/905309009344" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-base font-semibold text-[#0f7a40] hover:text-[#25D366] transition">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.5 3.5A11.94 11.94 0 0012 0C5.4 0 .03 5.37.03 11.97c0 2.1.55 4.16 1.6 5.98L0 24l6.22-1.62a11.97 11.97 0 005.78 1.47h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-1.25-6.2-3.48-8.38z"/></svg>
           WhatsApp'tan teklif al · <span class="font-mono">+90 530 900 93 44</span>
         </a>
@@ -567,7 +569,7 @@ const faqSchema = faqPage(homeFaqs);
             </svg>
           </a>
 
-          <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-slate-500">
+          <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-slate-600">
             <a href="https://mirdekorasyon.com" target="_blank" rel="noopener" class="hover:text-primary transition font-mono">↗ mirdekorasyon.com</a>
             <a href="https://mirdekorasyon.com.tr" target="_blank" rel="noopener" class="hover:text-primary transition font-mono">↗ mirdekorasyon.com.tr</a>
           </div>
@@ -604,7 +606,7 @@ const faqSchema = faqPage(homeFaqs);
       <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] md:auto-rows-[220px] gap-3">
         {galleryImages.map((g) => (
           <a href="/galeri/" class={`brand-photo-wrap rounded-xl group ${g.span}`}>
-            <img src={g.src} alt={g.alt} loading="lazy" class="w-full h-full object-cover"/>
+            <img src={g.src} alt={`${g.alt} fotoğrafı`} loading="lazy" class="w-full h-full object-cover"/>
             <div class="absolute bottom-3 left-3 right-3 z-10 text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition translate-y-2 group-hover:translate-y-0">
               {g.alt}
             </div>
@@ -653,7 +655,7 @@ const faqSchema = faqPage(homeFaqs);
                 <img src={kucuk(post.image)} alt={post.title} width="500" height="300" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
               </div>
               <div class="p-6">
-                <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                <div class="flex items-center gap-3 text-xs text-slate-600 mb-3">
                   <span class="px-2 py-0.5 rounded-full bg-pale/60 text-primary font-medium">{post.category}</span>
                   <span>•</span>
                   <span>{post.date}</span>
@@ -728,7 +730,7 @@ const faqSchema = faqPage(homeFaqs);
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.7 2.8a2 2 0 01-.45 1.9L8.09 10.91a16 16 0 006 6l1.69-1.38a2 2 0 011.9-.45l2.8.7A2 2 0 0121 17.72V20a2 2 0 01-2 2A17 17 0 013 5z"/></svg>
             </div>
             <div>
-              <div class="text-xs text-slate-500">Telefon</div>
+              <div class="text-xs text-slate-600">Telefon</div>
               <div class="font-semibold text-primary">+90 530 900 93 44</div>
             </div>
           </a>
@@ -738,7 +740,7 @@ const faqSchema = faqPage(homeFaqs);
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.5 3.5A11.94 11.94 0 0012 0C5.4 0 .03 5.37.03 11.97c0 2.1.55 4.16 1.6 5.98L0 24l6.22-1.62a11.97 11.97 0 005.78 1.47h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-1.25-6.2-3.48-8.38zM12 21.8c-1.85 0-3.66-.5-5.24-1.43l-.38-.22-3.7.97.99-3.6-.25-.37A9.85 9.85 0 012.2 11.97C2.2 6.57 6.6 2.17 12 2.17s9.8 4.4 9.8 9.8c0 5.4-4.4 9.83-9.8 9.83z"/></svg>
             </div>
             <div>
-              <div class="text-xs text-slate-500">WhatsApp</div>
+              <div class="text-xs text-slate-600">WhatsApp</div>
               <div class="font-semibold text-primary">Anında yazışın</div>
             </div>
           </a>
@@ -748,7 +750,7 @@ const faqSchema = faqPage(homeFaqs);
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             </div>
             <div>
-              <div class="text-xs text-slate-500">E-posta</div>
+              <div class="text-xs text-slate-600">E-posta</div>
               <div class="font-semibold text-primary break-all">info@okmenhavalandirma.com</div>
             </div>
           </a>

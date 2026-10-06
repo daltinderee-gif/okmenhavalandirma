@@ -16,7 +16,7 @@ const imageUrl = kucuk(getProductImage(product));
   class={`group relative bg-white rounded-2xl overflow-hidden shadow-card card-hover ${variant === 'compact' ? '' : ''}`}
   data-reveal
 >
-  <a href={href} class="block" aria-label={`${product.title} detayları`}>
+  <a href={href} class="block">
     <div class="brand-photo-wrap aspect-[4/3]">
       <img
         src={imageUrl}

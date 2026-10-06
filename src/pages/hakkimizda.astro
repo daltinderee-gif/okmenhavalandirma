@@ -24,7 +24,7 @@ const values = [
 
 <BaseLayout title={title} description={description}>
   <section class="relative bg-gradient-primary text-white py-20 md:py-28 overflow-hidden">
-    <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/3846205/pexels-photo-3846205.jpeg?auto=compress&cs=tinysrgb&w=1920')"></div>
+    <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('/images/lib/pexels-3846205.webp')"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-primary/60 to-primary"></div>
     <div class="relative container-x">
       <div class="eyebrow text-accent">Hakkımızda</div>
@@ -118,7 +118,7 @@ const values = [
               <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-accent border-4 border-white shadow-card -translate-x-1/2 mt-2"></div>
               <div class={`pl-12 md:pl-0 md:w-1/2 ${i % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
                 <div class="bg-white p-5 rounded-xl shadow-card border border-slate-100" data-reveal>
-                  <div class="font-serif text-2xl font-bold text-accent mb-1">{m.year}</div>
+                  <div class="font-serif text-2xl font-bold text-secondary mb-1">{m.year}</div>
                   <h3 class="font-serif text-lg font-semibold text-primary mb-1">{m.title}</h3>
                   <p class="text-sm text-slate-600">{m.desc}</p>
                 </div>

@@ -10,7 +10,7 @@ const description = '20+ ürün kategorisinde havalandırma, klima santrali, toz
 
 <BaseLayout title={title} description={description}>
   <section class="relative bg-gradient-primary text-white py-20 md:py-28">
-    <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/586744/pexels-photo-586744.jpeg?auto=compress&cs=tinysrgb&w=1920')"></div>
+    <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('/images/lib/pexels-586744.webp')"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-primary/60 to-primary"></div>
     <div class="relative container-x">
       <div class="eyebrow text-accent">Ürün Kataloğu</div>
@@ -29,6 +29,7 @@ const description = '20+ ürün kategorisinde havalandırma, klima santrali, toz
 
   <section class="section">
     <div class="container-x">
+      <h2 class="sr-only">Ürün listesi</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {products.map((product) => <ProductCard product={product} />)}
       </div>

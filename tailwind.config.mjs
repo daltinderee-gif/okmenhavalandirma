@@ -6,7 +6,7 @@ export default {
       colors: {
         primary: '#1a3a5c',
         secondary: '#2e6ca4',
-        accent: '#5fa8d3',
+        accent: '#6fb3d9',
         silver: '#8da8bf',
         pale: '#d6eaf8',
       },
@@ -42,7 +42,7 @@ export default {
       },
       backgroundImage: {
         'gradient-primary': 'linear-gradient(135deg, #1a3a5c 0%, #2e6ca4 100%)',
-        'gradient-accent': 'linear-gradient(135deg, #2e6ca4 0%, #5fa8d3 100%)',
+        'gradient-accent': 'linear-gradient(135deg, #2e6ca4 0%, #6fb3d9 100%)',
         'gradient-overlay': 'linear-gradient(to bottom, rgba(26,58,92,0.2) 0%, rgba(26,58,92,0.85) 100%)',
       },
       boxShadow: {
