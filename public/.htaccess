@@ -78,6 +78,9 @@ Options -Indexes
 <Files "robots.txt">
   Require all granted
 </Files>
+<Files "dcfa5f0490048f617114970baaa4f046.txt">
+  Require all granted
+</Files>
 <Files "llms.txt">
   Require all granted
 </Files>
