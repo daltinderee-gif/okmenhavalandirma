@@ -83,7 +83,7 @@ Davlumbaz filtresi yağ tuttukça çekiş düşer, yangın riski artar. Filtre t
 **WhatsApp mesajı (işi bitmiş müşteriye):**
 ```
 Merhaba [Ad] Bey, Ökmen Havalandırma'dan yazıyorum. Mutfağınızdaki sistem sorunsuz çalışıyor mu? Memnun kaldıysanız Google'da birkaç cümle yorum yazmanız bizim için çok değerli; yaptığımız işi ve hizmet verdiğimiz şehri yazarsanız (ör. "Diyarbakır'da restoran davlumbazı") başkalarına da yol gösterir:
-[YORUM LİNKİ]
+https://g.page/r/CdNBqTJfnSW6EBM/review
 Teşekkür ederiz.
 ```
 

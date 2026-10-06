@@ -1,0 +1,56 @@
+Görev: Google İşletme Profili'nde "Ökmen Havalandırma" kaydını tamamla. Ben (sahibi) bu tarayıcıda kaydın sahibi olan Google hesabıyla girişliyim; aşağıdaki değişikliklerin hepsini onaylıyorum. Her bölümü bitirince kısaca "tamam" yaz, bir şey yapamazsan nedenini yazıp sonrakine geç. Kayıttaki ad, adres ve telefonu DEĞİŞTİRME. Herhangi bir ücretli seçenek, reklam (Google Ads) teklifi ya da yeni hesap açma çıkarsa yapma, bana sor.
+
+Kayıt: Ökmen Havalandırma · Bağcılar, 21070 Bağlar/Diyarbakır · 0530 900 93 44
+Harita linki: https://maps.google.com/?cid=13413300097390297555
+Yönetim: google.com'da "işletme profilim" ara ya da business.google.com → "Ökmen Havalandırma"
+
+────────────────────────
+1) YORUM LİNKİ (en önemli)
+"Yorum iste" / "Yorum al" düğmesini bul, çıkan yorum linkini kopyala ve bana sohbette AYNEN yaz (g.page/r/... ya da benzeri). Başka hiçbir şey gönderme, kimseyle paylaşma.
+
+────────────────────────
+2) FOTOĞRAF VE VİDEO YÜKLE
+Dosyalar bu Mac'te: /Users/doganaltindere/okmen/pazarlama/haritalar-fotolar/
+- Logo: okmen-havalandirma-logo.png
+- Kapak fotoğrafı: okmen-havalandirma-atolye-genel-gorunum.jpg
+- Diğer fotoğraflar (İş yeri / Ürünler): klasördeki kalan 6 .jpg
+- Video: okmen-havalandirma-atolyemizden.mp4 (19 sn)
+Yükleme penceresinde dosya seçerken bu klasörü kullan.
+
+────────────────────────
+3) BİLGİLERİ DÜZENLE ("Profili düzenle")
+
+Çalışma saatleri: Her gün 24 saat açık (zaten öyleyse dokunma).
+
+Web sitesi: https://okmenhavalandirma.com/?utm_source=gbp
+
+Kategoriler:
+- Ana kategori olduğu gibi kalsın ya da "Havalandırma sistemleri yüklenicisi" yoksa mevcut kalsın.
+- Ek kategoriler (listede çıkanları ekle, olmayanı geç): Isıtma, havalandırma ve klima yüklenicisi · Hava kanalı hizmeti · Sac metal işleri yüklenicisi · Endüstriyel mutfak ekipmanları tedarikçisi · Klima yüklenicisi
+
+İşletme açıklaması (aynen yapıştır):
+Ökmen Havalandırma, Diyarbakır merkezli endüstriyel havalandırma firmasıdır. 15 yılı aşkın tecrübemizle Diyarbakır, Şanlıurfa, Batman, Mardin, Gaziantep ve Elazığ'da 500'ü aşkın projeyi tamamladık. Restoran, ocakbaşı, kafe ve otel mutfakları için davlumbaz ve mutfak egzoz sistemleri; fabrikalar için endüstriyel havalandırma, klima santrali, toz toplama ve çelik baca sistemleri kuruyoruz. Hava kanalı, dirsek ve baca parçalarını kendi atölyemizde imal ediyoruz. Keşfe gelip ölçü alıyor, işletmenize özel planlıyor, montaj sonrası bakım ve servisi de üstleniyoruz. Ürünlerimiz CE belgelidir; üretim ve montaj 2 yıl garantilidir. 7/24 ulaşabilirsiniz. Ücretsiz keşif: 0530 900 93 44.
+
+Hizmet bölgeleri: Diyarbakır, Şanlıurfa, Batman, Mardin, Gaziantep, Elazığ
+
+Hizmetler (her birini ayrı ekle; açıklama alanı varsa yanındaki metni yaz):
+- Ocakbaşı ve restoran davlumbazı — Mangal, ocakbaşı ve pide fırını için paslanmaz davlumbaz, yağ filtresi ve egzoz fanı
+- Mutfak egzoz sistemi — Fan, kanal ve baca ile duman, ısı ve kokunun dışarı atılması
+- Endüstriyel havalandırma — Fabrika, atölye ve depolar için havalandırma projesi ve kurulumu
+- Klima santrali — Klima santrali imalatı, montajı ve bakımı
+- Toz toplama sistemleri — Üretim tesisleri için toz toplama
+- Çelik baca sistemleri — Paslanmaz çelik baca ve egzoz hatları
+- Hava kanalı imalatı ve montajı — Spiral ve köşeli galvaniz hava kanalları, dirsekler
+- Elektrostatik filtre — Duman ve koku için elektrostatik filtreleme
+- Bakım ve servis — Filtre temizliği, fan bakımı, arıza servisi
+- Ücretsiz keşif — Yerinde ölçü ve ihtiyaç tespiti
+
+────────────────────────
+4) İLK GÖNDERİ ("Güncelleme ekle" / "Gönderi ekle")
+Fotoğraf: okmen-havalandirma-spiral-kanal-makinesi.jpg
+Metin:
+Hava kanalı, dirsek ve baca parçalarını kendi atölyemizde, projenize göre ölçüsünde üretiyoruz. Ara tedarikçi beklemeden üretim, hızlı montaj demek. Diyarbakır ve çevresinde ücretsiz keşif için 7/24 arayın: 0530 900 93 44
+Düğme: "Ara" (yoksa "Daha fazla bilgi" → https://okmenhavalandirma.com/?utm_source=gbp)
+
+────────────────────────
+SON: Bana özet yaz — yorum linki, yüklenen dosya sayısı, değişen alanlar, yapamadıkların ve Google'ın "incelemede" dediği alanlar.
