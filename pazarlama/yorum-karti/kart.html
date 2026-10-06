@@ -1,0 +1,27 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><style>
+@font-face{font-family:Mont;src:url(../../reels/assets/fontlar/Montserrat-VF.ttf);font-weight:100 900}
+@page{size:105mm 148mm;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;font-family:Mont,sans-serif}
+.kart{width:105mm;height:148mm;position:relative;overflow:hidden;color:#fff;
+background:radial-gradient(120% 70% at 50% 25%,#1f4a74 0%,#12304f 55%,#0b1f35 100%);padding:9mm 9mm 0;text-align:center}
+:target~.kart,body.ekran .kart{zoom:1}
+.logo{background:#fff;border-radius:4mm;padding:2mm 3mm;margin:0 auto;width:60mm}
+.logo img{width:100%;height:27mm;object-fit:cover;object-position:50% 35%;display:block}
+.cizgi{width:12mm;height:1mm;background:#4f9be0;margin:5mm auto 3.5mm}
+h1{font-weight:800;font-size:6.4mm;line-height:1.15;text-transform:uppercase;margin:0;letter-spacing:.02em}
+.yildiz{color:#ffc93c;font-size:5.4mm;letter-spacing:1.2mm;margin:2mm 0 0}
+.qr{background:#fff;border-radius:4mm;padding:3.5mm;width:44mm;height:44mm;margin:4mm auto 0}
+.qr svg{width:100%;height:100%;display:block}
+p{font-weight:500;font-size:3.1mm;line-height:1.4;margin:4mm 2mm 0;opacity:.9}
+.alt{position:absolute;left:0;right:0;bottom:6mm;font-weight:700;font-size:3.6mm;letter-spacing:.06em}
+.alt span{display:block;font-weight:500;font-size:2.8mm;opacity:.7;margin-top:1mm;letter-spacing:.12em}
+</style></head><body><div class="kart">
+<div class="logo"><img src="../../public/logo.png" alt="Ökmen Havalandırma"></div>
+<div class="cizgi"></div>
+<h1>Memnun kaldınız mı?</h1>
+<div class="yildiz">★★★★★</div>
+<div class="qr">{{QR}}</div>
+<p>Telefonunuzun kamerasıyla okutun, Google'da birkaç cümleyle deneyiminizi paylaşın. Yorumunuz bizim için çok değerli.</p>
+<div class="alt">0530 900 93 44<span>OKMENHAVALANDIRMA.COM · 7/24</span></div>
+</div><script>if(location.hash=='#ekran'){document.body.style.zoom=(1050/document.querySelector('.kart').offsetWidth)}</script></body></html>
