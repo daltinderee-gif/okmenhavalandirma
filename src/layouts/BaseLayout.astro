@@ -14,6 +14,8 @@ export interface Props {
   schema?: Record<string, unknown> | Record<string, unknown>[];
   /** LCP görseli — verilirse <head>'de yüksek öncelikli preload edilir */
   preloadImage?: string;
+  /** Mobilde (≤767px) farklı LCP görseli kullanılıyorsa */
+  preloadImageMobile?: string;
 }
 
 const {
@@ -24,6 +26,7 @@ const {
   noindex = false,
   schema,
   preloadImage,
+  preloadImageMobile,
 } = Astro.props as Props;
 
 const siteUrl = 'https://okmenhavalandirma.com';
@@ -104,7 +107,13 @@ const combinedSchema = extraSchemas.length
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    {preloadImage && (
+    {preloadImage && preloadImageMobile && (
+      <>
+        <link rel="preload" as="image" href={preloadImageMobile} media="(max-width: 767px)" fetchpriority="high" />
+        <link rel="preload" as="image" href={preloadImage} media="(min-width: 768px)" fetchpriority="high" />
+      </>
+    )}
+    {preloadImage && !preloadImageMobile && (
       <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
     )}
 

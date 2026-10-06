@@ -1,5 +1,6 @@
 ---
 import { type Product, getProductImage } from '../data/products';
+import { kucuk } from '../lib/gorsel';
 
 export interface Props {
   product: Product;
@@ -8,7 +9,7 @@ export interface Props {
 
 const { product, variant = 'default' } = Astro.props as Props;
 const href = `/urunler/${product.slug}/`;
-const imageUrl = getProductImage(product);
+const imageUrl = kucuk(getProductImage(product));
 ---
 
 <article
