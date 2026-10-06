@@ -1,4 +1,5 @@
 ---
+import { kucuk } from '../../lib/gorsel';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import ContactForm from '../../components/ContactForm.astro';
@@ -42,9 +43,9 @@ const breadcrumbSchema = breadcrumb([
 ]);
 ---
 
-<BaseLayout title={title} description={description} image={imageUrl} schema={[productSchema, breadcrumbSchema]}>
+<BaseLayout preloadImage={kucuk(imageUrl)} title={title} description={description} image={imageUrl} schema={[productSchema, breadcrumbSchema]}>
   <section class="relative bg-gradient-primary text-white py-16 md:py-20 overflow-hidden">
-    <div class="absolute inset-0 opacity-30 bg-cover bg-center" style={`background-image: url('${imageUrl}')`}></div>
+    <div class="absolute inset-0 opacity-30 bg-cover bg-center" style={`background-image: url('${kucuk(imageUrl)}')`}></div>
     <div class="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/80 to-primary"></div>
 
     <div class="relative container-x">
@@ -184,7 +185,7 @@ const breadcrumbSchema = breadcrumb([
               </svg>
             </div>
             <div>
-              <div class="text-xs text-slate-500">Telefon</div>
+              <div class="text-xs text-slate-600">Telefon</div>
               <div class="font-semibold text-primary">+90 530 900 93 44</div>
             </div>
           </a>
@@ -193,7 +194,7 @@ const breadcrumbSchema = breadcrumb([
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.5 3.5A11.94 11.94 0 0012 0C5.4 0 .03 5.37.03 11.97c0 2.1.55 4.16 1.6 5.98L0 24l6.22-1.62a11.97 11.97 0 005.78 1.47h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-1.25-6.2-3.48-8.38zM12 21.8c-1.85 0-3.66-.5-5.24-1.43l-.38-.22-3.7.97.99-3.6-.25-.37A9.85 9.85 0 012.2 11.97C2.2 6.57 6.6 2.17 12 2.17s9.8 4.4 9.8 9.8c0 5.4-4.4 9.83-9.8 9.83z"/></svg>
             </div>
             <div>
-              <div class="text-xs text-slate-500">WhatsApp</div>
+              <div class="text-xs text-slate-600">WhatsApp</div>
               <div class="font-semibold text-primary">Anında yazışın</div>
             </div>
           </a>

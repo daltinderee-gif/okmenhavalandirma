@@ -1,4 +1,5 @@
 ---
+import { kucuk } from '../../lib/gorsel';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import { sectors, type Sector } from '../../data/sectors';
@@ -57,10 +58,10 @@ const breadcrumbSchema = breadcrumb([
 ]);
 ---
 
-<BaseLayout title={title} description={description} image={sector.heroImage} schema={[serviceSchema, faqSchema, breadcrumbSchema]}>
+<BaseLayout preloadImage={kucuk(sector.heroImage)} title={title} description={description} image={sector.heroImage} schema={[serviceSchema, faqSchema, breadcrumbSchema]}>
   <!-- HERO -->
   <section class="relative bg-gradient-primary text-white py-16 md:py-24 overflow-hidden">
-    <div class="absolute inset-0 opacity-35 bg-cover bg-center" style={`background-image: url('${sector.heroImage}')`}></div>
+    <div class="absolute inset-0 opacity-35 bg-cover bg-center" style={`background-image: url('${kucuk(sector.heroImage)}')`}></div>
     <div class="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/75 to-primary"></div>
 
     <div class="relative container-x">
@@ -238,7 +239,7 @@ const breadcrumbSchema = breadcrumb([
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.7 2.8a2 2 0 01-.45 1.9L8.09 10.91a16 16 0 006 6l1.69-1.38a2 2 0 011.9-.45l2.8.7A2 2 0 0121 17.72V20a2 2 0 01-2 2A17 17 0 013 5z"/></svg>
             </div>
             <div>
-              <div class="text-xs text-slate-500">Hemen ara</div>
+              <div class="text-xs text-slate-600">Hemen ara</div>
               <div class="font-semibold text-primary">+90 530 900 93 44</div>
             </div>
           </a>
@@ -247,7 +248,7 @@ const breadcrumbSchema = breadcrumb([
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.5 3.5A11.94 11.94 0 0012 0C5.4 0 .03 5.37.03 11.97c0 2.1.55 4.16 1.6 5.98L0 24l6.22-1.62a11.97 11.97 0 005.78 1.47h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-1.25-6.2-3.48-8.38z"/></svg>
             </div>
             <div>
-              <div class="text-xs text-slate-500">WhatsApp</div>
+              <div class="text-xs text-slate-600">WhatsApp</div>
               <div class="font-semibold text-primary">5 dk içinde dönüş</div>
             </div>
           </a>
