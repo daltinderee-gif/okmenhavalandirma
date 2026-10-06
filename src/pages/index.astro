@@ -309,10 +309,10 @@ const faqSchema = faqPage(homeFaqs);
         <div class="absolute -top-6 -left-6 w-32 h-32 bg-accent/20 rounded-3xl"></div>
         <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-3xl"></div>
         <img
-          src="/images/lib/pexels-3846205-800.webp"
-          alt="Ökmen Havalandırma Mühendisleri"
+          src="/images/atolye/okmen-spiral-kanal-makinesi-800.webp"
+          alt="Ökmen Havalandırma atölyesinde spiral kanal makinesi"
           width="800"
-          height="534"
+          height="1067"
           class="relative rounded-2xl shadow-card-hover w-full h-auto"
           loading="lazy"
         />
@@ -387,62 +387,21 @@ const faqSchema = faqPage(homeFaqs);
       <div class="text-center max-w-3xl mx-auto mb-12">
         <div class="eyebrow">Müşteri Yorumları</div>
         <h2 class="section-title">Bizimle Çalışanlar Ne Diyor?</h2>
-        <p class="section-subtitle mx-auto">500+ tamamlanmış projeden kısa kareler — sektörden gerçek deneyimler.</p>
+        <p class="section-subtitle mx-auto">Bizi en iyi, birlikte çalıştığımız işletmeler anlatır.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-pale/30 rounded-2xl p-7 border border-pale/60" data-reveal>
-          <div class="flex gap-0.5 mb-4 text-accent">
-            {[1,2,3,4,5].map(() => (
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.4-6.3-4.6L5.7 21l2.3-7.4-6-4.4h7.6L12 2z"/></svg>
-            ))}
-          </div>
-          <p class="text-slate-700 leading-relaxed mb-5 text-pretty">
-            "OSB'deki tekstil fabrikamız için klima santrali kurulumu yaptılar. Ekip mühendis yaklaşımıyla geldi, hesap raporu net, montaj tertemizdi. Bir yıldır sıfır arıza."
-          </p>
-          <div class="flex items-center gap-3">
-            <div class="w-11 h-11 rounded-full bg-primary text-white flex items-center justify-center font-serif font-bold">MK</div>
-            <div>
-              <div class="font-semibold text-primary text-sm">Mehmet K.</div>
-              <div class="text-xs text-slate-600">Tekstil İşletme Müdürü · Diyarbakır</div>
-            </div>
-          </div>
+      <div class="max-w-2xl mx-auto bg-pale/30 rounded-2xl p-8 md:p-10 border border-pale/60 text-center" data-reveal>
+        <div class="flex justify-center gap-1 mb-4 text-accent" aria-hidden="true">
+          {[1,2,3,4,5].map(() => (
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.4-6.3-4.6L5.7 21l2.3-7.4-6-4.4h7.6L12 2z"/></svg>
+          ))}
         </div>
-
-        <div class="bg-pale/30 rounded-2xl p-7 border border-pale/60" data-reveal>
-          <div class="flex gap-0.5 mb-4 text-accent">
-            {[1,2,3,4,5].map(() => (
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.4-6.3-4.6L5.7 21l2.3-7.4-6-4.4h7.6L12 2z"/></svg>
-            ))}
-          </div>
-          <p class="text-slate-700 leading-relaxed mb-5 text-pretty">
-            "Restoranımızın davlumbazını yenilediler. Yağ kokusu tamamen bitti, müşteri şikayeti sıfırlandı. UV sterilizasyon önerileri için ayrıca teşekkür."
-          </p>
-          <div class="flex items-center gap-3">
-            <div class="w-11 h-11 rounded-full bg-secondary text-white flex items-center justify-center font-serif font-bold">EÇ</div>
-            <div>
-              <div class="font-semibold text-primary text-sm">Esra Ç.</div>
-              <div class="text-xs text-slate-600">Restoran İşletmecisi · Şanlıurfa</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-pale/30 rounded-2xl p-7 border border-pale/60" data-reveal>
-          <div class="flex gap-0.5 mb-4 text-accent">
-            {[1,2,3,4,5].map(() => (
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.4-6.3-4.6L5.7 21l2.3-7.4-6-4.4h7.6L12 2z"/></svg>
-            ))}
-          </div>
-          <p class="text-slate-700 leading-relaxed mb-5 text-pretty">
-            "Mermer atölyemizdeki toz sorununu Jet-Pulse sistemleriyle çözdüler. İşçi sağlığı için yatırdığımız en doğru bütçe. Servis ekibi de aynı gün geliyor."
-          </p>
-          <div class="flex items-center gap-3">
-            <div class="w-11 h-11 rounded-full bg-secondary text-white flex items-center justify-center font-serif font-bold">YA</div>
-            <div>
-              <div class="font-semibold text-primary text-sm">Yusuf A.</div>
-              <div class="text-xs text-slate-600">Mermer Atölyesi Sahibi · Elazığ</div>
-            </div>
-          </div>
+        <p class="text-slate-700 leading-relaxed mb-6 text-pretty">
+          Müşterilerimizin yorumlarını Google'da, kendi sözleriyle okuyabilirsiniz. Bizimle çalıştıysanız deneyiminizi paylaşmanız başka işletmelere yol gösterir.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="https://maps.google.com/?cid=13413300097390297555" target="_blank" rel="noopener" class="btn-primary">Google yorumlarını okuyun</a>
+          <a href="https://g.page/r/CdNBqTJfnSW6EBM/review" target="_blank" rel="noopener" class="btn-secondary">Yorum yazın</a>
         </div>
       </div>
 
