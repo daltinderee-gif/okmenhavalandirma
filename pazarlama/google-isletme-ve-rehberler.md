@@ -56,14 +56,15 @@ Diyarbakır, Şanlıurfa, Batman, Mardin, Gaziantep, Elazığ
 4. **Garanti var mı?** Ürünlerimiz CE belgelidir; üretim ve montaj 2 yıl garantilidir.
 5. **Davlumbaz fiyatı neye göre değişir?** Ocak uzunluğu, kanal mesafesi, fan kapasitesi, malzeme kalınlığı ve filtre tipine göre. Kesin fiyat keşiften sonra verilir.
 
-### Haftalık gönderiler (fotoğrafla birlikte paylaş; fotoğraflar dayından)
+### Haftalık gönderiler (fotoğrafla birlikte paylaş; düğme: "Hemen ara")
+> ⚠️ Google, gönderi metninde telefon numarasına izin vermiyor (ilk gönderi bu yüzden reddedildi). Numara sadece düğmede olsun.
 **Hafta 1: Ocakbaşı**
 ```
-Ocakbaşında duman gözünüzü yakıyor, ustalarınız sıcaktan bunalıyor mu? Doğru boyutta davlumbaz ve egzoz fanı, mutfağı ilk günden ferahlatır. Diyarbakır ve çevresinde ücretsiz keşif: 0530 900 93 44
+Ocakbaşında duman gözünüzü yakıyor, ustalarınız sıcaktan bunalıyor mu? Doğru boyutta davlumbaz ve egzoz fanı, mutfağı ilk günden ferahlatır. Diyarbakır ve çevresinde ücretsiz keşif için 7/24 bize ulaşın.
 ```
 **Hafta 2: Montaj fotoğrafı**
 ```
-Bu hafta bir mutfakta davlumbaz ve kanal montajını tamamladık. Ölçüden imalata, montajdan servise kadar tüm süreç Ökmen ekibinde. Ücretsiz keşif için arayın: 0530 900 93 44
+Bu hafta bir mutfakta davlumbaz ve kanal montajını tamamladık. Ölçüden imalata, montajdan servise kadar tüm süreç Ökmen ekibinde. Ücretsiz keşif için bize ulaşın.
 ```
 **Hafta 3: Bakım**
 ```
@@ -71,7 +72,7 @@ Davlumbaz filtresi yağ tuttukça çekiş düşer, yangın riski artar. Filtre t
 ```
 **Hafta 4: Fabrika**
 ```
-Üretim alanında toz ve sıcak hava verimi düşürür. Endüstriyel havalandırma, toz toplama ve klima santrali çözümleri için ücretsiz keşif: 0530 900 93 44
+Üretim alanında toz ve sıcak hava verimi düşürür. Endüstriyel havalandırma, toz toplama ve klima santrali çözümleri için ücretsiz keşif talep edin.
 ```
 
 ---
