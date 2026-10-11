@@ -2,7 +2,7 @@
 Anahtar GEMINI_API_KEY ortam değişkeninden okunur. Çıktı: ses/seslendirme_<ses>.wav"""
 import base64, json, os, sys, urllib.request, wave
 
-MODEL = "gemini-3.8-flash-tts"
+MODEL = os.environ.get("TTS_MODEL", "gemini-3.8-flash-tts")
 METIN = (
     "Mutfağınızda duman, ısı ve koku mu var? "
     "Bu sadece konfor değil; çalışanınızın sağlığı, müşterinizin deneyimi demek. "
@@ -12,8 +12,12 @@ METIN = (
     "Çünkü havalandırma, mutfağın bel kemiğidir. "
     "Ökmen Havalandırma. Ücretsiz keşif için hemen arayın."
 )
-YONERGE = ("Bunu Türkçe, bir televizyon reklamı spikeri gibi oku: ciddi, sıcak ve güven veren bir ses, "
-           "acele etmeden, cümleler arasında kısa nefes payı bırakarak, doğal Türkçe vurgu ve tonlamayla:\n\n")
+YONERGE = os.environ.get("TTS_YONERGE") or (
+    "Sen İstanbullu, 45 yaşında, yıllardır televizyon reklamı seslendiren bir Türk erkek spikersin. "
+    "Bu metni bir esnafa dertleşir gibi, sıcak, samimi ve güven veren bir sesle oku. Okur gibi değil, konuşur gibi. "
+    "İlk cümlede hafif bir dert ve merak, 'Çözüm bir telefon uzağınızda' cümlesinde umut, "
+    "'Şimdi mutfağınız nefes alıyor' kısmında rahatlama, son cümlede kararlı ve davet eden bir ton olsun. "
+    "Hızı değişken tut, önemli kelimelerde hafifçe yavaşla, doğal nefesler al:\n\n")
 
 def uret(ses: str):
     anahtar = os.environ["GEMINI_API_KEY"]
@@ -29,10 +33,11 @@ def uret(ses: str):
         data=json.dumps(govde).encode(), headers={"Content-Type": "application/json", "x-goog-api-key": anahtar})
     cevap = json.load(urllib.request.urlopen(istek, timeout=180))
     pcm = base64.b64decode(cevap["candidates"][0]["content"]["parts"][0]["inlineData"]["data"])
-    yol = os.path.join(os.path.dirname(__file__), "..", "ses", f"seslendirme_{ses}.wav")
+    etiket = os.environ.get("TTS_ETIKET", "")
+    yol = os.path.join(os.path.dirname(__file__), "..", "ses", f"seslendirme_{ses}{etiket}.wav")
     with wave.open(yol, "wb") as w:
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(24000); w.writeframes(pcm)
-    print(f"{ses}: {len(pcm) / 48000:.1f} sn → ses/seslendirme_{ses}.wav")
+    print(f"{ses}{etiket}: {len(pcm) / 48000:.1f} sn")
 
 for s in sys.argv[1:] or ["Charon", "Orus", "Alnilam", "Gacrux"]:
     try:
