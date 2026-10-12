@@ -12,17 +12,15 @@ METIN = (
     "Çünkü havalandırma, mutfağın bel kemiğidir. "
     "Ökmen Havalandırma. Ücretsiz keşif için hemen arayın."
 )
+# Yönerge metne karışmasın diye "Say in ...:" kalıbı kullanılıyor (TTS bu kalıbı talimat sayar, okumaz).
 YONERGE = os.environ.get("TTS_YONERGE") or (
-    "Sen İstanbullu, 45 yaşında, yıllardır televizyon reklamı seslendiren bir Türk erkek spikersin. "
-    "Bu metni bir esnafa dertleşir gibi, sıcak, samimi ve güven veren bir sesle oku. Okur gibi değil, konuşur gibi. "
-    "İlk cümlede hafif bir dert ve merak, 'Çözüm bir telefon uzağınızda' cümlesinde umut, "
-    "'Şimdi mutfağınız nefes alıyor' kısmında rahatlama, son cümlede kararlı ve davet eden bir ton olsun. "
-    "Hızı değişken tut, önemli kelimelerde hafifçe yavaşla, doğal nefesler al:\n\n")
+    "Say in a warm, sincere, trustworthy Turkish male TV commercial voice, conversational not reading, "
+    "slightly slower on key words, with natural breaths: ")
 
 def uret(ses: str):
     anahtar = os.environ["GEMINI_API_KEY"]
     govde = {
-        "contents": [{"parts": [{"text": YONERGE + METIN}]}],
+        "contents": [{"parts": [{"text": YONERGE + METIN}]}],  # yönerge + metin tek parça
         "generationConfig": {
             "responseModalities": ["AUDIO"],
             "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig": {"voiceName": ses}}},
