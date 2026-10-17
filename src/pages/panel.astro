@@ -1,0 +1,19 @@
+---
+// Firma panelinin kısa adresi: okmenhavalandirma.com/panel →
+// panel.okmenhavalandirma.com (Veronica'daki Ökmen çalışma raporu).
+// Site düz dosya olarak yayınlandığı için yönlendirme sayfa içinden.
+const HEDEF = 'https://panel.okmenhavalandirma.com/';
+---
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="refresh" content={`0; url=${HEDEF}`} />
+    <link rel="canonical" href={HEDEF} />
+    <title>Panel</title>
+  </head>
+  <body>
+    <p><a href={HEDEF}>Panele git</a></p>
+  </body>
+</html>
