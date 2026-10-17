@@ -178,11 +178,11 @@ const combinedSchema = extraSchemas.length
     </script>
     <script is:inline>
       // Site takibi: ziyaret, Ara, WhatsApp, e-posta ve form olaylarını
-      // wesocialthen.com/veronica/siteler'e sayar. Çerez ve IP tutulmaz.
+      // Veronica paneline (veronica-dogan.vercel.app) sayar. Çerez ve IP tutulmaz.
       (function () {
         if (!/okmenhavalandirma\.com$/.test(location.hostname) || navigator.webdriver) return;
         if (location.pathname.indexOf('/admin') === 0) return;
-        var UC = 'https://wesocialthen.com/api/olay';
+        var UC = 'https://veronica-dogan.vercel.app/api/olay';
         var ss = { get: function (k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } },
                    set: function (k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} } };
         function kaynakBul() {
