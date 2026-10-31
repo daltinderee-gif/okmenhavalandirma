@@ -185,26 +185,34 @@ const combinedSchema = extraSchemas.length
         var UC = 'https://veronica-dogan.vercel.app/api/olay';
         var ss = { get: function (k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } },
                    set: function (k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} } };
+        // Yapay zekâ kaynakları ayrı; Google/Bing kontrolünden önce bakılır
+        var YZ = [[/chatgpt|openai/, 'chatgpt'], [/perplexity/, 'perplexity'], [/gemini|bard\.google/, 'gemini'],
+                  [/copilot/, 'copilot'], [/claude|anthropic/, 'claude'], [/deepseek/, 'deepseek']];
+        function yz(s) { for (var i = 0; i < YZ.length; i++) if (YZ[i][0].test(s)) return YZ[i][1]; return null; }
         function kaynakBul() {
-          var u = new URLSearchParams(location.search).get('utm_source');
-          if (u) return u.toLowerCase();
+          var q = new URLSearchParams(location.search);
+          var u = (q.get('utm_source') || '').toLowerCase();
+          if (u) return [yz(u) || (/^(ig|instagram)$/.test(u) ? 'instagram' : /^(fb|facebook)$/.test(u) ? 'facebook' : u), 'utm:' + u];
+          if (q.get('gclid') || q.get('gbraid') || q.get('wbraid')) return ['google-reklam', 'gclid'];
           var r = '';
           try { r = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) {}
           if (r && r.indexOf('okmenhavalandirma.com') === -1) {
-            if (/google\./.test(r)) return 'google';
-            if (/instagram\./.test(r)) return 'instagram';
-            if (/facebook\.|fb\./.test(r)) return 'facebook';
-            if (/bing\./.test(r)) return 'bing';
-            if (/yandex\./.test(r)) return 'yandex';
-            if (/chatgpt|openai|perplexity|gemini|copilot|claude/.test(r)) return 'yapay-zeka';
-            return r.replace(/^www\./, '');
+            var k = yz(r) ||
+              (/google\./.test(r) ? 'google' :
+              /instagram\./.test(r) ? 'instagram' :
+              /facebook\.|(^|\.)fb\./.test(r) ? 'facebook' :
+              /bing\./.test(r) ? 'bing' :
+              /yandex\./.test(r) ? 'yandex' :
+              r.replace(/^www\./, ''));
+            return [k, r];
           }
-          return ss.get('okk') || 'dogrudan';
+          return [ss.get('okk') || 'dogrudan', ss.get('okh') || ''];
         }
-        var kaynak = kaynakBul();
+        var kb = kaynakBul(), kaynak = kb[0], ham = kb[1];
         ss.set('okk', kaynak);
+        ss.set('okh', ham);
         function gonder(tip, ek) {
-          var o = { site: 'okmen', tip: tip, sayfa: location.pathname, kaynak: kaynak };
+          var o = { site: 'okmen', tip: tip, sayfa: location.pathname, kaynak: kaynak, ham: ham };
           if (ek) o.form = ek;
           var g = JSON.stringify(o);
           if (!(navigator.sendBeacon && navigator.sendBeacon(UC, g))) {
